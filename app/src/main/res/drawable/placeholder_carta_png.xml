@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Drawable que se usa como imagen temporal o de respaldo
+    cuando la carta no tiene imagen o Glide aún la está cargando.
+
+    Está construido completamente con shapes, por lo que no necesita PNGs.
+-->
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Fondo gris claro -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#EEEEEE" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+
+    <!-- Imagen PNG centrada -->
+    <item>
+        android:gravity="center"
+        android:drawable="@drawable/placeholder_carta_png"
+    </item>
+</layer-list>

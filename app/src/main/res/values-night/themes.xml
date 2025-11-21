@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.CreaMazosPokeTCG" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- ajustes para modo noche si lo deseas -->
+    </style>
+</resources>

@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">CreaMazosPokeTCG</string>
+    <string name="imagen_carta">Imagen de la carta</string>
+
+    <!-- STRINGS PARA DETALLE DE CARTA -->
+    <string name="detalle_imagen_carta">Imagen de la carta</string>
+    <string name="ataques">Ataques</string>
+    <string name="anadir_al_mazo">Añadir al mazo</string>
+
+    <!-- STRINGS DE APOYO PARA MENSAJES -->
+    <string name="error_carta_no_encontrada">No se ha podido cargar la carta</string>
+    <string name="desconocido">Desconocido</string>
+    <string name="no_hay_ataques">Esta carta no tiene ataques registrados</string>
+
+    <string name="text_acceso">Acceso</string>
+    <string name="text_registrate">Regístrate</string>
+    <string name="desc_logo">Logo CreaMazos</string>
+    <string name="hint_email">Correo electrónico</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="text_olvidaste">¿Olvidaste la contraseña?</string>
+    <string name="text_continuar">Continuar</string>
+    <string name="text_google">Continuar con Google</string>
+    <string name="text_no_tienes">¿No tienes cuenta? <b>Regístrate</b></string>
+
+    <!-- Clave necesaria para Google Sign-In -->
+    <string name="default_web_client_id">
+        461282729144-mje6hee4or18cs9478j5nud34iprjo4s.apps.googleusercontent.com
+    </string>
+</resources>

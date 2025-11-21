@@ -1,0 +1,178 @@
+ El volumen de la unidad C no tiene etiqueta.
+ El n£mero de serie del volumen es: 8680-DF3D
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main
+
+[.]                        files.txt
+[..]                       [java]
+AndroidManifest.xml        [res]
+AndroidManifest_BACK.TXT   
+               3 archivos          2.650 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java
+
+[.]   [..]  [com] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com
+
+[.]     [..]    [cesar] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar
+
+[.]                [..]               [creamazospoketcg] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg
+
+[.]               [data]            [ui]              
+[..]              MainActivity.kt   [vm]              
+               1 archivos            532 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\data
+
+[.]          [..]         [model]      [network]    [repository] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\data\model
+
+[.]        [..]       Carta.kt   
+               1 archivos          1.417 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\data\network
+
+[.]                      ModeloCartaCompleta.kt   ServicioPokeTcg.kt
+[..]                     ModelosTCGdex.kt         ServicioTCGdex.kt
+ApiCartasPokemonTcg.kt   ModuloRed.kt             
+ModeloCartaBreve.kt      RespuestaCartas.kt       
+               8 archivos         10.253 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\data\repository
+
+[.]                    RepositorioCartas.kt   
+[..]                   
+               1 archivos          4.621 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\ui
+
+[.]      [..]     [auth]   [search] [theme]  
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\ui\auth
+
+[.]                            RecuperarPasswordFragment.kt
+[..]                           RegistroFragment.kt
+LoginFragment.kt               
+               3 archivos         10.970 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\ui\search
+
+[.]                          FragmentoBusquedaCartas.kt
+[..]                         FragmentoDetalleCarta.kt
+ActividadHostBusqueda.kt     
+AdaptadorCartas.kt           
+               4 archivos         23.609 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\ui\theme
+
+[.]        [..]       Color.kt   Theme.kt   Type.kt    
+               3 archivos          2.995 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\vm
+
+[.]                            VistaModeloBusquedaCartas.kt
+[..]                           
+               1 archivos          4.538 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res
+
+[.]                 [mipmap-anydpi-v26] [mipmap-xxhdpi]     [values-night]
+[..]                [mipmap-hdpi]       [mipmap-xxxhdpi]    [xml]
+[drawable]          [mipmap-mdpi]       [navigation]        
+[layout]            [mipmap-xhdpi]      [values]            
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\drawable
+
+[.]                          ic_launcher_background.xml
+[..]                         ic_launcher_foreground.xml
+bg_button_gradient.xml       logoappbig.png
+bg_google_button.xml         placeholder_carta.png
+fondo_chip_tipo.xml          placeholder_carta_png.xml
+google24x24.png              
+ic_google_logo.xml           
+              10 archivos         93.598 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\layout
+
+[.]                               fragment_login.xml
+[..]                              fragment_perfil.xml
+activity_host_busqueda.xml        fragment_recuperar_password.xml
+activity_main.xml                 fragment_registro.xml
+fragment_busqueda_cartas.xml      item_carta.xml
+fragment_detalle_carta.xml        
+               9 archivos         34.068 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\mipmap-anydpi-v26
+
+[.]                     ic_launcher.xml         
+[..]                    ic_launcher_round.xml   
+               2 archivos            686 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\mipmap-hdpi
+
+[.]                      ic_launcher.webp         
+[..]                     ic_launcher_round.webp   
+               2 archivos          4.302 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\mipmap-mdpi
+
+[.]                      ic_launcher.webp         
+[..]                     ic_launcher_round.webp   
+               2 archivos          2.754 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\mipmap-xhdpi
+
+[.]                      ic_launcher.webp         
+[..]                     ic_launcher_round.webp   
+               2 archivos          5.818 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\mipmap-xxhdpi
+
+[.]                      ic_launcher.webp         
+[..]                     ic_launcher_round.webp   
+               2 archivos          8.798 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\mipmap-xxxhdpi
+
+[.]                      ic_launcher.webp         
+[..]                     ic_launcher_round.webp   
+               2 archivos         11.622 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\navigation
+
+[.]             [..]            nav_graph.xml   
+               1 archivos          2.598 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\values
+
+[.]           colors.xml    styles.xml    
+[..]          strings.xml   themes.xml    
+               4 archivos          6.122 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\values-night
+
+[.]          [..]         themes.xml   
+               1 archivos            234 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\xml
+
+[.]                         data_extraction_rules.xml
+[..]                        
+backup_rules.xml            
+               2 archivos          1.029 bytes
+
+     Total de archivos en la lista:
+              64 archivos        233.214 bytes
+              80 dirs  116.674.707.456 bytes libres

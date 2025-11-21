@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Icono vectorial simple para el botón Google -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- fondo circular blanco (transparente en caso de necesitarlo) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M12,2A10,10 0 1,0 22,12A10,10 0 0,0 12,2z" />
+
+    <!-- G: simplificado -->
+    <path
+        android:fillColor="#4285F4"
+        android:pathData="M21.35,11.1h-9.2v2.8h5.4c-0.25,1.35-1.38,3.2-5.4,3.2c-3.25,0-5.9-2.65-5.9-5.9s2.65-5.9,5.9-5.9c1.9,0,3.2,0.8,3.95,1.5l2.35-2.35C17.9,3.05,15.25,2,12.15,2C6.7,2,2.15,6.55,2.15,12s4.55,10,9.9,10c5.15,0,9.05-3.6,9.05-8.7c0-0.6-0.05-1.2-0.75-2.2z" />
+</vector>

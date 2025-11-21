@@ -1,0 +1,4124 @@
+ El volumen de la unidad C no tiene etiqueta.
+ El n£mero de serie del volumen es: 8680-DF3D
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app
+
+[.]                    build.gradle.kts       [src]
+[..]                   files.txt              
+.gitignore             google-services.json   
+[build]                proguard-rules.pro     
+               5 archivos          4.977 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build
+
+[.]             [generated]     [intermediates] [outputs]       
+[..]            gmpAppId.txt    [kotlin]        [tmp]           
+               1 archivos             45 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated
+
+[.]                                  [res]
+[..]                                 [source]
+[ap_generated_sources]               
+[data_binding_base_class_source_out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\ap_generated_sources
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\ap_generated_sources\debug
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\ap_generated_sources\debug\out
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\data_binding_base_class_source_out
+
+[.]                [debug]            
+[..]               [debugAndroidTest] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\data_binding_base_class_source_out\debug
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\data_binding_base_class_source_out\debug\out
+
+[.]   [..]  [com] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\data_binding_base_class_source_out\debug\out\com
+
+[.]     [..]    [cesar] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\data_binding_base_class_source_out\debug\out\com\cesar
+
+[.]                [..]               [creamazospoketcg] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\data_binding_base_class_source_out\debug\out\com\cesar\creamazospoketcg
+
+[.]           [..]          [databinding] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\data_binding_base_class_source_out\debug\out\com\cesar\creamazospoketcg\databinding
+
+[.]                                     FragmentLoginBinding.java
+[..]                                    FragmentRecuperarPasswordBinding.java
+ActivityHostBusquedaBinding.java        FragmentRegistroBinding.java
+ActivityMainBinding.java                ItemCartaBinding.java
+FragmentBusquedaCartasBinding.java      
+FragmentDetalleCartaBinding.java        
+               8 archivos         32.895 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\data_binding_base_class_source_out\debugAndroidTest
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\data_binding_base_class_source_out\debugAndroidTest\out
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\res
+
+[.]                          [processDebugGoogleServices]
+[..]                         [resValues]
+[pngs]                       
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\res\pngs
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\res\pngs\debug
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\res\processDebugGoogleServices
+
+[.]      [..]     [values] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\res\processDebugGoogleServices\values
+
+[.]          [..]         values.xml   
+               1 archivos            820 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\res\resValues
+
+[.]           [..]          [androidTest] [debug]       
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\res\resValues\androidTest
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\res\resValues\androidTest\debug
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\res\resValues\debug
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\source
+
+[.]               [..]              [navigation-args] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\source\navigation-args
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\source\navigation-args\debug
+
+[.]   [..]  [com] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\source\navigation-args\debug\com
+
+[.]     [..]    [cesar] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\source\navigation-args\debug\com\cesar
+
+[.]                [..]               [creamazospoketcg] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\source\navigation-args\debug\com\cesar\creamazospoketcg
+
+[.]  [..] [ui] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\source\navigation-args\debug\com\cesar\creamazospoketcg\ui
+
+[.]      [..]     [auth]   [search] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\source\navigation-args\debug\com\cesar\creamazospoketcg\ui\auth
+
+[.]
+[..]
+LoginFragmentDirections.java
+RecuperarPasswordFragmentDirections.java
+RegistroFragmentDirections.java
+
+               3 archivos          1.843 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\generated\source\navigation-args\debug\com\cesar\creamazospoketcg\ui\search
+
+[.]
+[..]
+FragmentoBusquedaCartasDirections.java
+
+               1 archivos            465 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates
+
+[.]
+[..]
+[aar_metadata_check]
+[annotation_processor_list]
+[apk]
+[apk_ide_redirect_file]
+[app_metadata]
+[assets]
+[compatible_screen_manifest]
+[compile_and_runtime_not_namespaced_r_class_jar]
+[compile_app_classes_jar]
+[compressed_assets]
+[data_binding_base_class_log_artifact]
+[data_binding_dependency_artifacts]
+[data_binding_layout_info_type_merge]
+[data_binding_layout_info_type_package]
+[desugar_graph]
+[dex]
+[dex_archive_input_jar_hashes]
+[dex_number_of_buckets_file]
+[duplicate_classes_check]
+[external_file_lib_dex_archives]
+[external_libs_dex_archive]
+[external_libs_dex_archive_with_artifact_transforms]
+[global_synthetics_dex]
+[global_synthetics_external_lib]
+[global_synthetics_external_libs_artifact_transform]
+[global_synthetics_file_lib]
+[global_synthetics_mixed_scope]
+[global_synthetics_project]
+[global_synthetics_subproject]
+[incremental]
+[javac]
+[java_res]
+[local_only_symbol_list]
+[manifest_merge_blame_file]
+[merged_java_res]
+[merged_jni_libs]
+[merged_manifest]
+[merged_manifests]
+[merged_res]
+[merged_res_blame_folder]
+[merged_shaders]
+[mixed_scope_dex_archive]
+[navigation_json]
+[nested_resources_validation_report]
+[packaged_manifests]
+[packaged_res]
+[processed_res]
+[project_dex_archive]
+[runtime_symbol_list]
+[signing_config_versions]
+[source_set_path_map]
+[stable_resource_ids_file]
+[sub_project_dex_archive]
+[symbol_list_with_package_name]
+[tmp]
+[validate_signing_config]
+
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\aar_metadata_check
+
+[.]                [debug]            
+[..]               [debugAndroidTest] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\aar_metadata_check\debug
+
+[.]                     [checkDebugAarMetadata] 
+[..]                    
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\aar_metadata_check\debug\checkDebugAarMetadata
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\aar_metadata_check\debugAndroidTest
+
+[.]                                [checkDebugAndroidTestAarMetadata]
+[..]                               
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\aar_metadata_check\debugAndroidTest\checkDebugAndroidTestAarMetadata
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\annotation_processor_list
+
+[.]                [debug]            [debugUnitTest]    
+[..]               [debugAndroidTest] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\annotation_processor_list\debug
+
+[.]                   [javaPreCompileDebug] 
+[..]                  
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\annotation_processor_list\debug\javaPreCompileDebug
+
+[.]                         annotationProcessors.json
+[..]                        
+               1 archivos              2 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\annotation_processor_list\debugAndroidTest
+
+[.]                              [javaPreCompileDebugAndroidTest]
+[..]                             
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\annotation_processor_list\debugAndroidTest\javaPreCompileDebugAndroidTest
+
+[.]                         annotationProcessors.json
+[..]                        
+               1 archivos              2 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\annotation_processor_list\debugUnitTest
+
+[.]                           [javaPreCompileDebugUnitTest]
+[..]                          
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\annotation_processor_list\debugUnitTest\javaPreCompileDebugUnitTest
+
+[.]                         annotationProcessors.json
+[..]                        
+               1 archivos              2 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\apk
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\apk\debug
+
+[.]                    app-debug.apk          
+[..]                   output-metadata.json   
+               2 archivos     17.991.299 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\apk_ide_redirect_file
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\apk_ide_redirect_file\debug
+
+[.]                                 [createDebugApkListingFileRedirect]
+[..]                                
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\apk_ide_redirect_file\debug\createDebugApkListingFileRedirect
+
+[.]            [..]           redirect.txt   
+               1 archivos             72 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\app_metadata
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\app_metadata\debug
+
+[.]                     [writeDebugAppMetadata] 
+[..]                    
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\app_metadata\debug\writeDebugAppMetadata
+
+[.]                       app-metadata.properties   
+[..]                      
+               1 archivos             56 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\assets
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\assets\debug
+
+[.]                [..]               [mergeDebugAssets] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\assets\debug\mergeDebugAssets
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\compatible_screen_manifest
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\compatible_screen_manifest\debug
+
+[.]                                    [createDebugCompatibleScreenManifests]
+[..]                                   
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\compatible_screen_manifest\debug\createDebugCompatibleScreenManifests
+
+[.]                    output-metadata.json   
+[..]                   
+               1 archivos            202 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\compile_and_runtime_not_namespaced_r_class_jar
+
+[.]                [debug]            
+[..]               [debugAndroidTest] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\compile_and_runtime_not_namespaced_r_class_jar\debug
+
+[.]                     [processDebugResources] 
+[..]                    
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\compile_and_runtime_not_namespaced_r_class_jar\debug\processDebugResources
+
+[.]     [..]    R.jar   
+               1 archivos      1.009.989 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\compile_and_runtime_not_namespaced_r_class_jar\debugAndroidTest
+
+[.]                                [processDebugAndroidTestResources]
+[..]                               
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\compile_and_runtime_not_namespaced_r_class_jar\debugAndroidTest\processDebugAndroidTestResources
+
+[.]     [..]    R.jar   
+               1 archivos          4.858 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\compile_app_classes_jar
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\compile_app_classes_jar\debug
+
+[.]                              [bundleDebugClassesToCompileJar]
+[..]                             
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\compile_app_classes_jar\debug\bundleDebugClassesToCompileJar
+
+[.]           [..]          classes.jar   
+               1 archivos      1.370.208 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\compressed_assets
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\compressed_assets\debug
+
+[.]                   [compressDebugAssets] 
+[..]                  
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\compressed_assets\debug\compressDebugAssets
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\compressed_assets\debug\compressDebugAssets\out
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_base_class_log_artifact
+
+[.]                [debug]            
+[..]               [debugAndroidTest] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_base_class_log_artifact\debug
+
+[.]                              [dataBindingGenBaseClassesDebug]
+[..]                             
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_base_class_log_artifact\debug\dataBindingGenBaseClassesDebug
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_base_class_log_artifact\debug\dataBindingGenBaseClassesDebug\out
+
+[.]
+[..]
+com.cesar.creamazospoketcg-binding_classes.json
+
+               1 archivos          3.946 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_base_class_log_artifact\debugAndroidTest
+
+[.]
+[..]
+[dataBindingGenBaseClassesDebugAndroidTest]
+
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_base_class_log_artifact\debugAndroidTest\dataBindingGenBaseClassesDebugAndroidTest
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_base_class_log_artifact\debugAndroidTest\dataBindingGenBaseClassesDebugAndroidTest\out
+
+[.]
+[..]
+com.cesar.creamazospoketcg.test-binding_classes.json
+
+               1 archivos             42 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_dependency_artifacts
+
+[.]                [debug]            
+[..]               [debugAndroidTest] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_dependency_artifacts\debug
+
+[.]
+[..]
+[dataBindingMergeDependencyArtifactsDebug]
+
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_dependency_artifacts\debug\dataBindingMergeDependencyArtifactsDebug
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_dependency_artifacts\debugAndroidTest
+
+[.]
+[..]
+[dataBindingMergeDependencyArtifactsDebugAndroidTest]
+
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_dependency_artifacts\debugAndroidTest\dataBindingMergeDependencyArtifactsDebugAndroidTest
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_layout_info_type_merge
+
+[.]                [debug]            
+[..]               [debugAndroidTest] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_layout_info_type_merge\debug
+
+[.]                   [mergeDebugResources] 
+[..]                  
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_layout_info_type_merge\debug\mergeDebugResources
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_layout_info_type_merge\debug\mergeDebugResources\out
+
+[.]
+[..]
+activity_host_busqueda-layout.xml
+activity_main-layout.xml
+fragment_busqueda_cartas-layout.xml
+fragment_detalle_carta-layout.xml
+fragment_login-layout.xml
+fragment_recuperar_password-layout.xml
+fragment_registro-layout.xml
+item_carta-layout.xml
+
+               8 archivos         12.086 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_layout_info_type_merge\debugAndroidTest
+
+[.]                              [mergeDebugAndroidTestResources]
+[..]                             
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_layout_info_type_merge\debugAndroidTest\mergeDebugAndroidTestResources
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_layout_info_type_merge\debugAndroidTest\mergeDebugAndroidTestResources\out
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_layout_info_type_package
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_layout_info_type_package\debug
+
+[.]                     [packageDebugResources] 
+[..]                    
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_layout_info_type_package\debug\packageDebugResources
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\data_binding_layout_info_type_package\debug\packageDebugResources\out
+
+[.]
+[..]
+activity_host_busqueda-layout.xml
+activity_main-layout.xml
+fragment_busqueda_cartas-layout.xml
+fragment_detalle_carta-layout.xml
+fragment_login-layout.xml
+fragment_recuperar_password-layout.xml
+fragment_registro-layout.xml
+item_carta-layout.xml
+
+               8 archivos         12.086 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\desugar_graph
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\desugar_graph\debug
+
+[.]               [..]              [dexBuilderDebug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\desugar_graph\debug\dexBuilderDebug
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\desugar_graph\debug\dexBuilderDebug\out
+
+[.]              [currentProject] [mixedScopes]    
+[..]             [externalLibs]   [otherProjects]  
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\desugar_graph\debug\dexBuilderDebug\out\currentProject
+
+[.]
+[..]
+[dirs_bucket_0]
+[dirs_bucket_1]
+[dirs_bucket_2]
+[dirs_bucket_3]
+[dirs_bucket_4]
+[dirs_bucket_5]
+[jar_af746f915ce0c01b630e26ad853613dfc5b3156ef36898f5d7f9e65b5d1a5311_bucket_0]
+[jar_af746f915ce0c01b630e26ad853613dfc5b3156ef36898f5d7f9e65b5d1a5311_bucket_1]
+[jar_af746f915ce0c01b630e26ad853613dfc5b3156ef36898f5d7f9e65b5d1a5311_bucket_2]
+[jar_af746f915ce0c01b630e26ad853613dfc5b3156ef36898f5d7f9e65b5d1a5311_bucket_3]
+[jar_af746f915ce0c01b630e26ad853613dfc5b3156ef36898f5d7f9e65b5d1a5311_bucket_4]
+[jar_af746f915ce0c01b630e26ad853613dfc5b3156ef36898f5d7f9e65b5d1a5311_bucket_5]
+
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\desugar_graph\debug\dexBuilderDebug\out\currentProject\dirs_bucket_0
+
+[.]         [..]        graph.bin   
+               1 archivos            235 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\desugar_graph\debug\dexBuilderDebug\out\currentProject\dirs_bucket_1
+
+[.]         [..]        graph.bin   
+               1 archivos            235 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\desugar_graph\debug\dexBuilderDebug\out\currentProject\dirs_bucket_2
+
+[.]         [..]        graph.bin   
+               1 archivos            235 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\desugar_graph\debug\dexBuilderDebug\out\currentProject\dirs_bucket_3
+
+[.]         [..]        graph.bin   
+               1 archivos            235 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\desugar_graph\debug\dexBuilderDebug\out\currentProject\dirs_bucket_4
+
+[.]         [..]        graph.bin   
+               1 archivos            235 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\desugar_graph\debug\dexBuilderDebug\out\currentProject\dirs_bucket_5
+
+[.]         [..]        graph.bin   
+               1 archivos            235 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\desugar_graph\debug\dexBuilderDebug\out\currentProject\jar_af746f915ce0c01b630e26ad853613dfc5b3156ef36898f5d7f9e65b5d1a5311_bucket_0
+
+[.]         [..]        graph.bin   
+               1 archivos            235 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\desugar_graph\debug\dexBuilderDebug\out\currentProject\jar_af746f915ce0c01b630e26ad853613dfc5b3156ef36898f5d7f9e65b5d1a5311_bucket_1
+
+[.]         [..]        graph.bin   
+               1 archivos            235 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\desugar_graph\debug\dexBuilderDebug\out\currentProject\jar_af746f915ce0c01b630e26ad853613dfc5b3156ef36898f5d7f9e65b5d1a5311_bucket_2
+
+[.]         [..]        graph.bin   
+               1 archivos            235 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\desugar_graph\debug\dexBuilderDebug\out\currentProject\jar_af746f915ce0c01b630e26ad853613dfc5b3156ef36898f5d7f9e65b5d1a5311_bucket_3
+
+[.]         [..]        graph.bin   
+               1 archivos            235 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\desugar_graph\debug\dexBuilderDebug\out\currentProject\jar_af746f915ce0c01b630e26ad853613dfc5b3156ef36898f5d7f9e65b5d1a5311_bucket_4
+
+[.]         [..]        graph.bin   
+               1 archivos            235 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\desugar_graph\debug\dexBuilderDebug\out\currentProject\jar_af746f915ce0c01b630e26ad853613dfc5b3156ef36898f5d7f9e65b5d1a5311_bucket_5
+
+[.]         [..]        graph.bin   
+               1 archivos            235 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\desugar_graph\debug\dexBuilderDebug\out\externalLibs
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\desugar_graph\debug\dexBuilderDebug\out\mixedScopes
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\desugar_graph\debug\dexBuilderDebug\out\otherProjects
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug
+
+[.]                    [mergeExtDexDebug]     [mergeProjectDexDebug]
+[..]                   [mergeLibDexDebug]     
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeExtDexDebug
+
+[.]            classes.dex    classes3.dex   
+[..]           classes2.dex   classes4.dex   
+               4 archivos     39.291.900 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeLibDexDebug
+
+[.]  [0]  [10] [12] [14] [2]  [4]  [6]  [8]  
+[..] [1]  [11] [13] [15] [3]  [5]  [7]  [9]  
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeLibDexDebug\0
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeLibDexDebug\1
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeLibDexDebug\10
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeLibDexDebug\11
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeLibDexDebug\12
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeLibDexDebug\13
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeLibDexDebug\14
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeLibDexDebug\15
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeLibDexDebug\2
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeLibDexDebug\3
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeLibDexDebug\4
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeLibDexDebug\5
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeLibDexDebug\6
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeLibDexDebug\7
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeLibDexDebug\8
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeLibDexDebug\9
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeProjectDexDebug
+
+[.]  [0]  [10] [12] [14] [2]  [4]  [6]  [8]  
+[..] [1]  [11] [13] [15] [3]  [5]  [7]  [9]  
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeProjectDexDebug\0
+
+[.]           [..]          classes.dex   
+               1 archivos        569.664 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeProjectDexDebug\1
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeProjectDexDebug\10
+
+[.]           [..]          classes.dex   
+               1 archivos         15.968 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeProjectDexDebug\11
+
+[.]           [..]          classes.dex   
+               1 archivos         60.652 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeProjectDexDebug\12
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeProjectDexDebug\13
+
+[.]           [..]          classes.dex   
+               1 archivos         11.968 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeProjectDexDebug\14
+
+[.]           [..]          classes.dex   
+               1 archivos         10.868 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeProjectDexDebug\15
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeProjectDexDebug\2
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeProjectDexDebug\3
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeProjectDexDebug\4
+
+[.]           [..]          classes.dex   
+               1 archivos         52.780 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeProjectDexDebug\5
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeProjectDexDebug\6
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeProjectDexDebug\7
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeProjectDexDebug\8
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex\debug\mergeProjectDexDebug\9
+
+[.]           [..]          classes.dex   
+               1 archivos         14.916 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex_archive_input_jar_hashes
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex_archive_input_jar_hashes\debug
+
+[.]               [..]              [dexBuilderDebug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex_archive_input_jar_hashes\debug\dexBuilderDebug
+
+[.]   [..]  out   
+               1 archivos            425 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex_number_of_buckets_file
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex_number_of_buckets_file\debug
+
+[.]               [..]              [dexBuilderDebug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\dex_number_of_buckets_file\debug\dexBuilderDebug
+
+[.]   [..]  out   
+               1 archivos              1 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\duplicate_classes_check
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\duplicate_classes_check\debug
+
+[.]                          [checkDebugDuplicateClasses]
+[..]                         
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\duplicate_classes_check\debug\checkDebugDuplicateClasses
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\external_file_lib_dex_archives
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\external_file_lib_dex_archives\debug
+
+[.]                            [desugarDebugFileDependencies]
+[..]                           
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\external_file_lib_dex_archives\debug\desugarDebugFileDependencies
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\external_libs_dex_archive
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\external_libs_dex_archive\debug
+
+[.]               [..]              [dexBuilderDebug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\external_libs_dex_archive\debug\dexBuilderDebug
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\external_libs_dex_archive\debug\dexBuilderDebug\out
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\external_libs_dex_archive_with_artifact_transforms
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\external_libs_dex_archive_with_artifact_transforms\debug
+
+[.]               [..]              [dexBuilderDebug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\external_libs_dex_archive_with_artifact_transforms\debug\dexBuilderDebug
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\external_libs_dex_archive_with_artifact_transforms\debug\dexBuilderDebug\out
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_dex
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_dex\debug
+
+[.]                          [mergeDebugGlobalSynthetics]
+[..]                         
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_dex\debug\mergeDebugGlobalSynthetics
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_external_lib
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_external_lib\debug
+
+[.]               [..]              [dexBuilderDebug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_external_lib\debug\dexBuilderDebug
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_external_lib\debug\dexBuilderDebug\out
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_external_libs_artifact_transform
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_external_libs_artifact_transform\debug
+
+[.]               [..]              [dexBuilderDebug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_external_libs_artifact_transform\debug\dexBuilderDebug
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_external_libs_artifact_transform\debug\dexBuilderDebug\out
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_file_lib
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_file_lib\debug
+
+[.]                            [desugarDebugFileDependencies]
+[..]                           
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_file_lib\debug\desugarDebugFileDependencies
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_mixed_scope
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_mixed_scope\debug
+
+[.]               [..]              [dexBuilderDebug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_mixed_scope\debug\dexBuilderDebug
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_mixed_scope\debug\dexBuilderDebug\out
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_project
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_project\debug
+
+[.]               [..]              [dexBuilderDebug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_project\debug\dexBuilderDebug
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_project\debug\dexBuilderDebug\out
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_subproject
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_subproject\debug
+
+[.]               [..]              [dexBuilderDebug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_subproject\debug\dexBuilderDebug
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\global_synthetics_subproject\debug\dexBuilderDebug\out
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental
+
+[.]
+[..]
+[dataBindingGenBaseClassesDebug]
+[dataBindingGenBaseClassesDebugAndroidTest]
+[debug]
+[debug-mergeJavaRes]
+[debugAndroidTest]
+[generateSafeArgsDebug]
+[mergeDebugAssets]
+[mergeDebugJniLibFolders]
+[mergeDebugShaders]
+[packageDebug]
+
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\dataBindingGenBaseClassesDebug
+
+[.]                     base_builder_log.json   
+[..]                    
+               1 archivos          4.244 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\dataBindingGenBaseClassesDebugAndroidTest
+
+[.]                     base_builder_log.json   
+[..]                    
+               1 archivos            144 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug
+
+[.]                     [mergeDebugResources]   
+[..]                    [packageDebugResources] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources
+
+[.]                           merger.xml
+[..]                          [stripped.dir]
+compile-file-map.properties   
+[merged.dir]                  
+               2 archivos      3.136.473 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir
+
+[.]                      [values-hr]              [values-sk]
+[..]                     [values-hu]              [values-sl]
+[values]                 [values-hy]              [values-small-v4]
+[values-af]              [values-in]              [values-sq]
+[values-am]              [values-is]              [values-sr]
+[values-ar]              [values-it]              [values-sv]
+[values-as]              [values-iw]              [values-sw]
+[values-az]              [values-ja]              [values-sw600dp-v13]
+[values-b+es+419]        [values-ka]              [values-ta]
+[values-b+sr+Latn]       [values-kk]              [values-te]
+[values-be]              [values-km]              [values-th]
+[values-bg]              [values-kn]              [values-tl]
+[values-bn]              [values-ko]              [values-tr]
+[values-bs]              [values-ky]              [values-uk]
+[values-ca]              [values-land]            [values-ur]
+[values-cs]              [values-large-v4]        [values-uz]
+[values-da]              [values-ldltr-v21]       [values-v16]
+[values-de]              [values-ldrtl-v17]       [values-v17]
+[values-el]              [values-lo]              [values-v18]
+[values-en-rAU]          [values-lt]              [values-v21]
+[values-en-rCA]          [values-lv]              [values-v22]
+[values-en-rGB]          [values-mk]              [values-v23]
+[values-en-rIN]          [values-ml]              [values-v24]
+[values-en-rXC]          [values-mn]              [values-v25]
+[values-es]              [values-mr]              [values-v26]
+[values-es-rUS]          [values-ms]              [values-v28]
+[values-et]              [values-my]              [values-v31]
+[values-eu]              [values-nb]              [values-v34]
+[values-fa]              [values-ne]              [values-vi]
+[values-fi]              [values-night-v8]        [values-w320dp-land-v13]
+[values-fr]              [values-nl]              [values-w360dp-port-v13]
+[values-fr-rCA]          [values-or]              [values-w400dp-port-v13]
+[values-gl]              [values-pa]              [values-w600dp-land-v13]
+[values-gu]              [values-pl]              [values-watch-v20]
+[values-h320dp-port-v13] [values-port]            [values-watch-v21]
+[values-h360dp-land-v13] [values-pt]              [values-xlarge-v4]
+[values-h480dp-land-v13] [values-pt-rBR]          [values-zh-rCN]
+[values-h550dp-port-v13] [values-pt-rPT]          [values-zh-rHK]
+[values-h720dp-v13]      [values-ro]              [values-zh-rTW]
+[values-hdpi-v4]         [values-ru]              [values-zu]
+[values-hi]              [values-si]              
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values
+
+[.]          [..]         values.xml   
+               1 archivos        838.517 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-af
+
+[.]             [..]            values-af.xml   
+               1 archivos         20.587 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-am
+
+[.]             [..]            values-am.xml   
+               1 archivos         23.226 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ar
+
+[.]             [..]            values-ar.xml   
+               1 archivos         23.634 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-as
+
+[.]             [..]            values-as.xml   
+               1 archivos         24.856 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-az
+
+[.]             [..]            values-az.xml   
+               1 archivos         21.389 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-b+es+419
+
+[.]                   values-b+es+419.xml   
+[..]                  
+               1 archivos          6.501 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-b+sr+Latn
+
+[.]                    values-b+sr+Latn.xml   
+[..]                   
+               1 archivos         21.089 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-be
+
+[.]             [..]            values-be.xml   
+               1 archivos         24.653 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-bg
+
+[.]             [..]            values-bg.xml   
+               1 archivos         24.767 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-bn
+
+[.]             [..]            values-bn.xml   
+               1 archivos         26.981 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-bs
+
+[.]             [..]            values-bs.xml   
+               1 archivos         21.169 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ca
+
+[.]             [..]            values-ca.xml   
+               1 archivos         21.459 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-cs
+
+[.]             [..]            values-cs.xml   
+               1 archivos         21.323 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-da
+
+[.]             [..]            values-da.xml   
+               1 archivos         20.604 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-de
+
+[.]             [..]            values-de.xml   
+               1 archivos         21.302 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-el
+
+[.]             [..]            values-el.xml   
+               1 archivos         25.319 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-en-rAU
+
+[.]                 [..]                values-en-rAU.xml   
+               1 archivos         12.131 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-en-rCA
+
+[.]                 [..]                values-en-rCA.xml   
+               1 archivos         11.897 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-en-rGB
+
+[.]                 [..]                values-en-rGB.xml   
+               1 archivos         20.361 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-en-rIN
+
+[.]                 [..]                values-en-rIN.xml   
+               1 archivos         12.131 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-en-rXC
+
+[.]                 [..]                values-en-rXC.xml   
+               1 archivos         47.768 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-es
+
+[.]             [..]            values-es.xml   
+               1 archivos         21.494 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-es-rUS
+
+[.]                 [..]                values-es-rUS.xml   
+               1 archivos         21.412 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-et
+
+[.]             [..]            values-et.xml   
+               1 archivos         20.919 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-eu
+
+[.]             [..]            values-eu.xml   
+               1 archivos         21.244 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-fa
+
+[.]             [..]            values-fa.xml   
+               1 archivos         23.298 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-fi
+
+[.]             [..]            values-fi.xml   
+               1 archivos         20.932 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-fr
+
+[.]             [..]            values-fr.xml   
+               1 archivos         21.618 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-fr-rCA
+
+[.]                 [..]                values-fr-rCA.xml   
+               1 archivos         21.847 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-gl
+
+[.]             [..]            values-gl.xml   
+               1 archivos         21.518 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-gu
+
+[.]             [..]            values-gu.xml   
+               1 archivos         26.212 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-h320dp-port-v13
+
+[.]                          values-h320dp-port-v13.xml
+[..]                         
+               1 archivos            127 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-h360dp-land-v13
+
+[.]                          values-h360dp-land-v13.xml
+[..]                         
+               1 archivos            624 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-h480dp-land-v13
+
+[.]                          values-h480dp-land-v13.xml
+[..]                         
+               1 archivos            624 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-h550dp-port-v13
+
+[.]                          values-h550dp-port-v13.xml
+[..]                         
+               1 archivos            128 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-h720dp-v13
+
+[.]                     values-h720dp-v13.xml   
+[..]                    
+               1 archivos            130 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-hdpi-v4
+
+[.]                  values-hdpi-v4.xml   
+[..]                 
+               1 archivos            340 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-hi
+
+[.]             [..]            values-hi.xml   
+               1 archivos         26.726 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-hr
+
+[.]             [..]            values-hr.xml   
+               1 archivos         21.151 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-hu
+
+[.]             [..]            values-hu.xml   
+               1 archivos         21.733 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-hy
+
+[.]             [..]            values-hy.xml   
+               1 archivos         24.235 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-in
+
+[.]             [..]            values-in.xml   
+               1 archivos         20.764 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-is
+
+[.]             [..]            values-is.xml   
+               1 archivos         20.800 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-it
+
+[.]             [..]            values-it.xml   
+               1 archivos         21.233 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-iw
+
+[.]             [..]            values-iw.xml   
+               1 archivos         22.503 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ja
+
+[.]             [..]            values-ja.xml   
+               1 archivos         22.014 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ka
+
+[.]             [..]            values-ka.xml   
+               1 archivos         27.101 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-kk
+
+[.]             [..]            values-kk.xml   
+               1 archivos         23.835 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-km
+
+[.]             [..]            values-km.xml   
+               1 archivos         27.495 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-kn
+
+[.]             [..]            values-kn.xml   
+               1 archivos         28.179 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ko
+
+[.]             [..]            values-ko.xml   
+               1 archivos         21.103 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ky
+
+[.]             [..]            values-ky.xml   
+               1 archivos         24.407 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-land
+
+[.]               [..]              values-land.xml   
+               1 archivos          2.949 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-large-v4
+
+[.]                   values-large-v4.xml   
+[..]                  
+               1 archivos          1.246 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ldltr-v21
+
+[.]                    values-ldltr-v21.xml   
+[..]                   
+               1 archivos            176 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ldrtl-v17
+
+[.]                    values-ldrtl-v17.xml   
+[..]                   
+               1 archivos            340 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-lo
+
+[.]             [..]            values-lo.xml   
+               1 archivos         26.491 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-lt
+
+[.]             [..]            values-lt.xml   
+               1 archivos         21.717 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-lv
+
+[.]             [..]            values-lv.xml   
+               1 archivos         21.837 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-mk
+
+[.]             [..]            values-mk.xml   
+               1 archivos         24.321 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ml
+
+[.]             [..]            values-ml.xml   
+               1 archivos         29.259 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-mn
+
+[.]             [..]            values-mn.xml   
+               1 archivos         23.858 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-mr
+
+[.]             [..]            values-mr.xml   
+               1 archivos         26.332 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ms
+
+[.]             [..]            values-ms.xml   
+               1 archivos         21.014 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-my
+
+[.]             [..]            values-my.xml   
+               1 archivos         28.798 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-nb
+
+[.]             [..]            values-nb.xml   
+               1 archivos         20.511 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ne
+
+[.]             [..]            values-ne.xml   
+               1 archivos         28.150 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-night-v8
+
+[.]                   values-night-v8.xml   
+[..]                  
+               1 archivos          4.792 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-nl
+
+[.]             [..]            values-nl.xml   
+               1 archivos         21.006 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-or
+
+[.]             [..]            values-or.xml   
+               1 archivos         25.634 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-pa
+
+[.]             [..]            values-pa.xml   
+               1 archivos         25.957 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-pl
+
+[.]             [..]            values-pl.xml   
+               1 archivos         21.306 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-port
+
+[.]               [..]              values-port.xml   
+               1 archivos            119 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-pt
+
+[.]             [..]            values-pt.xml   
+               1 archivos         12.496 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-pt-rBR
+
+[.]                 [..]                values-pt-rBR.xml   
+               1 archivos         21.147 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-pt-rPT
+
+[.]                 [..]                values-pt-rPT.xml   
+               1 archivos         21.457 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ro
+
+[.]             [..]            values-ro.xml   
+               1 archivos         21.443 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ru
+
+[.]             [..]            values-ru.xml   
+               1 archivos         24.350 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-si
+
+[.]             [..]            values-si.xml   
+               1 archivos         26.268 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-sk
+
+[.]             [..]            values-sk.xml   
+               1 archivos         21.328 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-sl
+
+[.]             [..]            values-sl.xml   
+               1 archivos         21.168 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-small-v4
+
+[.]                   values-small-v4.xml   
+[..]                  
+               1 archivos            348 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-sq
+
+[.]             [..]            values-sq.xml   
+               1 archivos         21.401 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-sr
+
+[.]             [..]            values-sr.xml   
+               1 archivos         23.945 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-sv
+
+[.]             [..]            values-sv.xml   
+               1 archivos         20.869 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-sw
+
+[.]             [..]            values-sw.xml   
+               1 archivos         21.039 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-sw600dp-v13
+
+[.]                      values-sw600dp-v13.xml   
+[..]                     
+               1 archivos          1.531 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ta
+
+[.]             [..]            values-ta.xml   
+               1 archivos         29.278 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-te
+
+[.]             [..]            values-te.xml   
+               1 archivos         28.179 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-th
+
+[.]             [..]            values-th.xml   
+               1 archivos         25.954 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-tl
+
+[.]             [..]            values-tl.xml   
+               1 archivos         21.473 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-tr
+
+[.]             [..]            values-tr.xml   
+               1 archivos         20.994 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-uk
+
+[.]             [..]            values-uk.xml   
+               1 archivos         24.298 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-ur
+
+[.]             [..]            values-ur.xml   
+               1 archivos         23.762 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-uz
+
+[.]             [..]            values-uz.xml   
+               1 archivos         20.982 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v16
+
+[.]              [..]             values-v16.xml   
+               1 archivos            236 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v17
+
+[.]              [..]             values-v17.xml   
+               1 archivos          3.553 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v18
+
+[.]              [..]             values-v18.xml   
+               1 archivos            112 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v21
+
+[.]              [..]             values-v21.xml   
+               1 archivos         39.387 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v22
+
+[.]              [..]             values-v22.xml   
+               1 archivos            777 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v23
+
+[.]              [..]             values-v23.xml   
+               1 archivos          5.476 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v24
+
+[.]              [..]             values-v24.xml   
+               1 archivos          1.555 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v25
+
+[.]              [..]             values-v25.xml   
+               1 archivos            427 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v26
+
+[.]              [..]             values-v26.xml   
+               1 archivos            897 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v28
+
+[.]              [..]             values-v28.xml   
+               1 archivos          1.970 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v31
+
+[.]              [..]             values-v31.xml   
+               1 archivos         44.215 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-v34
+
+[.]              [..]             values-v34.xml   
+               1 archivos          9.779 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-vi
+
+[.]             [..]            values-vi.xml   
+               1 archivos         21.913 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-w320dp-land-v13
+
+[.]                          values-w320dp-land-v13.xml
+[..]                         
+               1 archivos            180 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-w360dp-port-v13
+
+[.]                          values-w360dp-port-v13.xml
+[..]                         
+               1 archivos            555 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-w400dp-port-v13
+
+[.]                          values-w400dp-port-v13.xml
+[..]                         
+               1 archivos            555 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-w600dp-land-v13
+
+[.]                          values-w600dp-land-v13.xml
+[..]                         
+               1 archivos            118 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-watch-v20
+
+[.]                    values-watch-v20.xml   
+[..]                   
+               1 archivos          1.226 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-watch-v21
+
+[.]                    values-watch-v21.xml   
+[..]                   
+               1 archivos            737 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-xlarge-v4
+
+[.]                    values-xlarge-v4.xml   
+[..]                   
+               1 archivos            481 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-zh-rCN
+
+[.]                 [..]                values-zh-rCN.xml   
+               1 archivos         20.488 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-zh-rHK
+
+[.]                 [..]                values-zh-rHK.xml   
+               1 archivos         20.444 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-zh-rTW
+
+[.]                 [..]                values-zh-rTW.xml   
+               1 archivos         20.504 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir\values-zu
+
+[.]             [..]            values-zu.xml   
+               1 archivos         21.205 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+
+[.]      [..]     [layout] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\mergeDebugResources\stripped.dir\layout
+
+[.]                               fragment_login.xml
+[..]                              fragment_recuperar_password.xml
+activity_host_busqueda.xml        fragment_registro.xml
+activity_main.xml                 item_carta.xml
+fragment_busqueda_cartas.xml      
+fragment_detalle_carta.xml        
+               8 archivos         27.314 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\packageDebugResources
+
+[.]                           merger.xml
+[..]                          [stripped.dir]
+compile-file-map.properties   
+[merged.dir]                  
+               2 archivos         21.654 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+
+[.]               [values]          
+[..]              [values-night-v8] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir\values
+
+[.]          [..]         values.xml   
+               1 archivos          4.582 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir\values-night-v8
+
+[.]                   values-night-v8.xml   
+[..]                  
+               1 archivos            182 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+
+[.]      [..]     [layout] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir\layout
+
+[.]                               fragment_login.xml
+[..]                              fragment_recuperar_password.xml
+activity_host_busqueda.xml        fragment_registro.xml
+activity_main.xml                 item_carta.xml
+fragment_busqueda_cartas.xml      
+fragment_detalle_carta.xml        
+               8 archivos         27.314 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug-mergeJavaRes
+
+[.]           [..]          merge-state   [zip-cache]   
+               1 archivos         35.117 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debug-mergeJavaRes\zip-cache
+
+[.]                            KyB1FUUh9oGy5KmWAbxy9l_ZlhU=
+[..]                           l4b_wJNTFpQBIIB22ZoBvNp9gOc=
++nlxTyVOecZhQiFL1Z_tqI0g5uI=   LA4kvn2U7oBbFddL68zQZDw8uIo=
+0dO1+_dNfwsmzLqhocKbBNvc6YU=   lj9nBKMVb8nlFrdq3YFHc5cyfZ8=
+0v7rWhQwaXwfjGto1gPDNTsidfE=   LJNTEDc4NrrkQ7eJHnoQB5p7vVA=
+141jBPfC+xtEwMBLkA6I_sLvoxI=   LkVywVtDFXRmBZCVhDC4g420RuM=
+1wDZZ0aY1it2J4OcDw6tS0+pLN8=   LRqQuQzYUlHd9tNMeSScgta59SQ=
+28MP5acieqav+K3kI4bIq0aNCow=   lu02jffOJX6pR2WX8aNaTLlj2rM=
+2TFdNUPGV1T+1OimpnMzqG+Obko=   LutEFPYgqJgWAv4jZuDvt7MhkyE=
+30IMSFuBN4DZ2dSHFeVf1IMbu4o=   m7guAMRXgw1PGPJ+X+y4a2JUXbQ=
+386GeQpUj08Zci6RnETDoI4MMeA=   mJPKz9_Mg12Y6kkbPgww1402uHM=
+3D83npCIu+0qmZHboCSv6yJ2bJ8=   mxhoxui7Nx1kWwbzpLociDvbjH0=
+3j2YXwjZEsB6y0ieIVitY2tSJ98=   neGDas872YiMBtn0Yoi3nSWSEZI=
+3rbR0bmC5rxo57NsWwerKWnbD_A=   nJXINH2prBmbCMrioGC6GMr0QFk=
+4fYUePo9Uk3xLY2n8Gzpz_jUvoU=   nMMJItSBqFwCiR3j1eIXY94cHnU=
+5Aqs7Rvnw1pe+uzTTZG6+7F0P6c=   NQogm_4AkGfQoZkN_RDQir1cs+8=
+5cG1P8FYI8EMAUNQopJ3ulyCSxM=   nui3aR9ybjaH7DPauZRmB24RiVM=
+5It2l16B_YWKmpESmV4Y_b_3Z_Q=   nWjtJ2f7uS4gmjQv358qmDd4Dl8=
+5UkQtEVSF0_m8m3XUqlbT5ojxNY=   OGchMNSWVR7d7bwMYuVIQYkrnjM=
+5X1OMtebRdk+V4gTufYe9BHFxHs=   ogKOk+hMCpvl7RDyp6YmOz1t7xo=
+6mxJ1uO+J42QhGN2tEJKSVnVB3k=   OiZiluIi9Z3hBCxsLx6w4gxaeZU=
+79FKxQWc2cpPc_fuBR7LezYkcSg=   olsqvOvoec35uJA8UV5evNkrQP0=
+7GN51buD7UHLFiu_8VfNAluICVc=   PbNKpFbDl8YxmG+YnxJnwvX0a9o=
+7pJCLm0y9+4Ub+1hn3fGjlHYEro=   PCM1hKMN6+J608Ptoz_9oTkhErY=
+8XWTtq1MMKVeFuoxQT5scaDo974=   pg2I7kfE2RHOzErGMjIDCRahdR0=
+AAeofwi9RQdkSdd_W1roubgtGAI=   PhocQFIR7OpfnVsis4JqrNcje2g=
+aFtA0kTU4OrWpLH3niren8B2rLc=   PRXYP5eeIVPuQrWi2yO84ddvMY0=
+AWqHOoTtYgb9b82lYMxRlJ9_9xI=   PW9ues4nrn2mG387eimHwOob7W4=
+aXCQfWiM5fSMvZv4LExD5VuiYbA=   qCJ6T4w1UWdP6Du9dEI55kAcyR8=
+B29NwVWdcUpOvyfSnrSzhBMwZ00=   QdJS6dou_Lo1HK88+4fbZTzZfrY=
+b2jIiyn3OiFpu++IqyJSk64zZd8=   qeLhT8ml1hLR1yVMKxEhzCDEdak=
+B53x03MraHPEXDmHUln4zybyT20=   R8Q_fQKQgraklZrcfSiCgU4CGas=
+BrvhbwNKutGwvU60SEvCEnQZsvU=   RdRBPrGzuf+6vv7dGCVXSVPKmQ4=
+c48UvdOdrARimwWdA4Jq6xoWp8g=   RfMzZkhlAa+o4rrsP738RMmevOQ=
+CBk_yYOS859ItbKNuEDfVtpzIwA=   rI65AVenOQKdQ3Uu3_IoeSkPV3U=
+cCX30Nqx0X5ZHfn7MzVM8BkQrmw=   rjelSECYA08eZgL9BlmDu7ARZWY=
+CMG6BlJiv49A67y2pdNZjLrStjA=   rpJRo1QvUyqeJMCVIgeTkXgXGGQ=
+cMHnZcmoRRPdPrf5Pg8Ue9LJn+g=   rRsRjIUV3IU+XUlXKwzEM64ss+w=
+cP_WshLxBEd9t67+_B6vbCK2vdM=   sevYxhmEZLZdh7JrTuOiok3w6lo=
+ct+bbpmK_+rtfET_nG39VlIveAQ=   SGotEh_GzrLb3A+LqI_MaQmnZtM=
+cyAcCy2gM4Q70l7EJ2CziwzAsPA=   SL36NIjxPScOHvgBYeafaOEpD+4=
+D1D+L3hsYbB85IgG3rTFpbz4lw4=   sn2y+TSO_7cQ0ModsXjqavMX51U=
+dHhdBkI2HSj2nC2A8DIHqsiY24w=   sSNLBshnCWClmfZ3_DD+FaABCD4=
+DU6G12f49ZzZcRlat1azXjCzghY=   Sz0QqFNBDCHV2yusun1iS3y_3CY=
+E0jd5+qDyh_LMCfMbrGGO0K3CXE=   TrY5kEQqGcb4AzUn8qTAEBzTtts=
+E4fsqiI9w6Irx_PSng9ljNvAInc=   TTTV02cci0FjioEpV5Nz4YvL+As=
+e7z59c6HzPjpYyXLa2_mfU6iGIo=   TVOkj6FHQ51vurv1035O+oiZpk0=
+EDBYtKdDO6apIr+WdJyP7aeYijg=   ty+eVLQU3WJOELaEICUOlceyEcA=
+ET0fdx514nsVrgMyau40XtynIGk=   U0LG5CVtspa++01w4Se+sQtnr0Y=
+ethTzIFAvT8+ZRWwOzMDTIAsDEs=   U9c1qCW+pCGSLy3zLkopIcR8B4Y=
+e_AebIpKlXWmPv5yTuAHYfkwDKc=   UKqf1CFv9dtFd2tpIB3kZgANaK0=
+F2YMnu0_RDpsMhpmpQEd55eWQMI=   Ul5lEqFGaAdDzcUiNISPA3gQtzo=
+F83dqUfX_hmCBOXg4t+8Y_Kkle8=   uYm4vfUDycK1BNpkN++uOn50yyQ=
+g5DXa3x5iofvNM0EvhtXkgyahuw=   V72Q9MuHRSD+G_LxvMR_ePMHTk0=
+Gj9SKygVjG9vP2TWS7EAOj2s5y4=   V8o_DWkhceIngDwMB5En10Hgw_w=
+GKil50Goa7bhodVJWI5ziz65Kfs=   VfX_JTRPCqLk8x1WMxV0UjOksPo=
+gQHfvkALC0J8+QpZ3pw+oDxXOnM=   voRjvaxL4fDU28UFlnC5hU3A44k=
+GsRRFD_nXjRs_+9E5MR31fQ+bDw=   VTJCyUqU1fSNDi_AqjWch4uFX30=
+GWg8UpGVJKdD5KyM7eaQW45nU20=   vtZHwANjkKv2tS7QtWSEvoPmrAI=
+GwUCO4SccRXJzR6ANwHiHoa5TUg=   VunveEC_pM2TeED07bnQTUJ2bWA=
+gYr4ro9imuLZoNyXBiURvmswsmU=   vWAAEEJF8R3zxJJA_8ivrshhONs=
+h2gEbUCVqNwsXh62_6ulyZFPjUg=   W4O8MFDXAibeOYUyK+rYzMjpO6k=
+HgQpYAPH4WCb_kEjJRwbSALzEY0=   W9ya_BZywzg16REEvU6tP_O2Xkg=
+hmbB5GDg4e6ZT1Fe4gGKbhmp7eQ=   wvg9SFbchycJ+uGgnUiMUdIa8GE=
+HMvt25EzspCezItT2Nr9mkUQc6I=   wvO66J6RHlPAyWM9lr+WA2fBQAs=
+Hw6AMuZ7d0jIN2_GpofpIyLR0QY=   WxXXGPZxVu7+yWXnbjt0A6qCpuo=
+HWBRPt5qR4_LCPyLuNjLdMp1snA=   WZ+sjpe9Wgvux8Ih4o_KXBPGg5A=
+hygT4YLsMsGx89jWLF3UhOYbsvk=   w_w6LDaR9ujJCcfkyBLutv_5KbA=
+i+xkuUbiRmoSMyDTKxol9aPQhpc=   XiqYOPJNTuvRo4UufL9miEPV3hM=
+ijzX1RlN8QOvqhPMTXhB2vUvOt4=   xPe_KQo0kPBdWaJXnSMhBBi8fBk=
+ioy2RMA7s4jhAYB6r69fVLz2W1c=   xvwgUOSSgMvqI8vFU3LbUuniA48=
+JocoThS8kd5nuJRnO4yR2dckIvs=   Y1oMdc44+aw6NrtcNCbcDQ1PSpE=
+jQ+znHDlIvov_YEuq7W8nUEfetA=   YBkoPFD2EOCkG+4kSooJLUWHtDM=
+k1wgTwWD4eLXisS12GaP9lqpRkE=   yD14WKemuE+Dtkg3I8QXfXtzvxQ=
+kfwycvMMqKfMwrtux7+kUPxveXM=   Ypfs6kPik0GXN+xyYyQTOrmqwXI=
+KGWK5hWHx4dYiC3dHTaEWdg6Z_0=   Zq3z+YkqKgXej9c97QPTzirjNLU=
+KhRtvB7onLmLkL73MNM_WxN4HeQ=   Zqf_bUQqMFSBc_yrdt3jhecB47k=
+krvYZbSgvFgvLneitBwmuYOmglQ=   
+             153 archivos     46.264.677 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debugAndroidTest
+
+[.]                              [mergeDebugAndroidTestResources]
+[..]                             
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources
+
+[.]                           merger.xml
+[..]                          [stripped.dir]
+compile-file-map.properties   
+[merged.dir]                  
+               2 archivos          8.002 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+
+[.]          [values]     [values-v21] 
+[..]         [values-v18] [values-v28] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir\values
+
+[.]          [..]         values.xml   
+               1 archivos            805 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir\values-v18
+
+[.]              [..]             values-v18.xml   
+               1 archivos            901 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir\values-v21
+
+[.]              [..]             values-v21.xml   
+               1 archivos          1.019 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir\values-v28
+
+[.]              [..]             values-v28.xml   
+               1 archivos          1.027 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\generateSafeArgsDebug
+
+[.]                  file_mappings.json   
+[..]                 
+               1 archivos            342 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\mergeDebugAssets
+
+[.]          [..]         merger.xml   
+               1 archivos            771 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\mergeDebugJniLibFolders
+
+[.]          [..]         merger.xml   
+               1 archivos            504 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\mergeDebugShaders
+
+[.]          [..]         merger.xml   
+               1 archivos            504 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\packageDebug
+
+[.]   [..]  [tmp] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\packageDebug\tmp
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\packageDebug\tmp\debug
+
+[.]                     dex-renamer-state.txt   
+[..]                    [zip-cache]             
+               1 archivos          2.103 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\incremental\packageDebug\tmp\debug\zip-cache
+
+[.]                androidResources   
+[..]               javaResources0     
+               2 archivos        101.818 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\javac
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\javac\debug
+
+[.]                         [compileDebugJavaWithJavac]
+[..]                        
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\javac\debug\compileDebugJavaWithJavac
+
+[.]       [..]      [classes] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\javac\debug\compileDebugJavaWithJavac\classes
+
+[.]   [..]  [com] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\javac\debug\compileDebugJavaWithJavac\classes\com
+
+[.]     [..]    [cesar] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\javac\debug\compileDebugJavaWithJavac\classes\com\cesar
+
+[.]                [..]               [creamazospoketcg] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\javac\debug\compileDebugJavaWithJavac\classes\com\cesar\creamazospoketcg
+
+[.]           [..]          [databinding] [ui]          
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\javac\debug\compileDebugJavaWithJavac\classes\com\cesar\creamazospoketcg\databinding
+
+[.]
+[..]
+ActivityHostBusquedaBinding.class
+ActivityMainBinding.class
+FragmentBusquedaCartasBinding.class
+FragmentDetalleCartaBinding.class
+FragmentLoginBinding.class
+FragmentRecuperarPasswordBinding.class
+FragmentRegistroBinding.class
+ItemCartaBinding.class
+
+               8 archivos         33.659 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\javac\debug\compileDebugJavaWithJavac\classes\com\cesar\creamazospoketcg\ui
+
+[.]      [..]     [auth]   [search] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\javac\debug\compileDebugJavaWithJavac\classes\com\cesar\creamazospoketcg\ui\auth
+
+[.]
+[..]
+LoginFragmentDirections.class
+RecuperarPasswordFragmentDirections.class
+RegistroFragmentDirections.class
+
+               3 archivos          2.806 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\javac\debug\compileDebugJavaWithJavac\classes\com\cesar\creamazospoketcg\ui\search
+
+[.]
+[..]
+FragmentoBusquedaCartasDirections.class
+
+               1 archivos            807 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res
+
+[.]             [..]            [debug]         [debugUnitTest] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debug
+
+[.]                   [processDebugJavaRes] 
+[..]                  
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debug\processDebugJavaRes
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debug\processDebugJavaRes\out
+
+[.]        [..]       [com]      [META-INF] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debug\processDebugJavaRes\out\com
+
+[.]     [..]    [cesar] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debug\processDebugJavaRes\out\com\cesar
+
+[.]                [..]               [creamazospoketcg] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debug\processDebugJavaRes\out\com\cesar\creamazospoketcg
+
+[.]    [..]   [data] [ui]   [vm]   
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debug\processDebugJavaRes\out\com\cesar\creamazospoketcg\data
+
+[.]          [..]         [model]      [network]    [repository] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debug\processDebugJavaRes\out\com\cesar\creamazospoketcg\data\model
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debug\processDebugJavaRes\out\com\cesar\creamazospoketcg\data\network
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debug\processDebugJavaRes\out\com\cesar\creamazospoketcg\data\repository
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debug\processDebugJavaRes\out\com\cesar\creamazospoketcg\ui
+
+[.]      [..]     [auth]   [search] [theme]  
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debug\processDebugJavaRes\out\com\cesar\creamazospoketcg\ui\auth
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debug\processDebugJavaRes\out\com\cesar\creamazospoketcg\ui\search
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debug\processDebugJavaRes\out\com\cesar\creamazospoketcg\ui\theme
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debug\processDebugJavaRes\out\com\cesar\creamazospoketcg\vm
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debug\processDebugJavaRes\out\META-INF
+
+[.]                       app_debug.kotlin_module   
+[..]                      
+               1 archivos            192 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debugUnitTest
+
+[.]                           [processDebugUnitTestJavaRes]
+[..]                          
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debugUnitTest\processDebugUnitTestJavaRes
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debugUnitTest\processDebugUnitTestJavaRes\out
+
+[.]        [..]       [com]      [META-INF] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debugUnitTest\processDebugUnitTestJavaRes\out\com
+
+[.]     [..]    [cesar] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debugUnitTest\processDebugUnitTestJavaRes\out\com\cesar
+
+[.]                [..]               [creamazospoketcg] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debugUnitTest\processDebugUnitTestJavaRes\out\com\cesar\creamazospoketcg
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\java_res\debugUnitTest\processDebugUnitTestJavaRes\out\META-INF
+
+[.]                               app_debugUnitTest.kotlin_module
+[..]                              
+               1 archivos             24 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\local_only_symbol_list
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\local_only_symbol_list\debug
+
+[.]                        [parseDebugLocalResources]
+[..]                       
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\local_only_symbol_list\debug\parseDebugLocalResources
+
+[.]         [..]        R-def.txt   
+               1 archivos          2.913 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\manifest_merge_blame_file
+
+[.]                [debug]            
+[..]               [debugAndroidTest] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\manifest_merge_blame_file\debug
+
+[.]                        [processDebugMainManifest]
+[..]                       
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\manifest_merge_blame_file\debug\processDebugMainManifest
+
+[.]
+[..]
+manifest-merger-blame-debug-report.txt
+
+               1 archivos         41.787 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\manifest_merge_blame_file\debugAndroidTest
+
+[.]                               [processDebugAndroidTestManifest]
+[..]                              
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\manifest_merge_blame_file\debugAndroidTest\processDebugAndroidTestManifest
+
+[.]
+[..]
+manifest-merger-blame-debug-androidTest-report.txt
+
+               1 archivos          9.817 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_java_res
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_java_res\debug
+
+[.]                      [mergeDebugJavaResource] 
+[..]                     
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_java_res\debug\mergeDebugJavaResource
+
+[.]        [..]       base.jar   
+               1 archivos        131.187 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_jni_libs
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_jni_libs\debug
+
+[.]                       [mergeDebugJniLibFolders] 
+[..]                      
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_jni_libs\debug\mergeDebugJniLibFolders
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_jni_libs\debug\mergeDebugJniLibFolders\out
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_manifest
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_manifest\debug
+
+[.]                        [processDebugMainManifest]
+[..]                       
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_manifest\debug\processDebugMainManifest
+
+[.]                   AndroidManifest.xml   
+[..]                  
+               1 archivos          9.927 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_manifests
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_manifests\debug
+
+[.]                    [processDebugManifest] 
+[..]                   
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_manifests\debug\processDebugManifest
+
+[.]                    AndroidManifest.xml    
+[..]                   output-metadata.json   
+               2 archivos         10.322 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_res
+
+[.]                [debug]            
+[..]               [debugAndroidTest] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_res\debug
+
+[.]                   [mergeDebugResources] 
+[..]                  
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_res\debug\mergeDebugResources
+
+[.]
+[..]
+drawable_bg_button_gradient.xml.flat
+drawable_bg_google_button.xml.flat
+drawable_fondo_chip_tipo.xml.flat
+drawable_google24x24.png.flat
+drawable_ic_google_logo.xml.flat
+drawable_ic_launcher_background.xml.flat
+drawable_ic_launcher_foreground.xml.flat
+drawable_logoappbig.png.flat
+drawable_placeholder_carta.png.flat
+drawable_placeholder_carta_png.xml.flat
+layout_activity_host_busqueda.xml.flat
+layout_activity_main.xml.flat
+layout_fragment_busqueda_cartas.xml.flat
+layout_fragment_detalle_carta.xml.flat
+layout_fragment_login.xml.flat
+layout_fragment_recuperar_password.xml.flat
+layout_fragment_registro.xml.flat
+layout_item_carta.xml.flat
+mipmap-anydpi-v26_ic_launcher.xml.flat
+mipmap-anydpi-v26_ic_launcher_round.xml.flat
+mipmap-hdpi_ic_launcher.webp.flat
+mipmap-hdpi_ic_launcher_round.webp.flat
+mipmap-mdpi_ic_launcher.webp.flat
+mipmap-mdpi_ic_launcher_round.webp.flat
+mipmap-xhdpi_ic_launcher.webp.flat
+mipmap-xhdpi_ic_launcher_round.webp.flat
+mipmap-xxhdpi_ic_launcher.webp.flat
+mipmap-xxhdpi_ic_launcher_round.webp.flat
+mipmap-xxxhdpi_ic_launcher.webp.flat
+mipmap-xxxhdpi_ic_launcher_round.webp.flat
+navigation_nav_graph.xml.flat
+values-af_values-af.arsc.flat
+values-am_values-am.arsc.flat
+values-ar_values-ar.arsc.flat
+values-as_values-as.arsc.flat
+values-az_values-az.arsc.flat
+values-b+es+419_values-b+es+419.arsc.flat
+values-b+sr+Latn_values-b+sr+Latn.arsc.flat
+values-be_values-be.arsc.flat
+values-bg_values-bg.arsc.flat
+values-bn_values-bn.arsc.flat
+values-bs_values-bs.arsc.flat
+values-ca_values-ca.arsc.flat
+values-cs_values-cs.arsc.flat
+values-da_values-da.arsc.flat
+values-de_values-de.arsc.flat
+values-el_values-el.arsc.flat
+values-en-rAU_values-en-rAU.arsc.flat
+values-en-rCA_values-en-rCA.arsc.flat
+values-en-rGB_values-en-rGB.arsc.flat
+values-en-rIN_values-en-rIN.arsc.flat
+values-en-rXC_values-en-rXC.arsc.flat
+values-es-rUS_values-es-rUS.arsc.flat
+values-es_values-es.arsc.flat
+values-et_values-et.arsc.flat
+values-eu_values-eu.arsc.flat
+values-fa_values-fa.arsc.flat
+values-fi_values-fi.arsc.flat
+values-fr-rCA_values-fr-rCA.arsc.flat
+values-fr_values-fr.arsc.flat
+values-gl_values-gl.arsc.flat
+values-gu_values-gu.arsc.flat
+values-h320dp-port-v13_values-h320dp-port-v13.arsc.flat
+values-h360dp-land-v13_values-h360dp-land-v13.arsc.flat
+values-h480dp-land-v13_values-h480dp-land-v13.arsc.flat
+values-h550dp-port-v13_values-h550dp-port-v13.arsc.flat
+values-h720dp-v13_values-h720dp-v13.arsc.flat
+values-hdpi-v4_values-hdpi-v4.arsc.flat
+values-hi_values-hi.arsc.flat
+values-hr_values-hr.arsc.flat
+values-hu_values-hu.arsc.flat
+values-hy_values-hy.arsc.flat
+values-in_values-in.arsc.flat
+values-is_values-is.arsc.flat
+values-it_values-it.arsc.flat
+values-iw_values-iw.arsc.flat
+values-ja_values-ja.arsc.flat
+values-ka_values-ka.arsc.flat
+values-kk_values-kk.arsc.flat
+values-km_values-km.arsc.flat
+values-kn_values-kn.arsc.flat
+values-ko_values-ko.arsc.flat
+values-ky_values-ky.arsc.flat
+values-land_values-land.arsc.flat
+values-large-v4_values-large-v4.arsc.flat
+values-ldltr-v21_values-ldltr-v21.arsc.flat
+values-ldrtl-v17_values-ldrtl-v17.arsc.flat
+values-lo_values-lo.arsc.flat
+values-lt_values-lt.arsc.flat
+values-lv_values-lv.arsc.flat
+values-mk_values-mk.arsc.flat
+values-ml_values-ml.arsc.flat
+values-mn_values-mn.arsc.flat
+values-mr_values-mr.arsc.flat
+values-ms_values-ms.arsc.flat
+values-my_values-my.arsc.flat
+values-nb_values-nb.arsc.flat
+values-ne_values-ne.arsc.flat
+values-night-v8_values-night-v8.arsc.flat
+values-nl_values-nl.arsc.flat
+values-or_values-or.arsc.flat
+values-pa_values-pa.arsc.flat
+values-pl_values-pl.arsc.flat
+values-port_values-port.arsc.flat
+values-pt-rBR_values-pt-rBR.arsc.flat
+values-pt-rPT_values-pt-rPT.arsc.flat
+values-pt_values-pt.arsc.flat
+values-ro_values-ro.arsc.flat
+values-ru_values-ru.arsc.flat
+values-si_values-si.arsc.flat
+values-sk_values-sk.arsc.flat
+values-sl_values-sl.arsc.flat
+values-small-v4_values-small-v4.arsc.flat
+values-sq_values-sq.arsc.flat
+values-sr_values-sr.arsc.flat
+values-sv_values-sv.arsc.flat
+values-sw600dp-v13_values-sw600dp-v13.arsc.flat
+values-sw_values-sw.arsc.flat
+values-ta_values-ta.arsc.flat
+values-te_values-te.arsc.flat
+values-th_values-th.arsc.flat
+values-tl_values-tl.arsc.flat
+values-tr_values-tr.arsc.flat
+values-uk_values-uk.arsc.flat
+values-ur_values-ur.arsc.flat
+values-uz_values-uz.arsc.flat
+values-v16_values-v16.arsc.flat
+values-v17_values-v17.arsc.flat
+values-v18_values-v18.arsc.flat
+values-v21_values-v21.arsc.flat
+values-v22_values-v22.arsc.flat
+values-v23_values-v23.arsc.flat
+values-v24_values-v24.arsc.flat
+values-v25_values-v25.arsc.flat
+values-v26_values-v26.arsc.flat
+values-v28_values-v28.arsc.flat
+values-v31_values-v31.arsc.flat
+values-v34_values-v34.arsc.flat
+values-vi_values-vi.arsc.flat
+values-w320dp-land-v13_values-w320dp-land-v13.arsc.flat
+values-w360dp-port-v13_values-w360dp-port-v13.arsc.flat
+values-w400dp-port-v13_values-w400dp-port-v13.arsc.flat
+values-w600dp-land-v13_values-w600dp-land-v13.arsc.flat
+values-watch-v20_values-watch-v20.arsc.flat
+values-watch-v21_values-watch-v21.arsc.flat
+values-xlarge-v4_values-xlarge-v4.arsc.flat
+values-zh-rCN_values-zh-rCN.arsc.flat
+values-zh-rHK_values-zh-rHK.arsc.flat
+values-zh-rTW_values-zh-rTW.arsc.flat
+values-zu_values-zu.arsc.flat
+values_values.arsc.flat
+xml_backup_rules.xml.flat
+xml_data_extraction_rules.xml.flat
+
+             153 archivos      2.820.600 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_res\debugAndroidTest
+
+[.]                              [mergeDebugAndroidTestResources]
+[..]                             
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources
+
+[.]                               values-v28_values-v28.arsc.flat
+[..]                              values_values.arsc.flat
+values-v18_values-v18.arsc.flat   
+values-v21_values-v21.arsc.flat   
+               4 archivos          4.724 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_res_blame_folder
+
+[.]                [debug]            
+[..]               [debugAndroidTest] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_res_blame_folder\debug
+
+[.]                   [mergeDebugResources] 
+[..]                  
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_res_blame_folder\debug\mergeDebugResources
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_res_blame_folder\debug\mergeDebugResources\out
+
+[.]        [..]       [multi-v2] [single]   
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_res_blame_folder\debug\mergeDebugResources\out\multi-v2
+
+[.]                           values-mk.json
+[..]                          values-ml.json
+mergeDebugResources.json      values-mn.json
+values-af.json                values-mr.json
+values-am.json                values-ms.json
+values-ar.json                values-my.json
+values-as.json                values-nb.json
+values-az.json                values-ne.json
+values-b+es+419.json          values-night-v8.json
+values-b+sr+Latn.json         values-nl.json
+values-be.json                values-or.json
+values-bg.json                values-pa.json
+values-bn.json                values-pl.json
+values-bs.json                values-port.json
+values-ca.json                values-pt-rBR.json
+values-cs.json                values-pt-rPT.json
+values-da.json                values-pt.json
+values-de.json                values-ro.json
+values-el.json                values-ru.json
+values-en-rAU.json            values-si.json
+values-en-rCA.json            values-sk.json
+values-en-rGB.json            values-sl.json
+values-en-rIN.json            values-small-v4.json
+values-en-rXC.json            values-sq.json
+values-es-rUS.json            values-sr.json
+values-es.json                values-sv.json
+values-et.json                values-sw.json
+values-eu.json                values-sw600dp-v13.json
+values-fa.json                values-ta.json
+values-fi.json                values-te.json
+values-fr-rCA.json            values-th.json
+values-fr.json                values-tl.json
+values-gl.json                values-tr.json
+values-gu.json                values-uk.json
+values-h320dp-port-v13.json   values-ur.json
+values-h360dp-land-v13.json   values-uz.json
+values-h480dp-land-v13.json   values-v16.json
+values-h550dp-port-v13.json   values-v17.json
+values-h720dp-v13.json        values-v18.json
+values-hdpi-v4.json           values-v21.json
+values-hi.json                values-v22.json
+values-hr.json                values-v23.json
+values-hu.json                values-v24.json
+values-hy.json                values-v25.json
+values-in.json                values-v26.json
+values-is.json                values-v28.json
+values-it.json                values-v31.json
+values-iw.json                values-v34.json
+values-ja.json                values-vi.json
+values-ka.json                values-w320dp-land-v13.json
+values-kk.json                values-w360dp-port-v13.json
+values-km.json                values-w400dp-port-v13.json
+values-kn.json                values-w600dp-land-v13.json
+values-ko.json                values-watch-v20.json
+values-ky.json                values-watch-v21.json
+values-land.json              values-xlarge-v4.json
+values-large-v4.json          values-zh-rCN.json
+values-ldltr-v21.json         values-zh-rHK.json
+values-ldrtl-v17.json         values-zh-rTW.json
+values-lo.json                values-zu.json
+values-lt.json                values.json
+values-lv.json                
+             121 archivos      3.374.084 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_res_blame_folder\debug\mergeDebugResources\out\single
+
+[.]                        mergeDebugResources.json
+[..]                       
+layout.json                
+               2 archivos          8.372 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_res_blame_folder\debugAndroidTest
+
+[.]                              [mergeDebugAndroidTestResources]
+[..]                             
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_res_blame_folder\debugAndroidTest\mergeDebugAndroidTestResources
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_res_blame_folder\debugAndroidTest\mergeDebugAndroidTestResources\out
+
+[.]        [..]       [multi-v2] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_res_blame_folder\debugAndroidTest\mergeDebugAndroidTestResources\out\multi-v2
+
+[.]                                   values-v21.json
+[..]                                  values-v28.json
+mergeDebugAndroidTestResources.json   values.json
+values-v18.json                       
+               5 archivos          8.506 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_shaders
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_shaders\debug
+
+[.]                 [..]                [mergeDebugShaders] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_shaders\debug\mergeDebugShaders
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\merged_shaders\debug\mergeDebugShaders\out
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\mixed_scope_dex_archive
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\mixed_scope_dex_archive\debug
+
+[.]               [..]              [dexBuilderDebug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\mixed_scope_dex_archive\debug\dexBuilderDebug
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\mixed_scope_dex_archive\debug\dexBuilderDebug\out
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\navigation_json
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\navigation_json\debug
+
+[.]                     [extractDeepLinksDebug] 
+[..]                    
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\navigation_json\debug\extractDeepLinksDebug
+
+[.]               [..]              navigation.json   
+               1 archivos             84 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\nested_resources_validation_report
+
+[.]                [debug]            
+[..]               [debugAndroidTest] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\nested_resources_validation_report\debug
+
+[.]                      [generateDebugResources] 
+[..]                     
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\nested_resources_validation_report\debug\generateDebugResources
+
+[.]                                   nestedResourcesValidationReport.txt
+[..]                                  
+               1 archivos             15 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\nested_resources_validation_report\debugAndroidTest
+
+[.]                                 [generateDebugAndroidTestResources]
+[..]                                
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\nested_resources_validation_report\debugAndroidTest\generateDebugAndroidTestResources
+
+[.]                                   nestedResourcesValidationReport.txt
+[..]                                  
+               1 archivos             15 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\packaged_manifests
+
+[.]                [debug]            
+[..]               [debugAndroidTest] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\packaged_manifests\debug
+
+[.]                              [processDebugManifestForPackage]
+[..]                             
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\packaged_manifests\debug\processDebugManifestForPackage
+
+[.]                    AndroidManifest.xml    
+[..]                   output-metadata.json   
+               2 archivos         10.324 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\packaged_manifests\debugAndroidTest
+
+[.]                               [processDebugAndroidTestManifest]
+[..]                              
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\packaged_manifests\debugAndroidTest\processDebugAndroidTestManifest
+
+[.]                    AndroidManifest.xml    
+[..]                   output-metadata.json   
+               2 archivos          2.617 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\packaged_res
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\packaged_res\debug
+
+[.]                     [packageDebugResources] 
+[..]                    
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\packaged_res\debug\packageDebugResources
+
+[.]                 [mipmap-anydpi-v26] [mipmap-xxhdpi-v4]  [values-night-v8]
+[..]                [mipmap-hdpi-v4]    [mipmap-xxxhdpi-v4] [xml]
+[drawable]          [mipmap-mdpi-v4]    [navigation]        
+[layout]            [mipmap-xhdpi-v4]   [values]            
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\packaged_res\debug\packageDebugResources\drawable
+
+[.]                          ic_launcher_background.xml
+[..]                         ic_launcher_foreground.xml
+bg_button_gradient.xml       logoappbig.png
+bg_google_button.xml         placeholder_carta.png
+fondo_chip_tipo.xml          placeholder_carta_png.xml
+google24x24.png              
+ic_google_logo.xml           
+              10 archivos         93.598 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\packaged_res\debug\packageDebugResources\layout
+
+[.]                               fragment_login.xml
+[..]                              fragment_recuperar_password.xml
+activity_host_busqueda.xml        fragment_registro.xml
+activity_main.xml                 item_carta.xml
+fragment_busqueda_cartas.xml      
+fragment_detalle_carta.xml        
+               8 archivos         27.314 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\packaged_res\debug\packageDebugResources\mipmap-anydpi-v26
+
+[.]                     ic_launcher.xml         
+[..]                    ic_launcher_round.xml   
+               2 archivos            686 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\packaged_res\debug\packageDebugResources\mipmap-hdpi-v4
+
+[.]                      ic_launcher.webp         
+[..]                     ic_launcher_round.webp   
+               2 archivos          4.302 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\packaged_res\debug\packageDebugResources\mipmap-mdpi-v4
+
+[.]                      ic_launcher.webp         
+[..]                     ic_launcher_round.webp   
+               2 archivos          2.754 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\packaged_res\debug\packageDebugResources\mipmap-xhdpi-v4
+
+[.]                      ic_launcher.webp         
+[..]                     ic_launcher_round.webp   
+               2 archivos          5.818 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\packaged_res\debug\packageDebugResources\mipmap-xxhdpi-v4
+
+[.]                      ic_launcher.webp         
+[..]                     ic_launcher_round.webp   
+               2 archivos          8.798 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\packaged_res\debug\packageDebugResources\mipmap-xxxhdpi-v4
+
+[.]                      ic_launcher.webp         
+[..]                     ic_launcher_round.webp   
+               2 archivos         11.622 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\packaged_res\debug\packageDebugResources\navigation
+
+[.]             [..]            nav_graph.xml   
+               1 archivos          2.598 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\packaged_res\debug\packageDebugResources\values
+
+[.]          [..]         values.xml   
+               1 archivos          4.582 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\packaged_res\debug\packageDebugResources\values-night-v8
+
+[.]                   values-night-v8.xml   
+[..]                  
+               1 archivos            182 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\packaged_res\debug\packageDebugResources\xml
+
+[.]                         data_extraction_rules.xml
+[..]                        
+backup_rules.xml            
+               2 archivos          1.029 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\processed_res
+
+[.]                [debug]            
+[..]               [debugAndroidTest] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\processed_res\debug
+
+[.]                     [processDebugResources] 
+[..]                    
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\processed_res\debug\processDebugResources
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\processed_res\debug\processDebugResources\out
+
+[.]                    output-metadata.json   
+[..]                   resources-debug.ap_    
+               2 archivos      2.187.081 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\processed_res\debugAndroidTest
+
+[.]                                [processDebugAndroidTestResources]
+[..]                               
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\processed_res\debugAndroidTest\processDebugAndroidTestResources
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\processed_res\debugAndroidTest\processDebugAndroidTestResources\out
+
+[.]                    output-metadata.json   
+[..]                   resources.ap_          
+               2 archivos          2.882 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\project_dex_archive
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\project_dex_archive\debug
+
+[.]               [..]              [dexBuilderDebug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\project_dex_archive\debug\dexBuilderDebug
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\project_dex_archive\debug\dexBuilderDebug\out
+
+[.]
+[..]
+70b077ced84deccdc22e57754d818cd792f5dc9287e115048e13abbe6f1b8ae2_0.jar
+70b077ced84deccdc22e57754d818cd792f5dc9287e115048e13abbe6f1b8ae2_1.jar
+70b077ced84deccdc22e57754d818cd792f5dc9287e115048e13abbe6f1b8ae2_2.jar
+70b077ced84deccdc22e57754d818cd792f5dc9287e115048e13abbe6f1b8ae2_3.jar
+70b077ced84deccdc22e57754d818cd792f5dc9287e115048e13abbe6f1b8ae2_4.jar
+70b077ced84deccdc22e57754d818cd792f5dc9287e115048e13abbe6f1b8ae2_5.jar
+[com]
+
+               6 archivos        211.181 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\project_dex_archive\debug\dexBuilderDebug\out\com
+
+[.]     [..]    [cesar] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\project_dex_archive\debug\dexBuilderDebug\out\com\cesar
+
+[.]                [..]               [creamazospoketcg] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\project_dex_archive\debug\dexBuilderDebug\out\com\cesar\creamazospoketcg
+
+[.]           [data]        [ui]          
+[..]          [databinding] [vm]          
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\project_dex_archive\debug\dexBuilderDebug\out\com\cesar\creamazospoketcg\data
+
+[.]          [..]         [model]      [network]    [repository] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\project_dex_archive\debug\dexBuilderDebug\out\com\cesar\creamazospoketcg\data\model
+
+[.]                    Carta.dex              ImagenesCarta.dex
+[..]                   CartaTCGdexBreve.dex   SetInfo.dex
+Ataque.dex             Habilidad.dex          
+               6 archivos         23.068 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\project_dex_archive\debug\dexBuilderDebug\out\com\cesar\creamazospoketcg\data\network
+
+[.]                                ModuloRed.dex
+[..]                               PokeTcgService$DefaultImpls.dex
+AtaqueTCGdex.dex                   PokeTcgService.dex
+CartaTCGdex.dex                    RespuestaCartas.dex
+CartaTCGdexBreve.dex               RespuestaListaCartasTCGdex.dex
+CartaTCGdexCompleta.dex            ServicioPokeTcg$DefaultImpls.dex
+HabilidadTCGdex.dex                ServicioPokeTcg.dex
+ImagenesBreves.dex                 ServicioTCGdex$DefaultImpls.dex
+ImagenesTCGdex.dex                 ServicioTCGdex.dex
+ModeloCartaBreveKt.dex             SetDetalle.dex
+ModeloCartaCompletaKt.dex          SetTCGdex.dex
+ModelosTCGdexKt.dex                
+ModuloRed$servicioTCGdex$2.dex     
+              22 archivos         68.352 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\project_dex_archive\debug\dexBuilderDebug\out\com\cesar\creamazospoketcg\data\repository
+
+[.]
+[..]
+RepositorioCartas$buscarCartas$1.dex
+RepositorioCartas$buscarCartas$2.dex
+RepositorioCartas$obtenerCartaPorId$1.dex
+RepositorioCartas$obtenerCartaPorId$2.dex
+RepositorioCartas$obtenerCartasPorIds$1.dex
+RepositorioCartas$obtenerCartasPorIds$2.dex
+RepositorioCartas.dex
+
+               7 archivos         29.264 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\project_dex_archive\debug\dexBuilderDebug\out\com\cesar\creamazospoketcg\databinding
+
+[.]                                    FragmentLoginBinding.dex
+[..]                                   FragmentRecuperarPasswordBinding.dex
+ActivityHostBusquedaBinding.dex        FragmentRegistroBinding.dex
+ActivityMainBinding.dex                ItemCartaBinding.dex
+FragmentBusquedaCartasBinding.dex      
+FragmentDetalleCartaBinding.dex        
+               8 archivos         25.232 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\project_dex_archive\debug\dexBuilderDebug\out\com\cesar\creamazospoketcg\ui
+
+[.]                [auth]             [search]           
+[..]               MainActivity.dex   [theme]            
+               1 archivos          1.408 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\project_dex_archive\debug\dexBuilderDebug\out\com\cesar\creamazospoketcg\ui\auth
+
+[.]
+[..]
+LoginFragment$aplicarClickSoloEnRegistrate$clickable$1.dex
+LoginFragment.dex
+LoginFragmentDirections.dex
+RecuperarPasswordFragment$enviarCorreo$1.dex
+RecuperarPasswordFragment.dex
+RecuperarPasswordFragmentDirections.dex
+RegistroFragment.dex
+RegistroFragmentDirections.dex
+
+               8 archivos         36.008 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\project_dex_archive\debug\dexBuilderDebug\out\com\cesar\creamazospoketcg\ui\search
+
+[.]
+[..]
+ActividadHostBusqueda.dex
+AdaptadorCartas$1.dex
+AdaptadorCartas$CartaViewHolder.dex
+AdaptadorCartas$Companion.dex
+AdaptadorCartas.dex
+FragmentoBusquedaCartas$onViewCreated$1.dex
+FragmentoBusquedaCartas$onViewCreated$4$1$1.dex
+FragmentoBusquedaCartas$onViewCreated$4$1.dex
+FragmentoBusquedaCartas$onViewCreated$4.dex
+FragmentoBusquedaCartas$special$$inlined$viewModels$default$1.dex
+FragmentoBusquedaCartas$special$$inlined$viewModels$default$2.dex
+FragmentoBusquedaCartas$special$$inlined$viewModels$default$3.dex
+FragmentoBusquedaCartas$special$$inlined$viewModels$default$4.dex
+FragmentoBusquedaCartas$special$$inlined$viewModels$default$5.dex
+FragmentoBusquedaCartas.dex
+FragmentoBusquedaCartasDirections.dex
+FragmentoDetalleCarta$Companion.dex
+FragmentoDetalleCarta$loadImageSequentially$intentar$1.dex
+FragmentoDetalleCarta$onViewCreated$1.dex
+FragmentoDetalleCarta.dex
+
+              20 archivos         81.132 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\project_dex_archive\debug\dexBuilderDebug\out\com\cesar\creamazospoketcg\ui\theme
+
+[.]                                   ThemeKt.dex
+[..]                                  TypeKt.dex
+ColorKt.dex                           
+ThemeKt$CreaMazosPokeTCGTheme$1.dex   
+               4 archivos         12.976 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\project_dex_archive\debug\dexBuilderDebug\out\com\cesar\creamazospoketcg\vm
+
+[.]
+[..]
+EstadoBusqueda$Cargando.dex
+EstadoBusqueda$Error.dex
+EstadoBusqueda$Resultado.dex
+EstadoBusqueda$Vac¡o.dex
+EstadoBusqueda.dex
+VistaModeloBusquedaCartas$buscarCartas$1.dex
+VistaModeloBusquedaCartas$obtenerCartasPorIds$1.dex
+VistaModeloBusquedaCartas.dex
+
+               8 archivos         22.848 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\runtime_symbol_list
+
+[.]                [debug]            
+[..]               [debugAndroidTest] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\runtime_symbol_list\debug
+
+[.]                     [processDebugResources] 
+[..]                    
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\runtime_symbol_list\debug\processDebugResources
+
+[.]     [..]    R.txt   
+               1 archivos        385.432 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\runtime_symbol_list\debugAndroidTest
+
+[.]                                [processDebugAndroidTestResources]
+[..]                               
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\runtime_symbol_list\debugAndroidTest\processDebugAndroidTestResources
+
+[.]     [..]    R.txt   
+               1 archivos             90 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\signing_config_versions
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\signing_config_versions\debug
+
+[.]                               [writeDebugSigningConfigVersions]
+[..]                              
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\signing_config_versions\debug\writeDebugSigningConfigVersions
+
+[.]                            signing-config-versions.json
+[..]                           
+               1 archivos             96 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\source_set_path_map
+
+[.]                [debug]            
+[..]               [debugAndroidTest] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\source_set_path_map\debug
+
+[.]                      [mapDebugSourceSetPaths] 
+[..]                     
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\source_set_path_map\debug\mapDebugSourceSetPaths
+
+[.]            [..]           file-map.txt   
+               1 archivos         13.809 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\source_set_path_map\debugAndroidTest
+
+[.]                                 [mapDebugAndroidTestSourceSetPaths]
+[..]                                
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\source_set_path_map\debugAndroidTest\mapDebugAndroidTestSourceSetPaths
+
+[.]            [..]           file-map.txt   
+               1 archivos          1.134 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\stable_resource_ids_file
+
+[.]                [debug]            
+[..]               [debugAndroidTest] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\stable_resource_ids_file\debug
+
+[.]                     [processDebugResources] 
+[..]                    
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\stable_resource_ids_file\debug\processDebugResources
+
+[.]             [..]            stableIds.txt   
+               1 archivos        454.913 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\stable_resource_ids_file\debugAndroidTest
+
+[.]                                [processDebugAndroidTestResources]
+[..]                               
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\stable_resource_ids_file\debugAndroidTest\processDebugAndroidTestResources
+
+[.]             [..]            stableIds.txt   
+               1 archivos            150 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\sub_project_dex_archive
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\sub_project_dex_archive\debug
+
+[.]               [..]              [dexBuilderDebug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\sub_project_dex_archive\debug\dexBuilderDebug
+
+[.]   [..]  [out] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\sub_project_dex_archive\debug\dexBuilderDebug\out
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\symbol_list_with_package_name
+
+[.]                [debug]            
+[..]               [debugAndroidTest] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\symbol_list_with_package_name\debug
+
+[.]                     [processDebugResources] 
+[..]                    
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\symbol_list_with_package_name\debug\processDebugResources
+
+[.]                   package-aware-r.txt   
+[..]                  
+               1 archivos        230.358 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\symbol_list_with_package_name\debugAndroidTest
+
+[.]                                [processDebugAndroidTestResources]
+[..]                               
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\symbol_list_with_package_name\debugAndroidTest\processDebugAndroidTestResources
+
+[.]                   package-aware-r.txt   
+[..]                  
+               1 archivos             92 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\tmp
+
+[.]        [..]       [manifest] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\tmp\manifest
+
+[.]           [..]          [androidTest] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\tmp\manifest\androidTest
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\tmp\manifest\androidTest\debug
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\validate_signing_config
+
+[.]     [..]    [debug] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\validate_signing_config\debug
+
+[.]                    [validateSigningDebug] 
+[..]                   
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\intermediates\validate_signing_config\debug\validateSigningDebug
+
+[.]  [..] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin
+
+[.]                             [compileDebugKotlin]
+[..]                            [compileDebugUnitTestKotlin]
+[compileDebugAndroidTestKotlin] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugAndroidTestKotlin
+
+[.]                  [cacheable]          [local-state]
+[..]                 [classpath-snapshot] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugAndroidTestKotlin\cacheable
+
+[.]              [caches-jvm]     
+[..]             last-build.bin   
+               1 archivos             18 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugAndroidTestKotlin\cacheable\caches-jvm
+
+[.]       [..]      [inputs]  [jvm]     [lookups] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugAndroidTestKotlin\cacheable\caches-jvm\inputs
+
+[.]                                  source-to-output.tab.len
+[..]                                 source-to-output.tab.values.at
+source-to-output.tab                 source-to-output.tab_i
+source-to-output.tab.keystream       source-to-output.tab_i.len
+source-to-output.tab.keystream.len   
+               7 archivos         41.208 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugAndroidTestKotlin\cacheable\caches-jvm\jvm
+
+[.]      [..]     [kotlin] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugAndroidTestKotlin\cacheable\caches-jvm\jvm\kotlin
+
+[.]
+[..]
+class-attributes.tab
+class-attributes.tab.keystream
+class-attributes.tab.keystream.len
+class-attributes.tab.len
+class-attributes.tab.values.at
+class-attributes.tab_i
+class-attributes.tab_i.len
+class-fq-name-to-source.tab
+class-fq-name-to-source.tab.keystream
+class-fq-name-to-source.tab.keystream.len
+class-fq-name-to-source.tab.len
+class-fq-name-to-source.tab.values.at
+class-fq-name-to-source.tab_i
+class-fq-name-to-source.tab_i.len
+internal-name-to-source.tab
+internal-name-to-source.tab.keystream
+internal-name-to-source.tab.keystream.len
+internal-name-to-source.tab.len
+internal-name-to-source.tab.values.at
+internal-name-to-source.tab_i
+internal-name-to-source.tab_i.len
+proto.tab
+proto.tab.keystream
+proto.tab.keystream.len
+proto.tab.len
+proto.tab.values.at
+proto.tab_i
+proto.tab_i.len
+source-to-classes.tab
+source-to-classes.tab.keystream
+source-to-classes.tab.keystream.len
+source-to-classes.tab.len
+source-to-classes.tab.values.at
+source-to-classes.tab_i
+source-to-classes.tab_i.len
+
+              35 archivos        205.591 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugAndroidTestKotlin\cacheable\caches-jvm\lookups
+
+[.]                            id-to-file.tab.keystream.len
+[..]                           id-to-file.tab.len
+counters.tab                   id-to-file.tab.values.at
+file-to-id.tab                 id-to-file.tab_i.len
+file-to-id.tab.keystream       lookups.tab
+file-to-id.tab.keystream.len   lookups.tab.keystream
+file-to-id.tab.len             lookups.tab.keystream.len
+file-to-id.tab.values.at       lookups.tab.len
+file-to-id.tab_i               lookups.tab.values.at
+file-to-id.tab_i.len           lookups.tab_i
+id-to-file.tab                 lookups.tab_i.len
+id-to-file.tab.keystream       
+              21 archivos         90.775 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugAndroidTestKotlin\classpath-snapshot
+
+[.]                             shrunk-classpath-snapshot.bin
+[..]                            
+               1 archivos          2.499 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugAndroidTestKotlin\local-state
+
+[.]                 [..]                build-history.bin   
+               1 archivos             31 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugKotlin
+
+[.]                  [cacheable]          [local-state]
+[..]                 [classpath-snapshot] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugKotlin\cacheable
+
+[.]              [caches-jvm]     
+[..]             last-build.bin   
+               1 archivos             18 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugKotlin\cacheable\caches-jvm
+
+[.]       [..]      [inputs]  [jvm]     [lookups] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugKotlin\cacheable\caches-jvm\inputs
+
+[.]                                  source-to-output.tab.len
+[..]                                 source-to-output.tab.values.at
+source-to-output.tab                 source-to-output.tab_i
+source-to-output.tab.keystream       source-to-output.tab_i.len
+source-to-output.tab.keystream.len   
+               7 archivos         49.207 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugKotlin\cacheable\caches-jvm\jvm
+
+[.]      [..]     [kotlin] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugKotlin\cacheable\caches-jvm\jvm\kotlin
+
+[.]
+[..]
+class-attributes.tab
+class-attributes.tab.keystream
+class-attributes.tab.keystream.len
+class-attributes.tab.len
+class-attributes.tab.values.at
+class-attributes.tab_i
+class-attributes.tab_i.len
+class-fq-name-to-source.tab
+class-fq-name-to-source.tab.keystream
+class-fq-name-to-source.tab.keystream.len
+class-fq-name-to-source.tab.len
+class-fq-name-to-source.tab.values.at
+class-fq-name-to-source.tab_i
+class-fq-name-to-source.tab_i.len
+internal-name-to-source.tab
+internal-name-to-source.tab.keystream
+internal-name-to-source.tab.keystream.len
+internal-name-to-source.tab.len
+internal-name-to-source.tab.values.at
+internal-name-to-source.tab_i
+internal-name-to-source.tab_i.len
+java-sources-proto-map.tab
+java-sources-proto-map.tab.keystream
+java-sources-proto-map.tab.keystream.len
+java-sources-proto-map.tab.len
+java-sources-proto-map.tab.values.at
+java-sources-proto-map.tab_i
+java-sources-proto-map.tab_i.len
+package-parts.tab
+package-parts.tab.keystream
+package-parts.tab.keystream.len
+package-parts.tab.len
+package-parts.tab.values.at
+package-parts.tab_i
+package-parts.tab_i.len
+proto.tab
+proto.tab.keystream
+proto.tab.keystream.len
+proto.tab.len
+proto.tab.values.at
+proto.tab_i
+proto.tab_i.len
+source-to-classes.tab
+source-to-classes.tab.keystream
+source-to-classes.tab.keystream.len
+source-to-classes.tab.len
+source-to-classes.tab.values.at
+source-to-classes.tab_i
+source-to-classes.tab_i.len
+subtypes.tab
+subtypes.tab.keystream
+subtypes.tab.keystream.len
+subtypes.tab.len
+subtypes.tab.values.at
+subtypes.tab_i
+subtypes.tab_i.len
+supertypes.tab
+supertypes.tab.keystream
+supertypes.tab.keystream.len
+supertypes.tab.len
+supertypes.tab.values.at
+supertypes.tab_i
+supertypes.tab_i.len
+
+              63 archivos        424.289 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugKotlin\cacheable\caches-jvm\lookups
+
+[.]                            id-to-file.tab.len
+[..]                           id-to-file.tab.values.at
+counters.tab                   id-to-file.tab_i
+file-to-id.tab                 id-to-file.tab_i.len
+file-to-id.tab.keystream       lookups.tab
+file-to-id.tab.keystream.len   lookups.tab.keystream
+file-to-id.tab.len             lookups.tab.keystream.len
+file-to-id.tab.values.at       lookups.tab.len
+file-to-id.tab_i               lookups.tab.values.at
+file-to-id.tab_i.len           lookups.tab_i
+id-to-file.tab                 lookups.tab_i.len
+id-to-file.tab.keystream       
+id-to-file.tab.keystream.len   
+              22 archivos        335.447 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugKotlin\classpath-snapshot
+
+[.]                             shrunk-classpath-snapshot.bin
+[..]                            
+               1 archivos         82.226 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugKotlin\local-state
+
+[.]                 [..]                build-history.bin   
+               1 archivos             31 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugUnitTestKotlin
+
+[.]                  [cacheable]          [local-state]
+[..]                 [classpath-snapshot] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugUnitTestKotlin\cacheable
+
+[.]              [caches-jvm]     
+[..]             last-build.bin   
+               1 archivos             18 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugUnitTestKotlin\cacheable\caches-jvm
+
+[.]       [..]      [inputs]  [jvm]     [lookups] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugUnitTestKotlin\cacheable\caches-jvm\inputs
+
+[.]                                  source-to-output.tab.len
+[..]                                 source-to-output.tab.values.at
+source-to-output.tab                 source-to-output.tab_i
+source-to-output.tab.keystream       source-to-output.tab_i.len
+source-to-output.tab.keystream.len   
+               7 archivos         41.191 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugUnitTestKotlin\cacheable\caches-jvm\jvm
+
+[.]      [..]     [kotlin] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugUnitTestKotlin\cacheable\caches-jvm\jvm\kotlin
+
+[.]
+[..]
+class-attributes.tab
+class-attributes.tab.keystream
+class-attributes.tab.keystream.len
+class-attributes.tab.len
+class-attributes.tab.values.at
+class-attributes.tab_i
+class-attributes.tab_i.len
+class-fq-name-to-source.tab
+class-fq-name-to-source.tab.keystream
+class-fq-name-to-source.tab.keystream.len
+class-fq-name-to-source.tab.len
+class-fq-name-to-source.tab.values.at
+class-fq-name-to-source.tab_i
+class-fq-name-to-source.tab_i.len
+internal-name-to-source.tab
+internal-name-to-source.tab.keystream
+internal-name-to-source.tab.keystream.len
+internal-name-to-source.tab.len
+internal-name-to-source.tab.values.at
+internal-name-to-source.tab_i
+internal-name-to-source.tab_i.len
+proto.tab
+proto.tab.keystream
+proto.tab.keystream.len
+proto.tab.len
+proto.tab.values.at
+proto.tab_i
+proto.tab_i.len
+source-to-classes.tab
+source-to-classes.tab.keystream
+source-to-classes.tab.keystream.len
+source-to-classes.tab.len
+source-to-classes.tab.values.at
+source-to-classes.tab_i
+source-to-classes.tab_i.len
+
+              35 archivos        205.547 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugUnitTestKotlin\cacheable\caches-jvm\lookups
+
+[.]                            id-to-file.tab.keystream.len
+[..]                           id-to-file.tab.len
+counters.tab                   id-to-file.tab.values.at
+file-to-id.tab                 id-to-file.tab_i.len
+file-to-id.tab.keystream       lookups.tab
+file-to-id.tab.keystream.len   lookups.tab.keystream
+file-to-id.tab.len             lookups.tab.keystream.len
+file-to-id.tab.values.at       lookups.tab.len
+file-to-id.tab_i               lookups.tab.values.at
+file-to-id.tab_i.len           lookups.tab_i
+id-to-file.tab                 lookups.tab_i.len
+id-to-file.tab.keystream       
+              21 archivos         90.526 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugUnitTestKotlin\classpath-snapshot
+
+[.]                             shrunk-classpath-snapshot.bin
+[..]                            
+               1 archivos            416 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\kotlin\compileDebugUnitTestKotlin\local-state
+
+[.]                 [..]                build-history.bin   
+               1 archivos             31 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\outputs
+
+[.]    [..]   [logs] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\outputs\logs
+
+[.]                                manifest-merger-debug-report.txt
+[..]                               
+               1 archivos        122.713 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp
+
+[.]                         [kotlin-classes]
+[..]                        
+[compileDebugJavaWithJavac] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\compileDebugJavaWithJavac
+
+[.]                             previous-compilation-data.bin
+[..]                            
+               1 archivos         74.145 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes
+
+[.]                [debug]            [debugUnitTest]    
+[..]               [debugAndroidTest] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debug
+
+[.]        [..]       [com]      [META-INF] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debug\com
+
+[.]     [..]    [cesar] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debug\com\cesar
+
+[.]                [..]               [creamazospoketcg] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debug\com\cesar\creamazospoketcg
+
+[.]    [..]   [data] [ui]   [vm]   
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debug\com\cesar\creamazospoketcg\data
+
+[.]          [..]         [model]      [network]    [repository] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debug\com\cesar\creamazospoketcg\data\model
+
+[.]                      Carta.class              ImagenesCarta.class
+[..]                     CartaTCGdexBreve.class   SetInfo.class
+Ataque.class             Habilidad.class          
+               6 archivos         27.880 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debug\com\cesar\creamazospoketcg\data\network
+
+[.]                                  ModuloRed.class
+[..]                                 PokeTcgService$DefaultImpls.class
+AtaqueTCGdex.class                   PokeTcgService.class
+CartaTCGdex.class                    RespuestaCartas.class
+CartaTCGdexBreve.class               RespuestaListaCartasTCGdex.class
+CartaTCGdexCompleta.class            ServicioPokeTcg$DefaultImpls.class
+HabilidadTCGdex.class                ServicioPokeTcg.class
+ImagenesBreves.class                 ServicioTCGdex$DefaultImpls.class
+ImagenesTCGdex.class                 ServicioTCGdex.class
+ModeloCartaBreveKt.class             SetDetalle.class
+ModeloCartaCompletaKt.class          SetTCGdex.class
+ModelosTCGdexKt.class                
+ModuloRed$servicioTCGdex$2.class     
+              22 archivos         77.314 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debug\com\cesar\creamazospoketcg\data\repository
+
+[.]
+[..]
+RepositorioCartas$buscarCartas$1.class
+RepositorioCartas$buscarCartas$2.class
+RepositorioCartas$obtenerCartaPorId$1.class
+RepositorioCartas$obtenerCartaPorId$2.class
+RepositorioCartas$obtenerCartasPorIds$1.class
+RepositorioCartas$obtenerCartasPorIds$2.class
+RepositorioCartas.class
+
+               7 archivos         35.201 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debug\com\cesar\creamazospoketcg\ui
+
+[.]                  MainActivity.class   
+[..]                 [search]             
+[auth]               [theme]              
+               1 archivos          1.369 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debug\com\cesar\creamazospoketcg\ui\auth
+
+[.]
+[..]
+LoginFragment$aplicarClickSoloEnRegistrate$clickable$1.class
+LoginFragment.class
+RecuperarPasswordFragment$enviarCorreo$1.class
+RecuperarPasswordFragment.class
+RegistroFragment.class
+
+               5 archivos         33.210 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debug\com\cesar\creamazospoketcg\ui\search
+
+[.]
+[..]
+ActividadHostBusqueda.class
+AdaptadorCartas$1.class
+AdaptadorCartas$CartaViewHolder.class
+AdaptadorCartas$Companion.class
+AdaptadorCartas.class
+FragmentoBusquedaCartas$onViewCreated$1.class
+FragmentoBusquedaCartas$onViewCreated$4$1$1.class
+FragmentoBusquedaCartas$onViewCreated$4$1.class
+FragmentoBusquedaCartas$onViewCreated$4.class
+FragmentoBusquedaCartas$special$$inlined$viewModels$default$1.class
+FragmentoBusquedaCartas$special$$inlined$viewModels$default$2.class
+FragmentoBusquedaCartas$special$$inlined$viewModels$default$3.class
+FragmentoBusquedaCartas$special$$inlined$viewModels$default$4.class
+FragmentoBusquedaCartas$special$$inlined$viewModels$default$5.class
+FragmentoBusquedaCartas.class
+FragmentoDetalleCarta$Companion.class
+FragmentoDetalleCarta$loadImageSequentially$intentar$1.class
+FragmentoDetalleCarta$onViewCreated$1.class
+FragmentoDetalleCarta.class
+
+              19 archivos         91.421 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debug\com\cesar\creamazospoketcg\ui\theme
+
+[.]                                     ThemeKt.class
+[..]                                    TypeKt.class
+ColorKt.class                           
+ThemeKt$CreaMazosPokeTCGTheme$1.class   
+               4 archivos         12.750 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debug\com\cesar\creamazospoketcg\vm
+
+[.]
+[..]
+EstadoBusqueda$Cargando.class
+EstadoBusqueda$Error.class
+EstadoBusqueda$Resultado.class
+EstadoBusqueda$Vac¡o.class
+EstadoBusqueda.class
+VistaModeloBusquedaCartas$buscarCartas$1.class
+VistaModeloBusquedaCartas$obtenerCartasPorIds$1.class
+VistaModeloBusquedaCartas.class
+
+               8 archivos         25.486 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debug\META-INF
+
+[.]                       app_debug.kotlin_module   
+[..]                      
+               1 archivos            192 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debugAndroidTest
+
+[.]        [..]       [com]      [META-INF] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debugAndroidTest\com
+
+[.]     [..]    [cesar] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debugAndroidTest\com\cesar
+
+[.]                [..]               [creamazospoketcg] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debugAndroidTest\com\cesar\creamazospoketcg
+
+[.]                             ExampleInstrumentedTest.class
+[..]                            
+               1 archivos          1.456 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debugAndroidTest\META-INF
+
+[.]                                  app_debugAndroidTest.kotlin_module
+[..]                                 
+               1 archivos             24 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debugUnitTest
+
+[.]        [..]       [com]      [META-INF] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debugUnitTest\com
+
+[.]     [..]    [cesar] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debugUnitTest\com\cesar
+
+[.]                [..]               [creamazospoketcg] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debugUnitTest\com\cesar\creamazospoketcg
+
+[.]                     ExampleUnitTest.class   
+[..]                    
+               1 archivos            923 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\build\tmp\kotlin-classes\debugUnitTest\META-INF
+
+[.]                               app_debugUnitTest.kotlin_module
+[..]                              
+               1 archivos             24 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src
+
+[.]           [androidTest] [test]        
+[..]          [main]        
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\androidTest
+
+[.]    [..]   [java] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\androidTest\java
+
+[.]   [..]  [com] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\androidTest\java\com
+
+[.]     [..]    [cesar] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\androidTest\java\com\cesar
+
+[.]                [..]               [creamazospoketcg] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\androidTest\java\com\cesar\creamazospoketcg
+
+[.]                          ExampleInstrumentedTest.kt
+[..]                         
+               1 archivos            679 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main
+
+[.]                        [java]
+[..]                       [res]
+AndroidManifest.xml        
+AndroidManifest_BACK.TXT   
+               2 archivos          2.650 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java
+
+[.]   [..]  [com] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com
+
+[.]     [..]    [cesar] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar
+
+[.]                [..]               [creamazospoketcg] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg
+
+[.]               [data]            [ui]              
+[..]              MainActivity.kt   [vm]              
+               1 archivos            532 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\data
+
+[.]          [..]         [model]      [network]    [repository] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\data\model
+
+[.]        [..]       Carta.kt   
+               1 archivos          1.417 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\data\network
+
+[.]                      ModeloCartaCompleta.kt   ServicioPokeTcg.kt
+[..]                     ModelosTCGdex.kt         ServicioTCGdex.kt
+ApiCartasPokemonTcg.kt   ModuloRed.kt             
+ModeloCartaBreve.kt      RespuestaCartas.kt       
+               8 archivos         10.253 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\data\repository
+
+[.]                    RepositorioCartas.kt   
+[..]                   
+               1 archivos          4.621 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\ui
+
+[.]      [..]     [auth]   [search] [theme]  
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\ui\auth
+
+[.]                            RecuperarPasswordFragment.kt
+[..]                           RegistroFragment.kt
+LoginFragment.kt               
+               3 archivos         10.970 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\ui\search
+
+[.]                          FragmentoBusquedaCartas.kt
+[..]                         FragmentoDetalleCarta.kt
+ActividadHostBusqueda.kt     
+AdaptadorCartas.kt           
+               4 archivos         23.609 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\ui\theme
+
+[.]        [..]       Color.kt   Theme.kt   Type.kt    
+               3 archivos          2.995 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\vm
+
+[.]                            VistaModeloBusquedaCartas.kt
+[..]                           
+               1 archivos          4.538 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res
+
+[.]                 [mipmap-anydpi-v26] [mipmap-xxhdpi]     [values-night]
+[..]                [mipmap-hdpi]       [mipmap-xxxhdpi]    [xml]
+[drawable]          [mipmap-mdpi]       [navigation]        
+[layout]            [mipmap-xhdpi]      [values]            
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\drawable
+
+[.]                          ic_launcher_background.xml
+[..]                         ic_launcher_foreground.xml
+bg_button_gradient.xml       logoappbig.png
+bg_google_button.xml         placeholder_carta.png
+fondo_chip_tipo.xml          placeholder_carta_png.xml
+google24x24.png              
+ic_google_logo.xml           
+              10 archivos         93.598 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\layout
+
+[.]                               fragment_login.xml
+[..]                              fragment_perfil.xml
+activity_host_busqueda.xml        fragment_recuperar_password.xml
+activity_main.xml                 fragment_registro.xml
+fragment_busqueda_cartas.xml      item_carta.xml
+fragment_detalle_carta.xml        
+               9 archivos         34.068 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\mipmap-anydpi-v26
+
+[.]                     ic_launcher.xml         
+[..]                    ic_launcher_round.xml   
+               2 archivos            686 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\mipmap-hdpi
+
+[.]                      ic_launcher.webp         
+[..]                     ic_launcher_round.webp   
+               2 archivos          4.302 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\mipmap-mdpi
+
+[.]                      ic_launcher.webp         
+[..]                     ic_launcher_round.webp   
+               2 archivos          2.754 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\mipmap-xhdpi
+
+[.]                      ic_launcher.webp         
+[..]                     ic_launcher_round.webp   
+               2 archivos          5.818 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\mipmap-xxhdpi
+
+[.]                      ic_launcher.webp         
+[..]                     ic_launcher_round.webp   
+               2 archivos          8.798 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\mipmap-xxxhdpi
+
+[.]                      ic_launcher.webp         
+[..]                     ic_launcher_round.webp   
+               2 archivos         11.622 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\navigation
+
+[.]             [..]            nav_graph.xml   
+               1 archivos          2.598 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\values
+
+[.]           colors.xml    styles.xml    
+[..]          strings.xml   themes.xml    
+               4 archivos          6.122 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\values-night
+
+[.]          [..]         themes.xml   
+               1 archivos            234 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\xml
+
+[.]                         data_extraction_rules.xml
+[..]                        
+backup_rules.xml            
+               2 archivos          1.029 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\test
+
+[.]    [..]   [java] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\test\java
+
+[.]   [..]  [com] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\test\java\com
+
+[.]     [..]    [cesar] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\test\java\com\cesar
+
+[.]                [..]               [creamazospoketcg] 
+               0 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\test\java\com\cesar\creamazospoketcg
+
+[.]                  ExampleUnitTest.kt   
+[..]                 
+               1 archivos            350 bytes
+
+     Total de archivos en la lista:
+            1206 archivos    125.762.068 bytes
+            1829 dirs  116.675.203.072 bytes libres

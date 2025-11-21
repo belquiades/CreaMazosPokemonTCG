@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "461282729144",
+    "project_id": "creamazospoketcg-becf5",
+    "storage_bucket": "creamazospoketcg-becf5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461282729144:android:e5a63165a01d010d43a84d",
+        "android_client_info": {
+          "package_name": "com.cesar.creamazospoketcg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461282729144-jhnlb5sf02uvcs345rdlg0o3ese0bit0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cesar.creamazospoketcg",
+            "certificate_hash": "82ba7e1c29a3f5951418c2f8a7b611b5062c3bef"
+          }
+        },
+        {
+          "client_id": "461282729144-mje6hee4or18cs9478j5nud34iprjo4s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoTHhcAPAUWXnxrZjXGz3aF02LCFFrahk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461282729144-mje6hee4or18cs9478j5nud34iprjo4s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

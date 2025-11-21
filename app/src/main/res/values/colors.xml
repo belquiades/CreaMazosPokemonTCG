@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colores que usa la aplicación y alguna otra cosa más -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="primaryColor">#6A00F4</color>
+    <color name="primaryDarkColor">#3A00C9</color>
+    <color name="accentColor">#00BCD4</color>
+    <color name="purple_700">#4A148C</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="teal_200">#03DAC5</color>
+    <color name="gradient_start">#6A00F4</color>
+    <color name="gradient_end">#3A00C9</color>
+    <color name="line_gray">#DDDDDD</color>
+    <color name="gray_400">#9E9E9E</color>
+    <color name="gray_600">#757575</color>
+    <color name="error_red">#D32F2F</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="onSurface">#000000</color>
+    <color name="transparente">#00000000</color>
+</resources>

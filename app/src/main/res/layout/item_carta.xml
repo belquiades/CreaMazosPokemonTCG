@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <!-- Imagen pequeña de la carta -->
+    <ImageView
+        android:id="@+id/ivImagenCarta"
+        android:layout_width="72dp"
+        android:layout_height="96dp"
+        android:contentDescription="@string/imagen_carta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="centerCrop" />
+
+    <!-- Título / nombre -->
+    <TextView
+        android:id="@+id/tvNombreCarta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Nombre Carta"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/ivImagenCarta"
+        app:layout_constraintTop_toTopOf="@id/ivImagenCarta"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingStart="8dp" />
+
+    <!-- Subtítulo: tipo / rareza -->
+    <TextView
+        android:id="@+id/tvSubtitulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Tipo — Rareza"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@id/tvNombreCarta"
+        app:layout_constraintTop_toBottomOf="@id/tvNombreCarta"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingTop="4dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

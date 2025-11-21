@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+      Tema principal de la app.
+      He ajustado colorPrimary/Variant para evitar que MaterialComponents
+      coloree botones con morado por defecto.
+      Además declaro un estilo concreto para botones outlined (btn Google)
+      que fuerza background transparente y evita tintados automáticos.
+    -->
+
+    <!-- Colores base usados por el tema (si no los tienes definidos en colors.xml,
+         asegúrate de añadirlos en res/values/colors.xml) -->
+    <style name="Theme.CreaMazosPokeTCG" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Usamos rojo como color primario (coherente con el degradado del botón) -->
+        <item name="colorPrimary">#FF0000</item>
+        <item name="colorPrimaryVariant">#863A3A</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+
+        <!-- Secondary puede quedar a elección -->
+        <item name="colorSecondary">#03DAC5</item>
+
+        <!-- Evitamos título/ActionBar si usas Activity sin barra -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <!-- Indicar estilos concretos para botones: -->
+        <!-- 1) Estilo por defecto para botones Filled (puedes mantenerlo o personalizar) -->
+        <item name="materialButtonStyle">@style/Widget.CreaMazosPokeTCG.Button.Filled</item>
+
+        <!-- 2) Estilo para botones Outlined (usar por ejemplo en el botón Google) -->
+        <item name="materialButtonOutlinedStyle">@style/Widget.CreaMazosPokeTCG.Button.Outlined</item>
+
+        <!-- 3) (Opcional) Evitar que iconos hereden tint automáticos -->
+        <item name="iconTint">@android:color/transparent</item>
+    </style>
+
+    <!-- Estilo para botones tipo FILLED (botón principal).
+         No forzamos backgroundTint aquí porque usamos un drawable (bg_button_gradient)
+         en el layout para el botón "Continuar". Esto evita que theme lo sobreescriba. -->
+    <style name="Widget.CreaMazosPokeTCG.Button.Filled" parent="Widget.MaterialComponents.Button">
+        <!-- Mantendremos comportamiento por defecto; si quieres ajustar
+             padding, corner radius, elevation, lo puedes hacer aquí -->
+        <item name="android:textAllCaps">false</item>
+        <item name="cornerRadius">10dp</item>
+    </style>
+
+    <!-- Estilo para botones OUTLINED (botón Google). -->
+    <style name="Widget.CreaMazosPokeTCG.Button.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <!-- Fondo transparente explícito -->
+        <item name="android:background">@android:color/transparent</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+
+        <!-- Forzamos que el icono no reciba tintado del tema -->
+        <!-- @null a veces funciona; si da problemas usa @android:color/transparent -->
+        <item name="iconTint">@android:color/transparent</item>
+
+        <!-- Borde gris claro por defecto (si quieres otro color, cámbialo) -->
+        <item name="strokeColor">@color/line_gray</item>
+        <item name="strokeWidth">1dp</item>
+
+        <!-- Texto en gris oscuro -->
+        <item name="android:textColor">@color/gray_600</item>
+
+        <!-- Evitar que Android cambie el textAllCaps -->
+        <item name="android:textAllCaps">false</item>
+        <item name="cornerRadius">10dp</item>
+    </style>
+
+</resources>
