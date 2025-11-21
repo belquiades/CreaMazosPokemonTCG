@@ -1,0 +1,632 @@
+Listado de rutas de carpetas
+El número de serie del volumen es 8680-DF3D
+C:.
++---.gradle
+¦   +---8.13
+¦   ¦   +---checksums
+¦   ¦   +---executionHistory
+¦   ¦   +---expanded
+¦   ¦   +---fileChanges
+¦   ¦   +---fileHashes
+¦   ¦   +---vcsMetadata
+¦   +---buildOutputCleanup
+¦   +---kotlin
+¦   ¦   +---errors
+¦   ¦   +---sessions
+¦   +---vcs-1
++---.idea
+¦   +---caches
+¦   +---inspectionProfiles
++---.kotlin
+¦   +---errors
+¦   +---sessions
++---app
+¦   +---build
+¦   ¦   +---generated
+¦   ¦   ¦   +---ap_generated_sources
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---out
+¦   ¦   ¦   +---data_binding_base_class_source_out
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦   ¦   +---out
+¦   ¦   ¦   ¦   ¦       +---com
+¦   ¦   ¦   ¦   ¦           +---cesar
+¦   ¦   ¦   ¦   ¦               +---creamazospoketcg
+¦   ¦   ¦   ¦   ¦                   +---databinding
+¦   ¦   ¦   ¦   +---debugAndroidTest
+¦   ¦   ¦   ¦       +---out
+¦   ¦   ¦   +---res
+¦   ¦   ¦   ¦   +---pngs
+¦   ¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦   +---processDebugGoogleServices
+¦   ¦   ¦   ¦   ¦   +---values
+¦   ¦   ¦   ¦   +---resValues
+¦   ¦   ¦   ¦       +---androidTest
+¦   ¦   ¦   ¦       ¦   +---debug
+¦   ¦   ¦   ¦       +---debug
+¦   ¦   ¦   +---source
+¦   ¦   ¦       +---navigation-args
+¦   ¦   ¦           +---debug
+¦   ¦   ¦               +---com
+¦   ¦   ¦                   +---cesar
+¦   ¦   ¦                       +---creamazospoketcg
+¦   ¦   ¦                           +---ui
+¦   ¦   ¦                               +---auth
+¦   ¦   ¦                               +---search
+¦   ¦   +---intermediates
+¦   ¦   ¦   +---aar_metadata_check
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦   ¦   +---checkDebugAarMetadata
+¦   ¦   ¦   ¦   +---debugAndroidTest
+¦   ¦   ¦   ¦       +---checkDebugAndroidTestAarMetadata
+¦   ¦   ¦   +---annotation_processor_list
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦   ¦   +---javaPreCompileDebug
+¦   ¦   ¦   ¦   +---debugAndroidTest
+¦   ¦   ¦   ¦   ¦   +---javaPreCompileDebugAndroidTest
+¦   ¦   ¦   ¦   +---debugUnitTest
+¦   ¦   ¦   ¦       +---javaPreCompileDebugUnitTest
+¦   ¦   ¦   +---apk
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   +---apk_ide_redirect_file
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---createDebugApkListingFileRedirect
+¦   ¦   ¦   +---app_metadata
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---writeDebugAppMetadata
+¦   ¦   ¦   +---assets
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---mergeDebugAssets
+¦   ¦   ¦   +---compatible_screen_manifest
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---createDebugCompatibleScreenManifests
+¦   ¦   ¦   +---compile_and_runtime_not_namespaced_r_class_jar
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦   ¦   +---processDebugResources
+¦   ¦   ¦   ¦   +---debugAndroidTest
+¦   ¦   ¦   ¦       +---processDebugAndroidTestResources
+¦   ¦   ¦   +---compile_app_classes_jar
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---bundleDebugClassesToCompileJar
+¦   ¦   ¦   +---compressed_assets
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---compressDebugAssets
+¦   ¦   ¦   ¦           +---out
+¦   ¦   ¦   +---data_binding_base_class_log_artifact
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦   ¦   +---dataBindingGenBaseClassesDebug
+¦   ¦   ¦   ¦   ¦       +---out
+¦   ¦   ¦   ¦   +---debugAndroidTest
+¦   ¦   ¦   ¦       +---dataBindingGenBaseClassesDebugAndroidTest
+¦   ¦   ¦   ¦           +---out
+¦   ¦   ¦   +---data_binding_dependency_artifacts
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦   ¦   +---dataBindingMergeDependencyArtifactsDebug
+¦   ¦   ¦   ¦   +---debugAndroidTest
+¦   ¦   ¦   ¦       +---dataBindingMergeDependencyArtifactsDebugAndroidTest
+¦   ¦   ¦   +---data_binding_layout_info_type_merge
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦   ¦   +---mergeDebugResources
+¦   ¦   ¦   ¦   ¦       +---out
+¦   ¦   ¦   ¦   +---debugAndroidTest
+¦   ¦   ¦   ¦       +---mergeDebugAndroidTestResources
+¦   ¦   ¦   ¦           +---out
+¦   ¦   ¦   +---data_binding_layout_info_type_package
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---packageDebugResources
+¦   ¦   ¦   ¦           +---out
+¦   ¦   ¦   +---desugar_graph
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---dexBuilderDebug
+¦   ¦   ¦   ¦           +---out
+¦   ¦   ¦   ¦               +---currentProject
+¦   ¦   ¦   ¦               ¦   +---dirs_bucket_0
+¦   ¦   ¦   ¦               ¦   +---dirs_bucket_1
+¦   ¦   ¦   ¦               ¦   +---dirs_bucket_2
+¦   ¦   ¦   ¦               ¦   +---dirs_bucket_3
+¦   ¦   ¦   ¦               ¦   +---dirs_bucket_4
+¦   ¦   ¦   ¦               ¦   +---dirs_bucket_5
+¦   ¦   ¦   ¦               ¦   +---jar_af746f915ce0c01b630e26ad853613dfc5b3156ef36898f5d7f9e65b5d1a5311_bucket_0
+¦   ¦   ¦   ¦               ¦   +---jar_af746f915ce0c01b630e26ad853613dfc5b3156ef36898f5d7f9e65b5d1a5311_bucket_1
+¦   ¦   ¦   ¦               ¦   +---jar_af746f915ce0c01b630e26ad853613dfc5b3156ef36898f5d7f9e65b5d1a5311_bucket_2
+¦   ¦   ¦   ¦               ¦   +---jar_af746f915ce0c01b630e26ad853613dfc5b3156ef36898f5d7f9e65b5d1a5311_bucket_3
+¦   ¦   ¦   ¦               ¦   +---jar_af746f915ce0c01b630e26ad853613dfc5b3156ef36898f5d7f9e65b5d1a5311_bucket_4
+¦   ¦   ¦   ¦               ¦   +---jar_af746f915ce0c01b630e26ad853613dfc5b3156ef36898f5d7f9e65b5d1a5311_bucket_5
+¦   ¦   ¦   ¦               +---externalLibs
+¦   ¦   ¦   ¦               +---mixedScopes
+¦   ¦   ¦   ¦               +---otherProjects
+¦   ¦   ¦   +---dex
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---mergeExtDexDebug
+¦   ¦   ¦   ¦       +---mergeLibDexDebug
+¦   ¦   ¦   ¦       ¦   +---0
+¦   ¦   ¦   ¦       ¦   +---1
+¦   ¦   ¦   ¦       ¦   +---10
+¦   ¦   ¦   ¦       ¦   +---11
+¦   ¦   ¦   ¦       ¦   +---12
+¦   ¦   ¦   ¦       ¦   +---13
+¦   ¦   ¦   ¦       ¦   +---14
+¦   ¦   ¦   ¦       ¦   +---15
+¦   ¦   ¦   ¦       ¦   +---2
+¦   ¦   ¦   ¦       ¦   +---3
+¦   ¦   ¦   ¦       ¦   +---4
+¦   ¦   ¦   ¦       ¦   +---5
+¦   ¦   ¦   ¦       ¦   +---6
+¦   ¦   ¦   ¦       ¦   +---7
+¦   ¦   ¦   ¦       ¦   +---8
+¦   ¦   ¦   ¦       ¦   +---9
+¦   ¦   ¦   ¦       +---mergeProjectDexDebug
+¦   ¦   ¦   ¦           +---0
+¦   ¦   ¦   ¦           +---1
+¦   ¦   ¦   ¦           +---10
+¦   ¦   ¦   ¦           +---11
+¦   ¦   ¦   ¦           +---12
+¦   ¦   ¦   ¦           +---13
+¦   ¦   ¦   ¦           +---14
+¦   ¦   ¦   ¦           +---15
+¦   ¦   ¦   ¦           +---2
+¦   ¦   ¦   ¦           +---3
+¦   ¦   ¦   ¦           +---4
+¦   ¦   ¦   ¦           +---5
+¦   ¦   ¦   ¦           +---6
+¦   ¦   ¦   ¦           +---7
+¦   ¦   ¦   ¦           +---8
+¦   ¦   ¦   ¦           +---9
+¦   ¦   ¦   +---dex_archive_input_jar_hashes
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---dexBuilderDebug
+¦   ¦   ¦   +---dex_number_of_buckets_file
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---dexBuilderDebug
+¦   ¦   ¦   +---duplicate_classes_check
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---checkDebugDuplicateClasses
+¦   ¦   ¦   +---external_file_lib_dex_archives
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---desugarDebugFileDependencies
+¦   ¦   ¦   +---external_libs_dex_archive
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---dexBuilderDebug
+¦   ¦   ¦   ¦           +---out
+¦   ¦   ¦   +---external_libs_dex_archive_with_artifact_transforms
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---dexBuilderDebug
+¦   ¦   ¦   ¦           +---out
+¦   ¦   ¦   +---global_synthetics_dex
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---mergeDebugGlobalSynthetics
+¦   ¦   ¦   +---global_synthetics_external_lib
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---dexBuilderDebug
+¦   ¦   ¦   ¦           +---out
+¦   ¦   ¦   +---global_synthetics_external_libs_artifact_transform
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---dexBuilderDebug
+¦   ¦   ¦   ¦           +---out
+¦   ¦   ¦   +---global_synthetics_file_lib
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---desugarDebugFileDependencies
+¦   ¦   ¦   +---global_synthetics_mixed_scope
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---dexBuilderDebug
+¦   ¦   ¦   ¦           +---out
+¦   ¦   ¦   +---global_synthetics_project
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---dexBuilderDebug
+¦   ¦   ¦   ¦           +---out
+¦   ¦   ¦   +---global_synthetics_subproject
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---dexBuilderDebug
+¦   ¦   ¦   ¦           +---out
+¦   ¦   ¦   +---incremental
+¦   ¦   ¦   ¦   +---dataBindingGenBaseClassesDebug
+¦   ¦   ¦   ¦   +---dataBindingGenBaseClassesDebugAndroidTest
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦   ¦   +---mergeDebugResources
+¦   ¦   ¦   ¦   ¦   ¦   +---merged.dir
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-af
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-am
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-ar
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-as
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-az
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-b+es+419
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-b+sr+Latn
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-be
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-bg
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-bn
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-bs
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-ca
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-cs
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-da
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-de
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-el
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-en-rAU
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-en-rCA
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-en-rGB
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-en-rIN
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-en-rXC
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-es
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-es-rUS
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-et
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-eu
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-fa
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-fi
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-fr
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-fr-rCA
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-gl
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-gu
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-h320dp-port-v13
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-h360dp-land-v13
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-h480dp-land-v13
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-h550dp-port-v13
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-h720dp-v13
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-hdpi-v4
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-hi
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-hr
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-hu
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-hy
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-in
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-is
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-it
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-iw
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-ja
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-ka
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-kk
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-km
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-kn
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-ko
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-ky
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-land
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-large-v4
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-ldltr-v21
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-ldrtl-v17
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-lo
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-lt
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-lv
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-mk
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-ml
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-mn
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-mr
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-ms
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-my
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-nb
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-ne
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-night-v8
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-nl
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-or
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-pa
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-pl
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-port
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-pt
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-pt-rBR
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-pt-rPT
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-ro
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-ru
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-si
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-sk
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-sl
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-small-v4
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-sq
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-sr
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-sv
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-sw
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-sw600dp-v13
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-ta
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-te
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-th
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-tl
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-tr
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-uk
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-ur
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-uz
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-v16
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-v17
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-v18
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-v21
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-v22
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-v23
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-v24
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-v25
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-v26
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-v28
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-v31
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-v34
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-vi
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-w320dp-land-v13
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-w360dp-port-v13
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-w400dp-port-v13
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-w600dp-land-v13
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-watch-v20
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-watch-v21
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-xlarge-v4
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-zh-rCN
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-zh-rHK
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-zh-rTW
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---values-zu
+¦   ¦   ¦   ¦   ¦   ¦   +---stripped.dir
+¦   ¦   ¦   ¦   ¦   ¦       +---layout
+¦   ¦   ¦   ¦   ¦   +---packageDebugResources
+¦   ¦   ¦   ¦   ¦       +---merged.dir
+¦   ¦   ¦   ¦   ¦       +---stripped.dir
+¦   ¦   ¦   ¦   ¦           +---layout
+¦   ¦   ¦   ¦   +---debug-mergeJavaRes
+¦   ¦   ¦   ¦   ¦   +---zip-cache
+¦   ¦   ¦   ¦   +---debugAndroidTest
+¦   ¦   ¦   ¦   ¦   +---mergeDebugAndroidTestResources
+¦   ¦   ¦   ¦   ¦       +---merged.dir
+¦   ¦   ¦   ¦   ¦       ¦   +---values
+¦   ¦   ¦   ¦   ¦       ¦   +---values-v18
+¦   ¦   ¦   ¦   ¦       ¦   +---values-v21
+¦   ¦   ¦   ¦   ¦       ¦   +---values-v28
+¦   ¦   ¦   ¦   ¦       +---stripped.dir
+¦   ¦   ¦   ¦   +---generateSafeArgsDebug
+¦   ¦   ¦   ¦   +---mergeDebugAssets
+¦   ¦   ¦   ¦   +---mergeDebugJniLibFolders
+¦   ¦   ¦   ¦   +---mergeDebugShaders
+¦   ¦   ¦   ¦   +---packageDebug
+¦   ¦   ¦   ¦       +---tmp
+¦   ¦   ¦   ¦           +---debug
+¦   ¦   ¦   ¦               +---zip-cache
+¦   ¦   ¦   +---javac
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---compileDebugJavaWithJavac
+¦   ¦   ¦   ¦           +---classes
+¦   ¦   ¦   ¦               +---com
+¦   ¦   ¦   ¦                   +---cesar
+¦   ¦   ¦   ¦                       +---creamazospoketcg
+¦   ¦   ¦   ¦                           +---databinding
+¦   ¦   ¦   ¦                           +---ui
+¦   ¦   ¦   ¦                               +---auth
+¦   ¦   ¦   ¦                               +---search
+¦   ¦   ¦   +---java_res
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦   ¦   +---processDebugJavaRes
+¦   ¦   ¦   ¦   ¦       +---out
+¦   ¦   ¦   ¦   ¦           +---com
+¦   ¦   ¦   ¦   ¦           ¦   +---cesar
+¦   ¦   ¦   ¦   ¦           ¦       +---creamazospoketcg
+¦   ¦   ¦   ¦   ¦           ¦           +---data
+¦   ¦   ¦   ¦   ¦           ¦           ¦   +---model
+¦   ¦   ¦   ¦   ¦           ¦           ¦   +---network
+¦   ¦   ¦   ¦   ¦           ¦           ¦   +---repository
+¦   ¦   ¦   ¦   ¦           ¦           +---ui
+¦   ¦   ¦   ¦   ¦           ¦           ¦   +---auth
+¦   ¦   ¦   ¦   ¦           ¦           ¦   +---search
+¦   ¦   ¦   ¦   ¦           ¦           ¦   +---theme
+¦   ¦   ¦   ¦   ¦           ¦           +---vm
+¦   ¦   ¦   ¦   ¦           +---META-INF
+¦   ¦   ¦   ¦   +---debugUnitTest
+¦   ¦   ¦   ¦       +---processDebugUnitTestJavaRes
+¦   ¦   ¦   ¦           +---out
+¦   ¦   ¦   ¦               +---com
+¦   ¦   ¦   ¦               ¦   +---cesar
+¦   ¦   ¦   ¦               ¦       +---creamazospoketcg
+¦   ¦   ¦   ¦               +---META-INF
+¦   ¦   ¦   +---local_only_symbol_list
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---parseDebugLocalResources
+¦   ¦   ¦   +---manifest_merge_blame_file
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦   ¦   +---processDebugMainManifest
+¦   ¦   ¦   ¦   +---debugAndroidTest
+¦   ¦   ¦   ¦       +---processDebugAndroidTestManifest
+¦   ¦   ¦   +---merged_java_res
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---mergeDebugJavaResource
+¦   ¦   ¦   +---merged_jni_libs
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---mergeDebugJniLibFolders
+¦   ¦   ¦   ¦           +---out
+¦   ¦   ¦   +---merged_manifest
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---processDebugMainManifest
+¦   ¦   ¦   +---merged_manifests
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---processDebugManifest
+¦   ¦   ¦   +---merged_res
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦   ¦   +---mergeDebugResources
+¦   ¦   ¦   ¦   +---debugAndroidTest
+¦   ¦   ¦   ¦       +---mergeDebugAndroidTestResources
+¦   ¦   ¦   +---merged_res_blame_folder
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦   ¦   +---mergeDebugResources
+¦   ¦   ¦   ¦   ¦       +---out
+¦   ¦   ¦   ¦   ¦           +---multi-v2
+¦   ¦   ¦   ¦   ¦           +---single
+¦   ¦   ¦   ¦   +---debugAndroidTest
+¦   ¦   ¦   ¦       +---mergeDebugAndroidTestResources
+¦   ¦   ¦   ¦           +---out
+¦   ¦   ¦   ¦               +---multi-v2
+¦   ¦   ¦   +---merged_shaders
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---mergeDebugShaders
+¦   ¦   ¦   ¦           +---out
+¦   ¦   ¦   +---mixed_scope_dex_archive
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---dexBuilderDebug
+¦   ¦   ¦   ¦           +---out
+¦   ¦   ¦   +---navigation_json
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---extractDeepLinksDebug
+¦   ¦   ¦   +---nested_resources_validation_report
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦   ¦   +---generateDebugResources
+¦   ¦   ¦   ¦   +---debugAndroidTest
+¦   ¦   ¦   ¦       +---generateDebugAndroidTestResources
+¦   ¦   ¦   +---packaged_manifests
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦   ¦   +---processDebugManifestForPackage
+¦   ¦   ¦   ¦   +---debugAndroidTest
+¦   ¦   ¦   ¦       +---processDebugAndroidTestManifest
+¦   ¦   ¦   +---packaged_res
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---packageDebugResources
+¦   ¦   ¦   ¦           +---drawable
+¦   ¦   ¦   ¦           +---layout
+¦   ¦   ¦   ¦           +---mipmap-anydpi-v26
+¦   ¦   ¦   ¦           +---mipmap-hdpi-v4
+¦   ¦   ¦   ¦           +---mipmap-mdpi-v4
+¦   ¦   ¦   ¦           +---mipmap-xhdpi-v4
+¦   ¦   ¦   ¦           +---mipmap-xxhdpi-v4
+¦   ¦   ¦   ¦           +---mipmap-xxxhdpi-v4
+¦   ¦   ¦   ¦           +---navigation
+¦   ¦   ¦   ¦           +---values
+¦   ¦   ¦   ¦           +---values-night-v8
+¦   ¦   ¦   ¦           +---xml
+¦   ¦   ¦   +---processed_res
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦   ¦   +---processDebugResources
+¦   ¦   ¦   ¦   ¦       +---out
+¦   ¦   ¦   ¦   +---debugAndroidTest
+¦   ¦   ¦   ¦       +---processDebugAndroidTestResources
+¦   ¦   ¦   ¦           +---out
+¦   ¦   ¦   +---project_dex_archive
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---dexBuilderDebug
+¦   ¦   ¦   ¦           +---out
+¦   ¦   ¦   ¦               +---com
+¦   ¦   ¦   ¦                   +---cesar
+¦   ¦   ¦   ¦                       +---creamazospoketcg
+¦   ¦   ¦   ¦                           +---data
+¦   ¦   ¦   ¦                           ¦   +---model
+¦   ¦   ¦   ¦                           ¦   +---network
+¦   ¦   ¦   ¦                           ¦   +---repository
+¦   ¦   ¦   ¦                           +---databinding
+¦   ¦   ¦   ¦                           +---ui
+¦   ¦   ¦   ¦                           ¦   +---auth
+¦   ¦   ¦   ¦                           ¦   +---search
+¦   ¦   ¦   ¦                           ¦   +---theme
+¦   ¦   ¦   ¦                           +---vm
+¦   ¦   ¦   +---runtime_symbol_list
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦   ¦   +---processDebugResources
+¦   ¦   ¦   ¦   +---debugAndroidTest
+¦   ¦   ¦   ¦       +---processDebugAndroidTestResources
+¦   ¦   ¦   +---signing_config_versions
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---writeDebugSigningConfigVersions
+¦   ¦   ¦   +---source_set_path_map
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦   ¦   +---mapDebugSourceSetPaths
+¦   ¦   ¦   ¦   +---debugAndroidTest
+¦   ¦   ¦   ¦       +---mapDebugAndroidTestSourceSetPaths
+¦   ¦   ¦   +---stable_resource_ids_file
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦   ¦   +---processDebugResources
+¦   ¦   ¦   ¦   +---debugAndroidTest
+¦   ¦   ¦   ¦       +---processDebugAndroidTestResources
+¦   ¦   ¦   +---sub_project_dex_archive
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦       +---dexBuilderDebug
+¦   ¦   ¦   ¦           +---out
+¦   ¦   ¦   +---symbol_list_with_package_name
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦   ¦   +---processDebugResources
+¦   ¦   ¦   ¦   +---debugAndroidTest
+¦   ¦   ¦   ¦       +---processDebugAndroidTestResources
+¦   ¦   ¦   +---tmp
+¦   ¦   ¦   ¦   +---manifest
+¦   ¦   ¦   ¦       +---androidTest
+¦   ¦   ¦   ¦           +---debug
+¦   ¦   ¦   +---validate_signing_config
+¦   ¦   ¦       +---debug
+¦   ¦   ¦           +---validateSigningDebug
+¦   ¦   +---kotlin
+¦   ¦   ¦   +---compileDebugAndroidTestKotlin
+¦   ¦   ¦   ¦   +---cacheable
+¦   ¦   ¦   ¦   ¦   +---caches-jvm
+¦   ¦   ¦   ¦   ¦       +---inputs
+¦   ¦   ¦   ¦   ¦       +---jvm
+¦   ¦   ¦   ¦   ¦       ¦   +---kotlin
+¦   ¦   ¦   ¦   ¦       +---lookups
+¦   ¦   ¦   ¦   +---classpath-snapshot
+¦   ¦   ¦   ¦   +---local-state
+¦   ¦   ¦   +---compileDebugKotlin
+¦   ¦   ¦   ¦   +---cacheable
+¦   ¦   ¦   ¦   ¦   +---caches-jvm
+¦   ¦   ¦   ¦   ¦       +---inputs
+¦   ¦   ¦   ¦   ¦       +---jvm
+¦   ¦   ¦   ¦   ¦       ¦   +---kotlin
+¦   ¦   ¦   ¦   ¦       +---lookups
+¦   ¦   ¦   ¦   +---classpath-snapshot
+¦   ¦   ¦   ¦   +---local-state
+¦   ¦   ¦   +---compileDebugUnitTestKotlin
+¦   ¦   ¦       +---cacheable
+¦   ¦   ¦       ¦   +---caches-jvm
+¦   ¦   ¦       ¦       +---inputs
+¦   ¦   ¦       ¦       +---jvm
+¦   ¦   ¦       ¦       ¦   +---kotlin
+¦   ¦   ¦       ¦       +---lookups
+¦   ¦   ¦       +---classpath-snapshot
+¦   ¦   ¦       +---local-state
+¦   ¦   +---outputs
+¦   ¦   ¦   +---logs
+¦   ¦   +---tmp
+¦   ¦       +---compileDebugJavaWithJavac
+¦   ¦       +---kotlin-classes
+¦   ¦           +---debug
+¦   ¦           ¦   +---com
+¦   ¦           ¦   ¦   +---cesar
+¦   ¦           ¦   ¦       +---creamazospoketcg
+¦   ¦           ¦   ¦           +---data
+¦   ¦           ¦   ¦           ¦   +---model
+¦   ¦           ¦   ¦           ¦   +---network
+¦   ¦           ¦   ¦           ¦   +---repository
+¦   ¦           ¦   ¦           +---ui
+¦   ¦           ¦   ¦           ¦   +---auth
+¦   ¦           ¦   ¦           ¦   +---search
+¦   ¦           ¦   ¦           ¦   +---theme
+¦   ¦           ¦   ¦           +---vm
+¦   ¦           ¦   +---META-INF
+¦   ¦           +---debugAndroidTest
+¦   ¦           ¦   +---com
+¦   ¦           ¦   ¦   +---cesar
+¦   ¦           ¦   ¦       +---creamazospoketcg
+¦   ¦           ¦   +---META-INF
+¦   ¦           +---debugUnitTest
+¦   ¦               +---com
+¦   ¦               ¦   +---cesar
+¦   ¦               ¦       +---creamazospoketcg
+¦   ¦               +---META-INF
+¦   +---src
+¦       +---androidTest
+¦       ¦   +---java
+¦       ¦       +---com
+¦       ¦           +---cesar
+¦       ¦               +---creamazospoketcg
+¦       +---main
+¦       ¦   +---java
+¦       ¦   ¦   +---com
+¦       ¦   ¦       +---cesar
+¦       ¦   ¦           +---creamazospoketcg
+¦       ¦   ¦               +---data
+¦       ¦   ¦               ¦   +---model
+¦       ¦   ¦               ¦   +---network
+¦       ¦   ¦               ¦   +---repository
+¦       ¦   ¦               +---ui
+¦       ¦   ¦               ¦   +---auth
+¦       ¦   ¦               ¦   +---search
+¦       ¦   ¦               ¦   +---theme
+¦       ¦   ¦               +---vm
+¦       ¦   +---res
+¦       ¦       +---drawable
+¦       ¦       +---layout
+¦       ¦       +---mipmap-anydpi-v26
+¦       ¦       +---mipmap-hdpi
+¦       ¦       +---mipmap-mdpi
+¦       ¦       +---mipmap-xhdpi
+¦       ¦       +---mipmap-xxhdpi
+¦       ¦       +---mipmap-xxxhdpi
+¦       ¦       +---navigation
+¦       ¦       +---values
+¦       ¦       +---values-night
+¦       ¦       +---xml
+¦       +---test
+¦           +---java
+¦               +---com
+¦                   +---cesar
+¦                       +---creamazospoketcg
++---gradle
+    +---wrapper

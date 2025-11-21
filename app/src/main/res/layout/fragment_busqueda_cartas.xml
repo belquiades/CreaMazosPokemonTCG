@@ -1,116 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
+    android:id="@+id/rootBusqueda"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp">
 
-    <!-- LOGIN -->
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.cesar.creamazospoketcg.ui.auth.LoginFragment"
-        android:label="Login"
-        tools:layout="@layout/fragment_login">
+    <!-- Campo de texto para la query -->
+    <EditText
+        android:id="@+id/etConsulta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Buscar cartas (ej: name:Pikachu)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnBuscar"
+        app:layout_constraintTop_toTopOf="parent"
+        android:imeOptions="actionSearch"
+        android:inputType="text" />
 
-        <action
-            android:id="@+id/action_loginFragment_to_registroFragment"
-            app:destination="@id/registroFragment" />
+    <!-- Botón de búsqueda -->
+    <Button
+        android:id="@+id/btnBuscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buscar"
+        app:layout_constraintStart_toEndOf="@id/etConsulta"
+        app:layout_constraintTop_toTopOf="@id/etConsulta"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <action
-            android:id="@+id/action_loginFragment_to_recuperarPasswordFragment"
-            app:destination="@id/recuperarPasswordFragment" />
+    <!-- Indicador de carga -->
+    <ProgressBar
+        android:id="@+id/pbCargando"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/etConsulta"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"/>
 
-        <!-- Navegar a Perfil tras login -->
-        <action
-            android:id="@+id/action_loginFragment_to_perfilFragment"
-            app:destination="@id/perfilFragment" />
+    <!-- RecyclerView para resultados -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCartas"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/etConsulta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="12dp"/>
 
-        <!-- (Opcional) Mantengo la acción a búsqueda si la usas directamente -->
-        <action
-            android:id="@+id/action_loginFragment_to_fragmentoBusquedaCartas"
-            app:destination="@id/fragmentoBusquedaCartas" />
-    </fragment>
-
-    <!-- REGISTRO -->
-    <fragment
-        android:id="@+id/registroFragment"
-        android:name="com.cesar.creamazospoketcg.ui.auth.RegistroFragment"
-        android:label="Registro"
-        tools:layout="@layout/fragment_registro">
-
-        <action
-            android:id="@+id/action_registroFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
-
-    <!-- RECUPERAR PASSWORD -->
-    <fragment
-        android:id="@+id/recuperarPasswordFragment"
-        android:name="com.cesar.creamazospoketcg.ui.auth.RecuperarPasswordFragment"
-        android:label="Recuperar Password"
-        tools:layout="@layout/fragment_recuperar_password">
-
-        <action
-            android:id="@+id/action_recuperarPasswordFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
-
-    <!-- PERFIL -->
-    <fragment
-        android:id="@+id/perfilFragment"
-        android:name="com.cesar.creamazospoketcg.ui.auth.PerfilFragment"
-        android:label="Perfil"
-        tools:layout="@layout/fragment_perfil">
-
-        <!-- Volver explícitamente al login (útil al cerrar sesión) -->
-        <action
-            android:id="@+id/action_perfilFragment_to_loginFragment"
-            app:destination="@id/loginFragment"
-            app:popUpTo="@id/nav_graph"
-            app:popUpToInclusive="true" />
-
-        <!-- Navegar a Mis Cartas desde Perfil -->
-        <action
-            android:id="@+id/action_perfilFragment_to_fragmentoMisCartas"
-            app:destination="@id/fragmentoMisCartas" />
-    </fragment>
-
-    <!-- BÚSQUEDA -->
-    <fragment
-        android:id="@+id/fragmentoBusquedaCartas"
-        android:name="com.cesar.creamazospoketcg.ui.search.FragmentoBusquedaCartas"
-        android:label="Buscar Cartas"
-        tools:layout="@layout/fragment_busqueda_cartas">
-
-        <action
-            android:id="@+id/action_busqueda_to_detalle"
-            app:destination="@id/fragmentoDetalleCarta" />
-    </fragment>
-
-    <!-- DETALLE (usado por búsqueda) -->
-    <fragment
-        android:id="@+id/fragmentoDetalleCarta"
-        android:name="com.cesar.creamazospoketcg.ui.search.FragmentoDetalleCarta"
-        android:label="Detalle Carta"
-        tools:layout="@layout/fragment_detalle_carta" />
-
-    <!-- MIS CARTAS -->
-    <fragment
-        android:id="@+id/fragmentoMisCartas"
-        android:name="com.cesar.creamazospoketcg.ui.miscartas.FragmentoMisCartas"
-        android:label="Mis Cartas"
-        tools:layout="@layout/fragment_mis_cartas">
-
-        <action
-            android:id="@+id/action_misCartas_to_detalleCartaLocal"
-            app:destination="@id/fragmentoDetalleCartaLocal" />
-    </fragment>
-
-    <!-- DETALLE LOCAL (desde Mis Cartas) -->
-    <fragment
-        android:id="@+id/fragmentoDetalleCartaLocal"
-        android:name="com.cesar.creamazospoketcg.ui.miscartas.FragmentoDetalleCartaLocal"
-        android:label="Detalle Carta (Mi Lista)"
-        tools:layout="@layout/fragment_detalle_carta_local" />
-
-</navigation>
+    <!-- Texto para errores o vacío -->
+    <TextView
+        android:id="@+id/tvMensaje"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/etConsulta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:textAlignment="center"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

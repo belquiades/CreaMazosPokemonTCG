@@ -21,6 +21,10 @@
             app:destination="@id/recuperarPasswordFragment" />
 
         <action
+            android:id="@+id/action_loginFragment_to_perfilFragment"
+            app:destination="@id/perfilFragment" />
+
+        <action
             android:id="@+id/action_loginFragment_to_fragmentoBusquedaCartas"
             app:destination="@id/fragmentoBusquedaCartas" />
     </fragment>
@@ -49,6 +53,24 @@
             app:destination="@id/loginFragment" />
     </fragment>
 
+    <!-- PERFIL -->
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="com.cesar.creamazospoketcg.ui.auth.PerfilFragment"
+        android:label="Perfil"
+        tools:layout="@layout/fragment_perfil">
+
+        <action
+            android:id="@+id/action_perfilFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_perfilFragment_to_fragmentoMisCartas"
+            app:destination="@id/fragmentoMisCartas" />
+    </fragment>
+
     <!-- BÚSQUEDA -->
     <fragment
         android:id="@+id/fragmentoBusquedaCartas"
@@ -61,11 +83,30 @@
             app:destination="@id/fragmentoDetalleCarta" />
     </fragment>
 
-    <!-- DETALLE -->
+    <!-- DETALLE (usado por búsqueda) -->
     <fragment
         android:id="@+id/fragmentoDetalleCarta"
         android:name="com.cesar.creamazospoketcg.ui.search.FragmentoDetalleCarta"
         android:label="Detalle Carta"
         tools:layout="@layout/fragment_detalle_carta" />
+
+    <!-- MIS CARTAS -->
+    <fragment
+        android:id="@+id/fragmentoMisCartas"
+        android:name="com.cesar.creamazospoketcg.ui.miscartas.FragmentoMisCartas"
+        android:label="Mis Cartas"
+        tools:layout="@layout/fragment_mis_cartas">
+
+        <action
+            android:id="@+id/action_misCartas_to_detalleCartaLocal"
+            app:destination="@id/fragmentoDetalleCartaLocal" />
+    </fragment>
+
+    <!-- DETALLE LOCAL (desde Mis Cartas) -->
+    <fragment
+        android:id="@+id/fragmentoDetalleCartaLocal"
+        android:name="com.cesar.creamazospoketcg.ui.miscartas.FragmentoDetalleCartaLocal"
+        android:label="Detalle Carta (Mi Lista)"
+        tools:layout="@layout/fragment_detalle_carta_local" />
 
 </navigation>

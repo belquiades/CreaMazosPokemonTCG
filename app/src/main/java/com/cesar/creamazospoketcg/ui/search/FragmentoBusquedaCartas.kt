@@ -11,12 +11,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.cesar.creamazospoketcg.R
 import com.cesar.creamazospoketcg.databinding.FragmentBusquedaCartasBinding
 import com.cesar.creamazospoketcg.vm.VistaModeloBusquedaCartas
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-
 /**
  * FragmentoBusquedaCartas
  *
@@ -30,48 +27,45 @@ import kotlinx.coroutines.launch
  */
 class FragmentoBusquedaCartas : Fragment() {
 
+    // ViewBinding: _binding puede ser null cuando la vista se destruye
     private var _binding: FragmentBusquedaCartasBinding? = null
     private val binding get() = _binding!!
 
-    // ViewModel para la búsqueda
+    // ViewModel para búsquedas
     private val vistaModelo: VistaModeloBusquedaCartas by viewModels()
 
-    // Adaptador del RecyclerView (se inicializa en onViewCreated)
+    // Adaptador de cartas (usa el adaptador existente)
     private lateinit var adaptador: AdaptadorCartas
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        // Inflamos el layout mediante ViewBinding
         _binding = FragmentBusquedaCartasBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        // Inicializar RecyclerView y adaptador (callback recibe la carta seleccionada)
+        super.onViewCreated(view, savedInstanceState)
+
+        // Inicializamos el adaptador con callback para abrir detalle
         adaptador = AdaptadorCartas(emptyList()) { carta ->
-            // Aquí preparamos los argumentos para el fragmento de detalle.
-            // Usamos las claves que espera FragmentoDetalleCarta: "arg_id_carta" y "arg_image_base"
             val bundle = Bundle().apply {
-                putString("arg_id_carta", carta.id) // id de la carta
-                // pasamos la miniatura como fallback si el detalle no incluye imágenes
+                putString("arg_id_carta", carta.id)
                 val imageBaseParaDetalle = carta.images?.small ?: carta.images?.large
                 if (!imageBaseParaDetalle.isNullOrBlank()) {
                     putString("arg_image_base", imageBaseParaDetalle)
                 }
             }
-
-            // Navegar al fragmento de detalle usando NavController.
-            // El id de destino debe coincidir con el id del fragmento en nav_graph.xml
-            findNavController().navigate(R.id.fragmentoDetalleCarta, bundle)
+            findNavController().navigate(com.cesar.creamazospoketcg.R.id.fragmentoDetalleCarta, bundle)
         }
 
+        // Configuramos RecyclerView usando binding (¡no usar rvCartas directo!)
         binding.rvCartas.layoutManager = LinearLayoutManager(requireContext())
         binding.rvCartas.adapter = adaptador
 
         // Botón buscar
-        binding.btnBuscar.setOnClickListener {
-            realizarBusqueda()
-        }
+        binding.btnBuscar.setOnClickListener { realizarBusqueda() }
 
-        // Acción IME (teclado) -> buscar al pulsar "search"
+        // Acción IME del teclado (buscar)
         binding.etConsulta.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 realizarBusqueda()
@@ -79,7 +73,7 @@ class FragmentoBusquedaCartas : Fragment() {
             } else false
         }
 
-        // Observamos el estado del ViewModel de forma segura con repeatOnLifecycle
+        // Observamos el estado del ViewModel con repeatOnLifecycle
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(androidx.lifecycle.Lifecycle.State.STARTED) {
                 vistaModelo.estadoUI.collect { estado ->
@@ -93,6 +87,7 @@ class FragmentoBusquedaCartas : Fragment() {
                             binding.pbCargando.visibility = View.GONE
                             binding.tvMensaje.visibility = View.GONE
                             binding.rvCartas.visibility = View.VISIBLE
+                            // El adaptador que tienes no es ListAdapter; usa actualizarLista()
                             adaptador.actualizarLista(estado.lista)
                         }
                         is com.cesar.creamazospoketcg.vm.EstadoBusqueda.Error -> {
@@ -120,6 +115,7 @@ class FragmentoBusquedaCartas : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        // Evitamos memory leaks liberando binding
         _binding = null
     }
 }
