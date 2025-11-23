@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Permisos -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -15,9 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CreaMazosPokeTCG">
 
-        <!-- ESTA es la única Activity que se declara como LAUNCHER -->
+        <!-- Lanzador: apuntamos a la MainActivity en el package raíz -->
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,8 +24,6 @@
             </intent-filter>
         </activity>
 
-        <!-- NO SE DECLARA LOGINFRAGMENT AQUÍ -->
-        <!-- LoginFragment se usa solo dentro del nav_graph -->
-
     </application>
 </manifest>
+

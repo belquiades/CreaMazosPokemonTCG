@@ -1,45 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/coordinatorRoot"
+    android:id="@+id/activityRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- NavHostFragment: contenedor para los fragments -->
-    <fragment
-        android:id="@+id/nav_host_fragment"
+    <!-- NAV HOST: aquí se cargarán los fragments (usa tu nav_graph actual) -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_main"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        app:navGraph="@navigation/nav_graph"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/nav_graph" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/menuInferior"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- FAB central flotante (botón volver) -->
-
-    <!-- Contenedor del bottom custom (anclado abajo) -->
+    <!-- BOTÓN FLOTANTE VOLVER (centrado sobre el menú inferior) -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabVolver"
         android:layout_width="64dp"
         android:layout_height="64dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/volver"
         android:contentDescription="Volver"
-        android:translationZ="10dp"
-        app:layout_anchor="@id/bottomNavContainer"
-        app:layout_anchorGravity="top|center"
-        app:srcCompat="@drawable/ic_back_arrow"
-        app:tint="@color/white" />
+        android:backgroundTint="@android:color/transparent"
+        android:tint="@color/white"
+        android:alpha="0.5"
+        app:useCompatPadding="true"
+        app:layout_constraintBottom_toTopOf="@+id/menuInferior"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:elevation="12dp" />
 
+    <!-- Contenedor del menú inferior (incluye bottom_nav_custom) -->
     <FrameLayout
-        android:id="@+id/bottomNavContainer"
+        android:id="@+id/menuInferior"
         android:layout_width="match_parent"
         android:layout_height="72dp"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:background="@color/white"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:layout_alignParentBottom="true">
+        android:elevation="8dp">
 
-        <!-- Incluimos nuestro layout de menú custom -->
-        <include layout="@layout/bottom_nav_custom" />
+        <!-- Incluimos el menú custom (solo iconos, opción B) -->
+        <include layout="@layout/bottom_nav_custom"/>
+
     </FrameLayout>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

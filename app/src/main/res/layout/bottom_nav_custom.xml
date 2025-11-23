@@ -1,152 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- bottom_nav_custom.xml
-     Barra inferior personalizada con 5 "slots" y textos debajo.
-     El slot 5 es el de HOME (a la derecha).
+     Menú inferior persistente SOLO ICONOS (sin texto).
+     5 posiciones siempre visibles.
+     Orden (izq->der): buscar, coleccion, mazo, perfil, inicio (home siempre a la derecha).
 -->
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/bottomNavRoot"
     android:layout_width="match_parent"
-    android:layout_height="72dp"
-    android:background="@color/white"
-    android:paddingTop="6dp"
-    android:paddingBottom="6dp"
-    android:elevation="8dp">
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:weightSum="5"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:background="@color/white">
 
-    <!-- Slot 1 -->
+    <!-- Slot 1: BUSCAR -->
     <LinearLayout
         android:id="@+id/slot1"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_weight="1"
         android:gravity="center"
         android:clickable="true"
         android:focusable="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/slot2"
-        app:layout_constraintWidth_percent="0.20">
+        android:foreground="?attr/selectableItemBackgroundBorderless">
 
         <ImageView
             android:id="@+id/icon_slot1"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:src="@drawable/ic_search" />
-
-        <TextView
-            android:id="@+id/text_slot1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Buscar"
-            android:textSize="10sp" />
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/buscar"
+            android:contentDescription="Buscar" />
     </LinearLayout>
 
-    <!-- Slot 2 -->
+    <!-- Slot 2: COLECCION (Mis Cartas) -->
     <LinearLayout
         android:id="@+id/slot2"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_weight="1"
         android:gravity="center"
         android:clickable="true"
         android:focusable="true"
-        app:layout_constraintStart_toEndOf="@id/slot1"
-        app:layout_constraintEnd_toStartOf="@id/slot3"
-        app:layout_constraintWidth_percent="0.20">
+        android:foreground="?attr/selectableItemBackgroundBorderless">
 
         <ImageView
             android:id="@+id/icon_slot2"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:src="@drawable/ic_collection" />
-
-        <TextView
-            android:id="@+id/text_slot2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mazos"
-            android:textSize="10sp" />
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/coleccion"
+            android:contentDescription="Colección" />
     </LinearLayout>
 
-    <!-- Slot 3 (centro) -->
+    <!-- Slot 3: MAZO -->
     <LinearLayout
         android:id="@+id/slot3"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_weight="1"
         android:gravity="center"
         android:clickable="true"
         android:focusable="true"
-        app:layout_constraintStart_toEndOf="@id/slot2"
-        app:layout_constraintEnd_toStartOf="@id/slot4"
-        app:layout_constraintWidth_percent="0.20">
+        android:foreground="?attr/selectableItemBackgroundBorderless">
 
         <ImageView
             android:id="@+id/icon_slot3"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:src="@drawable/ic_cards" />
-
-        <TextView
-            android:id="@+id/text_slot3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Colección"
-            android:textSize="10sp" />
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/mazo"
+            android:contentDescription="Mazos" />
     </LinearLayout>
 
-    <!-- Slot 4 -->
+    <!-- Slot 4: PERFIL -->
     <LinearLayout
         android:id="@+id/slot4"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_weight="1"
         android:gravity="center"
         android:clickable="true"
         android:focusable="true"
-        app:layout_constraintStart_toEndOf="@id/slot3"
-        app:layout_constraintEnd_toStartOf="@id/slot5"
-        app:layout_constraintWidth_percent="0.20">
+        android:foreground="?attr/selectableItemBackgroundBorderless">
 
         <ImageView
             android:id="@+id/icon_slot4"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:src="@drawable/ic_person" />
-
-        <TextView
-            android:id="@+id/text_slot4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Perfil"
-            android:textSize="10sp" />
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/perfil"
+            android:contentDescription="Perfil" />
     </LinearLayout>
 
-    <!-- Slot 5 (HOME) - siempre en la derecha -->
+    <!-- Slot 5: INICIO (HOME) - siempre en la derecha -->
     <LinearLayout
         android:id="@+id/slot5"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_weight="1"
         android:gravity="center"
         android:clickable="true"
         android:focusable="true"
-        app:layout_constraintStart_toEndOf="@id/slot4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintWidth_percent="0.20">
+        android:foreground="?attr/selectableItemBackgroundBorderless">
 
         <ImageView
             android:id="@+id/icon_slot5"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:src="@drawable/ic_home" />
-
-        <TextView
-            android:id="@+id/text_slot5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Inicio"
-            android:textSize="10sp" />
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/inicio"
+            android:contentDescription="Inicio" />
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
