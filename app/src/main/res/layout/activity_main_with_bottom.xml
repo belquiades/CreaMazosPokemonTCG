@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinatorRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- NavHostFragment: contenedor para los fragments -->
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph" />
+
+    <!-- FAB central flotante (botón volver) -->
+
+    <!-- Contenedor del bottom custom (anclado abajo) -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabVolver"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:contentDescription="Volver"
+        android:translationZ="10dp"
+        app:layout_anchor="@id/bottomNavContainer"
+        app:layout_anchorGravity="top|center"
+        app:srcCompat="@drawable/ic_back_arrow"
+        app:tint="@color/white" />
+
+    <FrameLayout
+        android:id="@+id/bottomNavContainer"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="0dp"
+        android:background="@color/white"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_alignParentBottom="true">
+
+        <!-- Incluimos nuestro layout de menú custom -->
+        <include layout="@layout/bottom_nav_custom" />
+    </FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

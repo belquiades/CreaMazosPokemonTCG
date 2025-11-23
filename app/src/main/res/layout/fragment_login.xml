@@ -105,7 +105,7 @@
                 android:textSize="13sp" />
         </LinearLayout>
 
-        <!-- Botón principal (degradado rojo) -->
+        <!-- Botón principal (degradado rojo), siempre en su propia línea -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnContinuar"
             android:layout_width="match_parent"
@@ -114,22 +114,24 @@
             android:text="@string/text_continuar"
             android:textAllCaps="false"
             android:textColor="@color/white"
+            android:clickable="true"
             android:background="@drawable/bg_button_gradient"
-            app:backgroundTint="@null"/>
+            app:backgroundTint="@null" />
 
-        <!-- Separador "o" -->
+        <!-- Separador "o"  -->
         <LinearLayout
+            android:id="@+id/separadorO"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="12dp">
+            android:layout_marginBottom="20dp">
 
             <View
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="1dp"
+                android:layout_weight="1"
                 android:background="@color/line_gray" />
 
             <TextView
@@ -142,12 +144,12 @@
 
             <View
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="1dp"
+                android:layout_weight="1"
                 android:background="@color/line_gray" />
         </LinearLayout>
 
-        <!-- BOTÓN GOOGLE PERSONALIZADO (LinearLayout) -->
+        <!-- Botón Google personalizado -->
         <LinearLayout
             android:id="@+id/llBtnGoogle"
             android:layout_width="match_parent"
@@ -157,9 +159,10 @@
             android:gravity="center_vertical"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            android:layout_marginBottom="12dp">
+            android:layout_marginBottom="12dp"
+            android:clickable="true"
+            android:focusable="true">
 
-            <!-- Icono (PNG real, no tintado) -->
             <ImageView
                 android:id="@+id/ivGoogleIcon"
                 android:layout_width="24dp"
@@ -169,7 +172,6 @@
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter" />
 
-            <!-- Texto centrado verticalmente; usamos weight para separar icono del texto -->
             <TextView
                 android:id="@+id/tvGoogleTexto"
                 android:layout_width="0dp"
@@ -179,7 +181,6 @@
                 android:text="@string/text_google"
                 android:textColor="@color/gray_600"
                 android:textSize="14sp" />
-
         </LinearLayout>
 
         <!-- Texto registro -->
