@@ -21,7 +21,7 @@
         android:paddingTop="28dp"
         android:paddingBottom="32dp">
 
-        <!-- Encabezado: Acceso / Regístrate -->
+        <!-- Encabezado: Acceso / Regístrate (puedes completarlo más tarde) -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -118,7 +118,7 @@
             android:background="@drawable/bg_button_gradient"
             app:backgroundTint="@null" />
 
-        <!-- Separador "o"  -->
+        <!-- Separador "o" (se asegura espacio suficiente para no coincidir con botones) -->
         <LinearLayout
             android:id="@+id/separadorO"
             android:layout_width="match_parent"
@@ -126,7 +126,9 @@
             android:orientation="horizontal"
             android:gravity="center"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp">
 
             <View
                 android:layout_width="0dp"
@@ -149,7 +151,7 @@
                 android:background="@color/line_gray" />
         </LinearLayout>
 
-        <!-- Botón Google personalizado -->
+        <!-- Botón Google personalizado: separado verticalmente del botón CONTINUAR -->
         <LinearLayout
             android:id="@+id/llBtnGoogle"
             android:layout_width="match_parent"

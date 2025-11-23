@@ -1,6 +1,7 @@
 package com.cesar.creamazospoketcg
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -10,19 +11,24 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 
 /**
- * MainActivity corregida - manejo del menú inferior y FAB "volver".
+ * MainActivity - controla la navegación y el menú inferior.
  *
- * Nota:
- *  - Ahora no referenciamos R.id.fragmentoMazos en tiempo de compilación para evitar errores
- *    si ese destino no está definido en nav_graph.
- *  - Buscamos el id de "fragmentoMazos" dinámicamente usando resources.getIdentifier(...)
- *    y solo intentamos navegar si el id existe (> 0).
+ * El FAB "volver" se mostrará únicamente en los fragments de detalle:
+ *  - fragmentoDetalleCarta
+ *  - fragmentoDetalleCartaLocal
+ *
+ * El menú inferior se ocultará solo en el loginFragment.
+ *
+ * Comentarios claros para que un estudiante entienda:
+ *  - navegarSeguro(...) comprueba si el destino existe en el grafo antes de navegar.
+ *  - actualizarIconosSegunDestino(...) resalta visualmente el icono activo.
  */
 class MainActivity : AppCompatActivity() {
 
+    private val TAG = "MainActivityDebug"
     private lateinit var navController: NavController
 
-    // IDs de fragments que sí conocemos en tiempo de compilación (ajusta si cambian)
+    // IDs esperados (asegúrate que coinciden con tu nav_graph)
     private val idLoginFragment = R.id.loginFragment
     private val idBusqueda = R.id.fragmentoBusquedaCartas
     private val idMisCartas = R.id.fragmentoMisCartas
@@ -30,7 +36,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Asegúrate de que el layout coincide con el que usas
         setContentView(R.layout.activity_main_with_bottom)
 
         // Obtenemos NavController desde NavHostFragment
@@ -55,19 +60,24 @@ class MainActivity : AppCompatActivity() {
 
         // Intentamos obtener dinámicamente el id de fragmentoMazos (puede no existir)
         val idMazosDynamic = resources.getIdentifier("fragmentoMazos", "id", packageName)
-        // idMazosDynamic será 0 si no existe
 
-        // Listener para ocultar/mostrar menú según destino (ocultar en login)
+        // Listener para ocultar/mostrar menú y FAB según destino
         navController.addOnDestinationChangedListener { _, destination, _ ->
+            Log.d(TAG, "Destino cambiado -> id=${destination.id}, label=${destination.label}")
+
+            // 1) Menu inferior: ocultarlo solo en login
             if (destination.id == idLoginFragment) {
                 menuInferior.visibility = View.GONE
-                fab.visibility = View.GONE
             } else {
                 menuInferior.visibility = View.VISIBLE
-                fab.visibility = View.VISIBLE
             }
 
-            // Actualizamos el resaltado de iconos según destino actual
+            // 2) FAB 'volver': solo mostrar en las pantallas de detalle
+            val esDetalle = (destination.id == R.id.fragmentoDetalleCarta
+                    || destination.id == R.id.fragmentoDetalleCartaLocal)
+            fab.visibility = if (esDetalle) View.VISIBLE else View.GONE
+
+            // 3) Actualizamos resaltado de iconos
             actualizarIconosSegunDestino(destination.id, icon1, icon2, icon3, icon4, icon5, idMazosDynamic)
         }
 
@@ -75,7 +85,6 @@ class MainActivity : AppCompatActivity() {
         slot1.setOnClickListener { navegarSeguro(idBusqueda) }          // Buscar
         slot2.setOnClickListener { navegarSeguro(idMisCartas) }         // Colección / Mis Cartas
         slot3.setOnClickListener {
-            // Si idMazosDynamic existe, navegamos; si no, mostramos aviso y fallback a MisCartas
             if (idMazosDynamic != 0) {
                 navegarSeguro(idMazosDynamic)
             } else {
@@ -88,6 +97,7 @@ class MainActivity : AppCompatActivity() {
 
         // FAB volver: hacemos popBackStack; si no hay nada, navegamos a Perfil
         fab.setOnClickListener {
+            Log.d(TAG, "FAB volver pulsado")
             val popOk = navController.popBackStack()
             if (!popOk) {
                 navegarSeguro(idPerfil)
@@ -102,7 +112,6 @@ class MainActivity : AppCompatActivity() {
         try {
             val current = navController.currentDestination?.id
             if (current == destinationId) return
-            // Antes de navegar comprobamos si el destino existe en el grafo actual
             val node = navController.graph.findNode(destinationId)
             if (node != null) {
                 navController.navigate(destinationId)
@@ -110,14 +119,12 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Destino no definido en el grafo de navegación.", Toast.LENGTH_SHORT).show()
             }
         } catch (e: Exception) {
-            // Capturamos cualquier excepción para evitar crash en tiempo de ejecución
             Toast.makeText(this, "No se pudo navegar: ${e.localizedMessage ?: e}", Toast.LENGTH_SHORT).show()
         }
     }
 
     /**
      * Actualiza la apariencia de los iconos del menú resaltando el activo.
-     * Si idMazosDynamic==0, no se intentará destacar ese slot.
      */
     private fun actualizarIconosSegunDestino(
         destId: Int,
@@ -128,19 +135,14 @@ class MainActivity : AppCompatActivity() {
         i5: ImageView,
         idMazosDynamic: Int
     ) {
-        // Atenuamos todos por defecto
         i1.alpha = 0.6f; i2.alpha = 0.6f; i3.alpha = 0.6f; i4.alpha = 0.6f; i5.alpha = 0.6f
 
         when (destId) {
             R.id.fragmentoBusquedaCartas -> i1.alpha = 1.0f
             R.id.fragmentoMisCartas -> i2.alpha = 1.0f
-            // Si idMazosDynamic existe y coincide con el destino, lo resaltamos
             idMazosDynamic -> if (idMazosDynamic != 0) i3.alpha = 1.0f
             R.id.perfilFragment -> i4.alpha = 1.0f
-            // No confundir: slot5 (inicio) lo tratamos como perfil por defecto
-            else -> {
-                // Mantenemos la atenuación por defecto
-            }
+            else -> { /* sin cambio */ }
         }
     }
 }
