@@ -1,45 +1,59 @@
 package com.cesar.creamazospoketcg.ui.search
 
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
 import com.cesar.creamazospoketcg.R
+import com.cesar.creamazospoketcg.data.model.Ataque
 import com.cesar.creamazospoketcg.data.model.Carta
 import com.cesar.creamazospoketcg.data.repository.RepositorioCartas
 import com.cesar.creamazospoketcg.databinding.FragmentDetalleCartaBinding
+import com.google.firebase.Timestamp
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import androidx.core.graphics.drawable.DrawableCompat
+import kotlinx.coroutines.withContext
 
+/**
+ * FragmentoDetalleCarta
+ *
+ * Muestra el detalle de una carta obtenida de la API (RepositorioCartas.obtenerCartaPorId).
+ * Permite:
+ *  - Añadir la carta a la colección del usuario (Firestore: users/{uid}/cards/{cardId})
+ *  - Volver (si procede) usando NavController
+ *
+ * Todo el código y comentarios están en español para que lo entienda un estudiante.
+ */
 class FragmentoDetalleCarta : Fragment() {
 
     private var _binding: FragmentDetalleCartaBinding? = null
     private val binding get() = _binding!!
-    private val repositorio = RepositorioCartas()
 
-    // fallback image base pasado desde la lista
+    private val TAG = "DetalleCarta"
+
+    private val repo by lazy { RepositorioCartas() }
+    private val auth by lazy { FirebaseAuth.getInstance() }
+    private val firestore by lazy { FirebaseFirestore.getInstance() }
+
+    // Id de la carta que recibimos como argumento (nav)
+    private var cartaIdArg: String? = null
+    // Fallback de imagen (si detalle no trae imágenes)
     private var imageBaseArg: String? = null
 
-    companion object {
-        private const val ARG_ID_CARTA = "arg_id_carta"
-        private const val ARG_IMAGE_BASE = "arg_image_base"
-        private const val TAG = "FragmentoDetalleCarta"
-
-        fun newInstance(idCarta: String, imageBase: String? = null): FragmentoDetalleCarta {
-            val f = FragmentoDetalleCarta()
-            val args = Bundle()
-            args.putString(ARG_ID_CARTA, idCarta)
-            if (!imageBase.isNullOrBlank()) args.putString(ARG_IMAGE_BASE, imageBase)
-            f.arguments = args
-            return f
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // Obtenemos argumentos (si vienen)
+        arguments?.let { bundle ->
+            cartaIdArg = bundle.getString("arg_id_carta")
+            imageBaseArg = bundle.getString("arg_image_base")
         }
     }
 
@@ -49,185 +63,148 @@ class FragmentoDetalleCarta : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.pbDetalle.visibility = View.VISIBLE
-        binding.tvMensajeDetalle.visibility = View.GONE
-        binding.tvNombreDetalle.text = ""
+        // Inicial UI
+        binding.pbCargando.visibility = View.GONE
+        binding.groupDetalle.visibility = View.GONE
+        binding.tvError.visibility = View.GONE
 
-        // leer argumento imageBase
-        imageBaseArg = arguments?.getString(ARG_IMAGE_BASE)
-
-        val idCarta = arguments?.getString(ARG_ID_CARTA)
-        if (idCarta == null) {
-            binding.pbDetalle.visibility = View.GONE
-            binding.tvNombreDetalle.text = getString(R.string.error_carta_no_encontrada)
-            return
+        // Botón volver local (vuelve al fragmento anterior)
+        binding.btnVolverDetalle.setOnClickListener {
+            // Intentamos hacer popBackStack, si no hay nada se va al perfil
+            val popOk = findNavController().popBackStack()
+            if (!popOk) {
+                findNavController().navigate(R.id.perfilFragment)
+            }
         }
 
-        // Petición al repositorio en background
-        lifecycleScope.launch {
-            try {
-                Log.d(TAG, "Solicitando detalle para id=$idCarta")
-                val resultado = repositorio.obtenerCartaPorId(idCarta)
-                binding.pbDetalle.visibility = View.GONE
+        // Botón añadir a mi colección
+        binding.btnAnadirMiColeccion.setOnClickListener {
+            // Si ya tenemos la carta cargada en UI guardamos; si no, pedimos al repo antes
+            val id = cartaIdArg
+            if (id.isNullOrBlank()) {
+                Toast.makeText(requireContext(), "No hay id de carta para guardar", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            // Si ya hay datos en pantalla, los usamos; si no, pedimos detalle y luego guardamos.
+            val nombre = binding.tvNombreCarta.text.toString().takeIf { it.isNotBlank() } ?: ""
+            val imagen = binding.ivCarta.tag as? String ?: imageBaseArg
 
-                if (resultado.isSuccess) {
-                    val carta = resultado.getOrNull()!!
-                    mostrarCarta(carta)
+            guardarCartaEnFirestore(id, nombre, imagen)
+        }
+
+        // Si nos han pasado id -> cargamos detalle
+        cartaIdArg?.let { id ->
+            cargarDetalleCarta(id)
+        } ?: run {
+            // No hay id: mostrar error (puede ocurrir si se navega mal)
+            binding.tvError.visibility = View.VISIBLE
+            binding.tvError.text = getString(R.string.error_carta_no_encontrada)
+        }
+    }
+
+    /**
+     * Pide al repositorio el detalle de la carta por id y lo muestra en pantalla.
+     */
+    private fun cargarDetalleCarta(id: String) {
+        binding.pbCargando.visibility = View.VISIBLE
+        binding.groupDetalle.visibility = View.GONE
+        binding.tvError.visibility = View.GONE
+
+        // Lanzamos coroutine para red (no en hilo principal)
+        CoroutineScope(Dispatchers.Main).launch {
+            val resultado = withContext(Dispatchers.IO) {
+                try {
+                    repo.obtenerCartaPorId(id)
+                } catch (e: Exception) {
+                    Log.e(TAG, "Excepción pidiendo detalle carta", e)
+                    Result.failure<Carta>(e)
+                }
+            }
+
+            binding.pbCargando.visibility = View.GONE
+
+            if (resultado.isSuccess) {
+                val carta = resultado.getOrNull()
+                if (carta != null) {
+                    mostrarCartaEnUI(carta)
                 } else {
-                    val ex = resultado.exceptionOrNull()
-                    Log.e(TAG, "Error al obtener carta id=$idCarta", ex)
-                    binding.tvMensajeDetalle.visibility = View.VISIBLE
-                    binding.tvMensajeDetalle.text = "Error al obtener detalle: ${ex?.message ?: "desconocido"}"
-                    binding.tvNombreDetalle.text = getString(R.string.error_carta_no_encontrada)
+                    binding.tvError.visibility = View.VISIBLE
+                    binding.tvError.text = getString(R.string.error_carta_no_encontrada)
                 }
-            } catch (e: Exception) {
-                binding.pbDetalle.visibility = View.GONE
-                Log.e(TAG, "Excepción al pedir detalle carta id=$idCarta", e)
-                binding.tvMensajeDetalle.visibility = View.VISIBLE
-                binding.tvMensajeDetalle.text = "Error al obtener detalle: ${e.message}"
-                binding.tvNombreDetalle.text = getString(R.string.error_carta_no_encontrada)
+            } else {
+                // Si falla la petición, intentamos mostrar fallback si recibimos imageBaseArg
+                binding.tvError.visibility = View.VISIBLE
+                binding.tvError.text = getString(R.string.error_carta_no_encontrada)
             }
         }
-
-        binding.btnAnadirMazo.setOnClickListener {
-            val id = arguments?.getString(ARG_ID_CARTA) ?: "?"
-            android.widget.Toast.makeText(requireContext(), "Añadida la carta $id al mazo (temporal)", android.widget.Toast.LENGTH_SHORT).show()
-        }
     }
 
     /**
-     * Convierte una ruta base de assets en una lista de candidatos:
-     * high.webp, high.png, low.webp, low.png
-     * Si la base ya tiene extensión, devuelve esa URL como único candidato.
+     * Rellena vistas con la información de la carta.
+     * También guardamos la url de la imagen en el tag de la ImageView para poder guardarla después.
      */
-    private fun baseToAssetCandidates(base: String?): List<String> {
-        if (base.isNullOrBlank()) return emptyList()
-        val lower = base.lowercase()
-        if (lower.endsWith(".png") || lower.endsWith(".webp") || lower.endsWith(".jpg") || lower.endsWith(".jpeg")) {
-            return listOf(base)
+    private fun mostrarCartaEnUI(carta: Carta) {
+        binding.groupDetalle.visibility = View.VISIBLE
+
+        binding.tvNombreCarta.text = carta.name
+        binding.tvTipoRarity.text = listOfNotNull(carta.types?.joinToString(", "), carta.rarity).filter { it.isNotEmpty() }.joinToString(" — ")
+
+        // Cargar imagen con Glide (si hay varias opciones, usamos la que venga)
+        val imageUrl = carta.images?.large ?: carta.images?.small ?: imageBaseArg
+        binding.ivCarta.tag = imageUrl // guardamos la url en tag como referencia
+        Glide.with(this)
+            .load(imageUrl)
+            .placeholder(R.drawable.placeholder_carta)
+            .error(R.drawable.placeholder_carta)
+            .into(binding.ivCarta)
+
+        // Mostrar ataques (si hay)
+        val ataques = carta.attacks
+        if (ataques.isNullOrEmpty()) {
+            binding.tvAtaques.text = getString(R.string.no_hay_ataques)
+        } else {
+            binding.tvAtaques.text = ataques.joinToString(separator = "\n\n") { formatAtaque(it) }
         }
-        val baseSinSlash = if (base.endsWith("/")) base.dropLast(1) else base
-        return listOf(
-            "$baseSinSlash/high.webp",
-            "$baseSinSlash/high.png",
-            "$baseSinSlash/low.webp",
-            "$baseSinSlash/low.png"
-        )
+    }
+
+    private fun formatAtaque(a: Ataque): String {
+        // Ejemplo simple: "Nombre — daño\nDescripción"
+        val linea1 = listOfNotNull(a.name, a.damage).filter { it.isNotEmpty() }.joinToString(" — ")
+        val linea2 = a.text ?: ""
+        return if (linea2.isBlank()) linea1 else "$linea1\n$linea2"
     }
 
     /**
-     * Intenta cargar secuencialmente los candidatos y loguea fallos/éxitos.
+     * Guarda la carta en Firestore bajo users/{uid}/cards/{cardId}.
+     * name e imagen son opcionales pero recomendables para el listado rápido.
      */
-    private fun loadImageSequentially(candidatos: List<String>, target: android.widget.ImageView) {
-        if (candidatos.isEmpty()) {
-            target.setImageResource(R.drawable.placeholder_carta)
-            Log.d(TAG, "loadImageSequentially: no hay candidatos, se muestra placeholder")
+    private fun guardarCartaEnFirestore(cardId: String, name: String?, imageUrl: String?) {
+        val user = auth.currentUser
+        if (user == null) {
+            Toast.makeText(requireContext(), "Debes iniciar sesión para guardar cartas", Toast.LENGTH_SHORT).show()
             return
         }
 
-        fun intentar(index: Int) {
-            if (index >= candidatos.size) {
-                Log.e(TAG, "loadImageSequentially: ningún candidato válido, mostrando placeholder")
-                target.setImageResource(R.drawable.placeholder_carta)
-                return
+        // Documento por id de carta (evita duplicados)
+        val doc = firestore.collection("users").document(user.uid).collection("cards").document(cardId)
+
+        val datos = mutableMapOf<String, Any?>(
+            "name" to (name ?: "Sin nombre"),
+            "image" to imageUrl,
+            "addedAt" to Timestamp.now()
+        )
+
+        binding.pbCargando.visibility = View.VISIBLE
+        doc.set(datos)
+            .addOnSuccessListener {
+                binding.pbCargando.visibility = View.GONE
+                Toast.makeText(requireContext(), "Carta añadida a tu colección.", Toast.LENGTH_SHORT).show()
             }
-
-            val url = candidatos[index]
-            Log.d(TAG, "loadImageSequentially: intentando [$index] -> $url")
-
-            Glide.with(this)
-                .load(url)
-                .placeholder(R.drawable.placeholder_carta)
-                .error(R.drawable.placeholder_carta)
-                .listener(object : RequestListener<android.graphics.drawable.Drawable> {
-                    override fun onLoadFailed(
-                        e: com.bumptech.glide.load.engine.GlideException?,
-                        model: Any?,
-                        targetGlide: Target<android.graphics.drawable.Drawable>?,
-                        isFirstResource: Boolean
-                    ): Boolean {
-                        Log.w(TAG, "Glide fallo al cargar $url -> ${e?.message ?: "sin mensaje"}")
-                        intentar(index + 1)
-                        return true // manejamos el fallo y probamos siguiente
-                    }
-
-                    override fun onResourceReady(
-                        resource: android.graphics.drawable.Drawable?,
-                        model: Any?,
-                        targetGlide: Target<android.graphics.drawable.Drawable>?,
-                        dataSource: com.bumptech.glide.load.DataSource?,
-                        isFirstResource: Boolean
-                    ): Boolean {
-                        Log.d(TAG, "Glide cargó correctamente: $url (dataSource=${dataSource})")
-                        return false // permitir que Glide coloque la imagen
-                    }
-                })
-                .into(target)
-        }
-
-        intentar(0)
-    }
-
-    private fun mostrarCarta(carta: Carta) {
-        // Logs para depuración
-        Log.d(TAG, "mostrarCarta id='${carta.id}' name='${carta.name}' images.large='${carta.images?.large}' images.small='${carta.images?.small}' imageBaseArg='$imageBaseArg'")
-
-
-        // Nombre
-        binding.tvNombreDetalle.text = carta.name
-
-        // IMAGEN GRANDE: preferimos imágenes del detalle, si no están usamos la imageBase pasada desde la lista
-        val posibleBase = carta.images?.large ?: carta.images?.small ?: imageBaseArg
-        val candidatos = baseToAssetCandidates(posibleBase)
-        Log.d(TAG, "Candidatos imagen grande para id='${carta.id}': $candidatos")
-
-        loadImageSequentially(candidatos, binding.ivImagenGrande)
-
-        // Tipos y rareza
-        val tiposTexto = carta.types?.joinToString(", ") ?: getString(R.string.desconocido)
-        val rarezaTexto = carta.rarity ?: getString(R.string.desconocido)
-        binding.tvTipoRareza.text = "$tiposTexto — $rarezaTexto"
-
-        // Set
-        binding.tvSet.text = carta.set?.name ?: getString(R.string.desconocido)
-
-        // Ataques
-        binding.llAtaques.removeAllViews()
-        if (!carta.attacks.isNullOrEmpty()) {
-            carta.attacks.forEach { ataque ->
-                val tv = TextView(requireContext()).apply {
-                    text = "${ataque.name} — ${ataque.damage ?: ""}\n${ataque.text ?: ""}"
-                    setPadding(0, 8, 0, 8)
-                }
-                binding.llAtaques.addView(tv)
+            .addOnFailureListener { e ->
+                binding.pbCargando.visibility = View.GONE
+                Log.e(TAG, "Error guardando carta en Firestore", e)
+                Toast.makeText(requireContext(), "Error guardando la carta", Toast.LENGTH_SHORT).show()
             }
-        } else {
-            val tv = TextView(requireContext()).apply {
-                text = getString(R.string.no_hay_ataques)
-                setPadding(0, 8, 0, 8)
-            }
-            binding.llAtaques.addView(tv)
-        }
-
-        // Habilidades (si aplica)
-        binding.llHabilidades.removeAllViews()
-    }
-
-    private fun colorPorTipo(tipo: String): Int {
-        return when (tipo.lowercase()) {
-            "fire" -> Color.parseColor("#FF6B6B")
-            "water" -> Color.parseColor("#4D9FFF")
-            "grass" -> Color.parseColor("#63C766")
-            "psychic" -> Color.parseColor("#C96BFF")
-            "fighting" -> Color.parseColor("#C97A56")
-            "lightning" -> Color.parseColor("#FFD93B")
-            "darkness" -> Color.parseColor("#595260")
-            "metal" -> Color.parseColor("#AFAFAF")
-            "dragon" -> Color.parseColor("#C8A951")
-            "fairy" -> Color.parseColor("#FF77D6")
-            else -> Color.parseColor("#DDDDDD")
-        }
     }
 
     override fun onDestroyView() {
