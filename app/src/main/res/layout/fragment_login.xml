@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  fragment_login.xml
-  Layout del fragment de login. Versión con botón Google personalizado
-  (LinearLayout con ImageView + TextView) para evitar tintado de PNG.
--->
+<!-- fragment_login.xml (versión reforzada para garantizar orden vertical) -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/scrollLogin"
@@ -12,7 +8,9 @@
     android:fillViewport="true"
     android:background="@color/white">
 
+    <!-- Contenedor vertical principal: aseguramos orientation="vertical" explícito -->
     <LinearLayout
+        android:id="@+id/llRootLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -21,14 +19,7 @@
         android:paddingTop="28dp"
         android:paddingBottom="32dp">
 
-        <!-- Encabezado: Acceso / Regístrate (puedes completarlo más tarde) -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"/>
-
-        <!-- Logo central -->
+        <!-- Logo -->
         <ImageView
             android:id="@+id/ivLogo"
             android:layout_width="220dp"
@@ -41,7 +32,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="18dp" />
 
-        <!-- Campo Email -->
+        <!-- Email -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilEmail"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -59,7 +50,7 @@
                 android:paddingEnd="12dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Campo Contraseña -->
+        <!-- Password -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilPassword"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -79,7 +70,7 @@
                 android:paddingEnd="12dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Errores y "Olvidaste la contraseña" -->
+        <!-- Mensaje y 'Olvidaste' -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -105,20 +96,27 @@
                 android:textSize="13sp" />
         </LinearLayout>
 
-        <!-- Botón principal (degradado rojo), siempre en su propia línea -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnContinuar"
+        <!-- CONTENEDOR EXPLÍCITO PARA BOTÓN CONTINUAR -->
+        <LinearLayout
+            android:id="@+id/contBtnContinuar"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/text_continuar"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:clickable="true"
-            android:background="@drawable/bg_button_gradient"
-            app:backgroundTint="@null" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp">
 
-        <!-- Separador "o" (se asegura espacio suficiente para no coincidir con botones) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnContinuar"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/text_continuar"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_button_gradient"
+                app:backgroundTint="@null"
+                android:clickable="true" />
+        </LinearLayout>
+
+        <!-- SEPARADOR (siempre después del CONTINUAR) -->
         <LinearLayout
             android:id="@+id/separadorO"
             android:layout_width="match_parent"
@@ -151,38 +149,44 @@
                 android:background="@color/line_gray" />
         </LinearLayout>
 
-        <!-- Botón Google personalizado: separado verticalmente del botón CONTINUAR -->
+        <!-- CONTENEDOR EXPLÍCITO PARA BOTÓN GOOGLE (siempre después del separador) -->
         <LinearLayout
-            android:id="@+id/llBtnGoogle"
+            android:id="@+id/contBtnGoogle"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:orientation="horizontal"
-            android:background="@drawable/bg_google_button"
-            android:gravity="center_vertical"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:layout_marginBottom="12dp"
-            android:clickable="true"
-            android:focusable="true">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/ivGoogleIcon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/google24x24"
-                android:contentDescription="@string/text_google"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter" />
+            <LinearLayout
+                android:id="@+id/llBtnGoogle"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_google_button"
+                android:gravity="center_vertical"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:clickable="true"
+                android:focusable="true">
 
-            <TextView
-                android:id="@+id/tvGoogleTexto"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_weight="1"
-                android:text="@string/text_google"
-                android:textColor="@color/gray_600"
-                android:textSize="14sp" />
+                <ImageView
+                    android:id="@+id/ivGoogleIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/google24x24"
+                    android:contentDescription="@string/text_google"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter" />
+
+                <TextView
+                    android:id="@+id/tvGoogleTexto"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:text="@string/text_google"
+                    android:textColor="@color/gray_600"
+                    android:textSize="14sp" />
+            </LinearLayout>
         </LinearLayout>
 
         <!-- Texto registro -->
