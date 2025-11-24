@@ -7,84 +7,40 @@
     android:layout_height="match_parent"
     android:padding="12dp">
 
-    <!-- Título simple -->
+    <!-- Texto cuando no hay cartas -->
     <TextView
-        android:id="@+id/tvTituloMisCartas"
+        android:id="@+id/tvVacio"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Mis cartas"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:paddingBottom="8dp"
+        android:text="No tienes cartas en tu colección.\nPulsa + para añadir desde el buscador."
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="16dp" />
 
-    <!-- RecyclerView con la lista de cartas -->
+    <!-- RecyclerView con cartas -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMisCartas"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:clipToPadding="false"
-        android:paddingBottom="96dp"   <!-- espacio para el menú inferior / fab -->
-    app:layout_constraintTop_toBottomOf="@id/tvTituloMisCartas"
-    app:layout_constraintBottom_toTopOf="@+id/fabAnadir"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"/>
-
-    <!-- Vista para cuando no hay cartas (estado vacío) -->
-    <LinearLayout
-        android:id="@+id/layoutVacio"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/tvTituloMisCartas"
-        app:layout_constraintBottom_toTopOf="@+id/fabAnadir"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/fabAnadirCarta"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:id="@+id/tvMensajeVacio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="No tienes cartas en tu colección"
-            android:textSize="16sp"
-            android:paddingBottom="12dp"/>
-
-        <!-- Botón con signo + grande que lleva al buscador -->
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabVacioAgregar"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            app:fabSize="normal"
-            android:src="@android:drawable/ic_input_add"
-            android:contentDescription="Agregar carta"
-            app:backgroundTint="@color/purple_700"
-            android:tint="@color/white"/>
-    </LinearLayout>
-
-    <!-- Botón flotante para añadir cartas manualmente (siempre visible) -->
+    <!-- FAB + para añadir cartas (si lista vacía navegará al buscador) -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAnadir"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_margin="12dp"
+        android:id="@+id/fabAnadirCarta"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:contentDescription="Añadir carta"
-        android:src="@android:drawable/ic_input_add"
-        app:backgroundTint="@color/purple_700"
-        android:tint="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/menuInferior"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <!-- Nota: este include asume que en la Activity está el menu inferior con id menuInferior.
-         Si usas Activity diferente, ajusta la constraint app:layout_constraintBottom_toTopOf -->
-    <View
-        android:id="@+id/menuInferior"
-        android:visibility="gone"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:src="@drawable/ic_plus"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_margin="16dp"
+    app:useCompatPadding="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

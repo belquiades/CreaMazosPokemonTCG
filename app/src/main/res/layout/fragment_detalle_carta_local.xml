@@ -2,100 +2,95 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootDetalleLocal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="12dp">
 
-    <!-- Imagen grande -->
     <ImageView
-        android:id="@+id/ivImagenCarta"
+        android:id="@+id/ivCarta"
         android:layout_width="0dp"
-        android:layout_height="220dp"
-        android:contentDescription="@string/detalle_imagen_carta"
+        android:layout_height="240dp"
         android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:adjustViewBounds="true"
-        android:src="@drawable/placeholder_carta" />
+        android:contentDescription="Imagen carta" />
 
-    <!-- Nombre -->
     <TextView
-        android:id="@+id/tvNombreCarta"
+        android:id="@+id/tvNombre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Nombre Carta"
+        android:text="Nombre carta"
         android:textStyle="bold"
-        android:textSize="20sp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/ivImagenCarta"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/ivCarta"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp" />
 
-    <!-- Subtítulo (tipo — rareza) -->
     <TextView
         android:id="@+id/tvSubtitulo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Tipo — Rareza"
-        android:textSize="14sp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintTop_toBottomOf="@id/tvNombreCarta"
+        app:layout_constraintTop_toBottomOf="@id/tvNombre"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="6dp" />
 
-    <!-- Ataques -->
-    <TextView
-        android:id="@+id/tvAtaques"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="Ataques..."
-        android:textSize="14sp"
-        android:layout_marginTop="12dp"
-        android:padding="8dp"
-        app:layout_constraintTop_toBottomOf="@id/tvSubtitulo"
-        app:layout_constraintBottom_toTopOf="@id/guideline_actions"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Progress bar -->
     <ProgressBar
         android:id="@+id/pbCargando"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
         android:visibility="gone"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitulo"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="12dp"/>
 
-    <!-- Guideline top of actions area -->
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_actions"
-        android:layout_width="wrap_content"
+    <!-- Botones de acción: Eliminar, Añadir a mazo, Crear mazo, Volver -->
+    <LinearLayout
+        android:id="@+id/acciones"
+        android:orientation="vertical"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintGuide_percent="0.78"
-        android:orientation="horizontal" />
-
-    <!-- Botón acciones (Eliminar / Añadir a mazo / Crear mazo) -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnAcciones"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:text="Acciones"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/tvAtaques"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/pbCargando"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <!-- Botón volver -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnVolver"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:text="Volver"
-        android:layout_marginTop="12dp"
-        app:layout_constraintTop_toBottomOf="@id/btnAcciones"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEliminar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Eliminar de mi colección"
+            app:icon="@drawable/perfil"
+            android:textAllCaps="false"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAnadirAMazo"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Añadir a mazo"
+            android:layout_marginTop="8dp"
+            android:textAllCaps="false"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCrearMazo"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Crear nuevo mazo con esta carta"
+            android:layout_marginTop="8dp"
+            android:textAllCaps="false"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVolver"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Volver"
+            android:layout_marginTop="12dp"
+            android:textAllCaps="false"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
