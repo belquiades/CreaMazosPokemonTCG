@@ -7,6 +7,7 @@ import android.view.*
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
@@ -23,6 +24,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import android.view.GestureDetector
 import android.view.MotionEvent
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.SetOptions
 
 /**
  * FragmentoBusquedaCartas (mejorado)
@@ -189,28 +192,44 @@ class FragmentoBusquedaCartas : Fragment() {
             return
         }
 
-        // Documento donde guardaremos la carta: doc id = carta.id (para evitar duplicados)
-        val docRef = firestore.collection("users")
-            .document(user.uid)
-            .collection("cards")
-            .document(carta.id)
+        val userDocRef = firestore.collection("users").document(user.uid)
+        val cardDocRef = userDocRef.collection("cards").document(carta.id)
 
-        // Construimos un mapa mínimo para almacenar
-        val datos = mutableMapOf<String, Any?>(
+        // Mapa mínimo para almacenar la carta
+        val datosCarta = mapOf(
             "name" to carta.name,
             "image" to (carta.images?.small ?: carta.images?.large),
             "addedAt" to com.google.firebase.Timestamp.now()
         )
 
-        // Guardamos con merge = true para no perder posibles campos adicionales
-        docRef.set(datos)
-            .addOnSuccessListener {
+        // Ejecutamos una transacción: si la carta NO existe -> la creamos y aumentamos totalCards en 1.
+        firestore.runTransaction { transaction ->
+            val cardSnapshot = transaction.get(cardDocRef)
+            if (cardSnapshot.exists()) {
+                // La carta ya está en la colección del usuario -> no hacemos nada (no incrementamos)
+                // Para indicar al hilo exterior que no se añadió, devolvemos false
+                false
+            } else {
+                // Guardamos la carta (merge no es estrictamente necesario porque no existe,
+                // pero lo ponemos por seguridad si otros campos se añadieran)
+                transaction.set(cardDocRef, datosCarta, SetOptions.merge())
+
+                // Incrementamos (crea el campo si no existía)
+                transaction.update(userDocRef, "totalCards", FieldValue.increment(1))
+
+                // Devolvemos true indicando que hemos añadido la carta
+                true
+            }
+        }.addOnSuccessListener { added ->
+            if (added == true) {
                 Toast.makeText(requireContext(), "Carta añadida a tu colección", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(requireContext(), "La carta ya está en tu colección", Toast.LENGTH_SHORT).show()
             }
-            .addOnFailureListener { e ->
-                Log.e(TAG, "Error añadiendo carta a Firestore", e)
-                Toast.makeText(requireContext(), "No se pudo añadir la carta", Toast.LENGTH_SHORT).show()
-            }
+        }.addOnFailureListener { e ->
+            Log.e(TAG, "Error añadiendo carta o actualizando contador", e)
+            Toast.makeText(requireContext(), "No se pudo añadir la carta", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onDestroyView() {
