@@ -12,11 +12,6 @@ import com.google.gson.reflect.TypeToken
  *
  * Maneja el almacenamiento de la colección de cartas del usuario.
  * Guarda datos en SharedPreferences como JSON usando Gson.
- *
- * Ventajas:
- *  - Código centralizado, no duplicado.
- *  - Cualquier fragmento puede añadir, eliminar o leer cartas.
- *  - Fácil de migrar a Firestore en el futuro.
  */
 class RepositorioLocal(context: Context) {
 
@@ -53,13 +48,18 @@ class RepositorioLocal(context: Context) {
      * Si ya existe, no la duplica.
      */
     fun guardarCarta(carta: Carta): Boolean {
+        // Imagen obligatoria para guardar (si no hay, no guardamos)
         val imagen = carta.images?.small ?: carta.images?.large ?: return false
 
+        // Aseguramos que el id y name que pasamos cumplen la firma de CartaTCGdexBreve
+        val cartaId = carta.id
+        val cartaName = carta.name ?: "Sin nombre"
+
+        // Construimos el DTO breve con los parámetros esperados por tu modelo
         val breve = CartaTCGdexBreve(
-            id = carta.id,
-            localId = null,
-            name = carta.name,
-            image = imagen
+            cartaId,
+            cartaName,
+            imagen
         )
 
         val lista = cargarColeccion().toMutableList()

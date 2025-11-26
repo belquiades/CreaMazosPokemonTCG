@@ -8,46 +8,49 @@ package com.cesar.creamazospoketcg.data.model
  * ataques y habilidades en la pantalla de detalle si la API los devuelve.
  */
 
+
 data class Carta(
     val id: String,
-    val name: String,
-    val supertype: String? = null,
-    val subtypes: List<String>? = null,
+    val localId: String? = null,
+    val name: String? = null,
+    val superType: String? = null,
+    val subTypes: List<String>? = null,
     val types: List<String>? = null,
+    val hp: Int? = null,
+    val evolvesFrom: String? = null,
+    val attacks: List<Ataque>? = null,
+    val weaknesses: List<ElementoValor>? = null,
+    val resistances: List<ElementoValor>? = null,
+    val retreat: Int? = null,
+    val illustrator: String? = null,
     val rarity: String? = null,
     val set: SetInfo? = null,
     val images: ImagenesCarta? = null,
-    val attacks: List<Ataque>? = null,      // Optional - lista de ataques
-    val abilities: List<Habilidad>? = null  // Optional - habilidades (si existen)
+    val flavorText: String? = null
 )
 
-data class CartaTCGdexBreve(
-    val id: String,
-    val localId: String? = null,
-    val name: String,
-    val image:  String? = null
+data class Ataque(
+    val name: String? = null,
+    val cost: List<String>? = null,
+    val damage: String? = null,
+    val effect: String? = null
+)
+
+data class ElementoValor(
+    val type: String? = null,
+    val value: String? = null
 )
 
 data class SetInfo(
     val id: String? = null,
-    val name: String? = null
+    val name: String? = null,
+    val series: String? = null,
+    val printedTotal: Int? = null,
+    val total: Int? = null,
+    val releaseDate: String? = null
 )
 
 data class ImagenesCarta(
     val small: String? = null,
     val large: String? = null
-)
-
-// Representa un ataque de la carta (campo 'attacks' en la API)
-data class Ataque(
-    val name: String? = null,
-    val damage: String? = null,
-    val text: String? = null
-)
-
-// Representa una habilidad (campo 'abilities' en la API)
-data class Habilidad(
-    val name: String? = null,
-    val text: String? = null,
-    val type: String? = null
 )

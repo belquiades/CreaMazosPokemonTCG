@@ -6,39 +6,29 @@
     android:layout_height="wrap_content"
     android:padding="8dp">
 
-    <!-- Imagen pequeña de la carta -->
     <ImageView
         android:id="@+id/ivImagenCarta"
         android:layout_width="72dp"
         android:layout_height="96dp"
-        android:contentDescription="@string/imagen_carta"
+        android:contentDescription="@string/detalle_imagen_carta"
+        android:scaleType="centerCrop"
+        android:src="@drawable/placeholder_carta"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="centerCrop" />
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <!-- Título / nombre -->
     <TextView
         android:id="@+id/tvNombreCarta"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Nombre Carta"
-        android:textStyle="bold"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="36dp"
+        android:text="Nombre carta"
         android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@id/ivImagenCarta"
-        app:layout_constraintTop_toTopOf="@id/ivImagenCarta"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:paddingStart="8dp" />
-
-    <!-- Subtítulo: tipo / rareza -->
-    <TextView
-        android:id="@+id/tvSubtitulo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Tipo — Rareza"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@id/tvNombreCarta"
-        app:layout_constraintTop_toBottomOf="@id/tvNombreCarta"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:paddingTop="4dp"/>
+        app:layout_constraintTop_toTopOf="@id/ivImagenCarta" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,5 +10,5 @@ import com.cesar.creamazospoketcg.data.model.Carta
  *
  */
 data class RespuestaCartas(
-    val data: List<Carta> = emptyList()
+    val data: List<Carta>?
 )
