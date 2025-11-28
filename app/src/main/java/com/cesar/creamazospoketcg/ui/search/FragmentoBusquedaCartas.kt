@@ -57,6 +57,9 @@ class FragmentoBusquedaCartas : Fragment() {
                         putString("arg_image_base", imageBaseParaDetalle)
                     }
                 }
+                val imageBaseParaDetalle = carta.images?.large ?: carta.images?.small
+                android.util.Log.d("FragmentoBusquedaCartas", "Navegando a detalle id=${carta.id} imageBaseParaDetalle=$imageBaseParaDetalle")
+
                 findNavController().navigate(R.id.fragmentoDetalleCarta, bundle)
             }
         )

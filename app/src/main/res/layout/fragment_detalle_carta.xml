@@ -14,7 +14,9 @@
         android:paddingTop="0dp"
         android:paddingBottom="72dp">
 
+        <!-- groupDetalle: container that your fragment shows/ hides -->
         <LinearLayout
+            android:id="@+id/groupDetalle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -148,6 +150,18 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <!-- tvError overlay: shown centered when there is an error -->
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/error_carta_no_encontrada"
+        android:visibility="gone"
+        android:textSize="16sp"
+        android:textColor="@android:color/holo_red_dark"
+        android:layout_gravity="center"
+        android:padding="16dp"/>
 
     <!-- Barra inferior con botones -->
     <LinearLayout

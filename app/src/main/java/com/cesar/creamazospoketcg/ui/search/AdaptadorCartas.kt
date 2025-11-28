@@ -1,5 +1,6 @@
 package com.cesar.creamazospoketcg.ui.search
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -19,22 +20,25 @@ class AdaptadorCartas(
         fun vincular(carta: Carta) {
             binding.tvNombreCarta.text = carta.name ?: "—"
 
-            // Preferimos small (miniatura). Si no existe, fallback a large.
+            // Preferimos la versión pequeña para miniatura
             val imageUrl = carta.images?.small ?: carta.images?.large
 
-            android.util.Log.d("AdaptadorCartas", "bind() id='${carta.id}' imageUrl='$imageUrl'")
+            Log.d("AdaptadorCartas", "bind() id='${carta.id}' name='${carta.name}' imageUrl='$imageUrl'")
 
-            // Si imageUrl es null, Glide mostrará placeholder/error que hayas puesto.
-            Glide.with(binding.root)
-                .load(imageUrl)
-                .centerCrop()
-                .placeholder(R.drawable.placeholder_carta)
-                .error(R.drawable.placeholder_carta)
-                .into(binding.ivImagenCarta)
+            if (imageUrl.isNullOrBlank()) {
+                // Mostrar placeholder si no hay URL
+                binding.ivImagenCarta.setImageResource(R.drawable.placeholder_carta)
+            } else {
+                Glide.with(binding.root)
+                    .load(imageUrl)
+                    .centerCrop()
+                    .placeholder(R.drawable.placeholder_carta)
+                    .error(R.drawable.placeholder_carta)
+                    .into(binding.ivImagenCarta)
+            }
 
             binding.root.setOnClickListener { onClick(carta) }
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartaViewHolder {
