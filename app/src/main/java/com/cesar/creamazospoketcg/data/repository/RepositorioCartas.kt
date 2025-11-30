@@ -2,9 +2,6 @@ package com.cesar.creamazospoketcg.data.repository
 
 import android.util.Log
 import com.cesar.creamazospoketcg.data.model.Carta
-import com.cesar.creamazospoketcg.data.network.ModuloRed
-import com.cesar.creamazospoketcg.data.network.CartaDTO
-import com.cesar.creamazospoketcg.data.network.RespuestaListaCartasTCGdex
 import com.cesar.creamazospoketcg.data.network.CartaCompletaDTO
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
@@ -17,13 +14,12 @@ import okhttp3.Request
  */
 class RepositorioCartas {
 
-    private val servicio = ModuloRed.servicioTCGdex
     private val httpClient = OkHttpClient()
     private val gson = Gson()
 
     /**
-     * Busca cartas usando la API TCGdex (vía Retrofit).
-     * La consulta se transforma en q="name:consulta" si se pasa texto.
+     * Busca cartas usando la API TCGdex (vía OkHttp).
+     * La consulta se transforma en name=consulta si se pasa texto.
      */
     suspend fun buscarCartas(consulta: String?): Result<List<Carta>> {
         return withContext(Dispatchers.IO) {
@@ -61,12 +57,10 @@ class RepositorioCartas {
                             val wrapper = gson.fromJson(bodyStr, Map::class.java) as? Map<*, *>
                             val dataAny = wrapper?.get("data")
                             if (dataAny is List<*>) {
-                                // convertir List<*> a List<Map<String,Any>>
                                 @Suppress("UNCHECKED_CAST")
                                 dataAny.filterIsInstance<Map<String, Any>>()
                             } else emptyList()
                         } else if (trimmed.startsWith("[")) {
-                            // Array directo -> parsear como List<Map<String,Any>>
                             @Suppress("UNCHECKED_CAST")
                             gson.fromJson(bodyStr, object : com.google.gson.reflect.TypeToken<List<Map<String, Any>>>() {}.type)
                                     as? List<Map<String, Any>> ?: emptyList()
@@ -85,16 +79,13 @@ class RepositorioCartas {
                             val id = m["id"] as? String ?: continue
                             val name = (m["name"] as? String) ?: (m["title"] as? String) ?: "Sin nombre"
 
-                            // images puede venir en m["images"] como map con small/large
                             val imagesObj = m["images"] as? Map<*, *>
                             val small = imagesObj?.get("small") as? String
                             val large = imagesObj?.get("large") as? String
 
-                            // types y rarity
                             val typesList = (m["types"] as? List<*>)?.mapNotNull { it as? String }
                             val rarity = m["rarity"] as? String
 
-                            // set info si viene
                             val setObj = m["set"] as? Map<*, *>
                             val setInfo = if (setObj != null) {
                                 com.cesar.creamazospoketcg.data.model.SetInfo(
@@ -118,7 +109,6 @@ class RepositorioCartas {
                             listaCartas.add(carta)
                         } catch (e: Exception) {
                             Log.w("RepositorioCartas", "Ignorando elemento inválido en lista de cartas", e)
-                            // seguir con los demás
                         }
                     }
 
@@ -131,12 +121,8 @@ class RepositorioCartas {
         }
     }
 
-
-
     /**
-     * obtenerCartaPorId (corregido): pedimos al endpoint v2 correcto de TCGdex.
-     * Usamos OkHttp y Gson para evitar depender de la versión actual del servicio Retrofit
-     * si éste estuviera configurado con la ruta equivocada.
+     * obtenerCartaPorId: pedimos al endpoint v2 correcto de TCGdex.
      */
     suspend fun obtenerCartaPorId(id: String): Result<Carta> {
         return withContext(Dispatchers.IO) {
@@ -155,7 +141,6 @@ class RepositorioCartas {
 
                     if (response.isSuccessful && !bodyStr.isNullOrBlank()) {
                         return@withContext try {
-                            // Parseamos al DTO que tienes definido: CartaCompletaDTO
                             val dto: CartaCompletaDTO = gson.fromJson(bodyStr, CartaCompletaDTO::class.java)
                             Result.success(dto.aCartaCompleta())
                         } catch (e: Exception) {
@@ -175,7 +160,7 @@ class RepositorioCartas {
     }
 
     /**
-     * Obtener varias cartas por ids (usa detalle para cada id para asegurar datos completos).
+     * Obtener varias cartas por ids.
      */
     suspend fun obtenerCartasPorIds(ids: List<String>): Result<List<Carta>> {
         return withContext(Dispatchers.IO) {
