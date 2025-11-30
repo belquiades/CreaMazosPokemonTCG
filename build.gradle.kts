@@ -1,10 +1,5 @@
-plugins {
-    id("com.android.application") apply false
-    id("org.jetbrains.kotlin.android") apply false
-    id("androidx.navigation.safeargs") apply false
-    id("com.google.gms.google-services") apply false
-}
-
-tasks.register<Delete>("clean") {
+// build.gradle.kts (root) - minimal, repositories are managed in settings.gradle.kts
+tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
 }
+
