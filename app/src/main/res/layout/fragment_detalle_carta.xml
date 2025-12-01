@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:fillViewport="true"
         android:paddingTop="0dp"
-        android:paddingBottom="72dp">
+        android:paddingBottom="88dp"> <!-- dejamos espacio para la barra inferior -->
 
         <!-- groupDetalle: container that your fragment shows/ hides -->
         <LinearLayout
@@ -21,12 +21,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Imagen grande -->
+            <!-- Imagen grande: ahora muestra la carta completa sin recortar -->
             <ImageView
                 android:id="@+id/ivCarta"
                 android:layout_width="match_parent"
-                android:layout_height="280dp"
-                android:scaleType="centerCrop"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
                 android:contentDescription="@string/detalle_imagen_carta"
                 android:src="@drawable/placeholder_carta"/>
 
@@ -166,7 +167,7 @@
     <!-- Barra inferior con botones -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="72dp"
         android:orientation="horizontal"
         android:padding="8dp"
         android:gravity="center_vertical"
@@ -178,13 +179,13 @@
             android:id="@+id/btnAnadirMiColeccion"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="48dp"
+            android:layout_height="56dp"
             android:text="@string/anadir_al_mazo" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnVolverDetalle"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_height="56dp"
             android:text="Volver" />
 
     </LinearLayout>

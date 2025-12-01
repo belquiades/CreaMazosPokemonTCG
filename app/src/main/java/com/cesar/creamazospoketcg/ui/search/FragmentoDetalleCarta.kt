@@ -280,6 +280,31 @@ class FragmentoDetalleCarta : Fragment() {
     }
 
     // -------------------------
+    // Construye posibles URLs directas del CDN de PokeTCG para intentar antes de llamar a la API.
+    // Devuelve una cadena con candidatos separados por '|' (para iterar después).
+    // -------------------------
+    private fun buildDirectImageUrl(carta: Carta): String? {
+        val setId = carta.set?.id?.trim()
+        val local = carta.localId?.trim()
+        if (setId.isNullOrBlank() || local.isNullOrBlank()) return null
+
+        val candidates = mutableListOf<String>()
+        // hires first (el más probable)
+        candidates.add("https://images.pokemontcg.io/$setId/${local}_hires.png")
+        // variantes habituales
+        candidates.add("https://images.pokemontcg.io/$setId/${local}.png")
+        candidates.add("https://images.pokemontcg.io/$setId/${local}.jpg")
+        // si local tiene ceros delante, intentar versión sin ceros
+        val localNoLeading = local.trimStart('0')
+        if (localNoLeading.isNotEmpty() && localNoLeading != local) {
+            candidates.add("https://images.pokemontcg.io/$setId/${localNoLeading}_hires.png")
+            candidates.add("https://images.pokemontcg.io/$setId/${localNoLeading}.png")
+        }
+
+        return candidates.joinToString("|")
+    }
+
+    // -------------------------
     // Encuentra la primera URL válida (CDN o API) ejecutando tareas en paralelo.
     // Devuelve la URL válida o null si ninguna lo es.
     // (Esta función mantiene la "race" entre direct CDN, TCGdex (API/assets) y PokeTCG)
@@ -305,10 +330,10 @@ class FragmentoDetalleCarta : Fragment() {
         }
 
         // 1) CDN candidates (images.pokemontcg.io)
-        buildDirectImageUrl(carta)?.split("|")
-            ?.map { it.trim() }
-            ?.filter { it.isNotEmpty() }
-            ?.forEach { candidate ->
+        val direct = buildDirectImageUrl(carta)
+        if (!direct.isNullOrBlank()) {
+            val listCandidates = direct.split("|").map { it.trim() }.filter { it.isNotEmpty() }
+            for (candidate in listCandidates) {
                 val d = async(Dispatchers.IO) {
                     try {
                         if (validateUrlHead(candidate) || probeUrlWithGet(candidate)) candidate else null
@@ -319,6 +344,7 @@ class FragmentoDetalleCarta : Fragment() {
                 }
                 deferreds.add(d)
             }
+        }
 
         // 2) TCGdex REST API candidate
         val lookupId = if (!carta.id.isNullOrBlank()) carta.id else carta.localId
