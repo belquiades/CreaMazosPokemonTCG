@@ -13,7 +13,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.GlideException
@@ -28,13 +27,21 @@ import com.cesar.creamazospoketcg.databinding.FragmentDetalleCartaBinding
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.selects.select
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
+import okhttp3.logging.HttpLoggingInterceptor
 import org.json.JSONObject
+import java.io.InterruptedIOException
+import java.net.SocketTimeoutException
+import java.util.concurrent.TimeUnit
 import kotlin.math.absoluteValue
 
 class FragmentoDetalleCarta : Fragment() {
@@ -51,7 +58,127 @@ class FragmentoDetalleCarta : Fragment() {
     private var cartaIdArg: String? = null
     private var imageBaseArg: String? = null
 
-    private val httpClient by lazy { OkHttpClient() }
+    // Cache + prefs
+    private val PREFS_NAME = "img_cache_prefs"
+    private val PREFS_KEY_MAP = "img_cache_map"
+    private val memoryCache = mutableMapOf<String, String?>()
+
+    // Encuentra la primera URL válida (CDN o API) ejecutando tareas en paralelo.
+    // Devuelve la URL válida o null si ninguna lo es.
+    private suspend fun findFirstValidImageUrl(carta: Carta, pokeKey: String?): String? = coroutineScope {
+        val deferreds = mutableListOf<kotlinx.coroutines.Deferred<String?>>()
+
+        // 0) Si ya hay cache para esta carta, devolver rápido (no bloqueante)
+        val cacheKey = carta.id ?: carta.localId ?: ""
+        if (!cacheKey.isNullOrBlank()) {
+            val cached = memoryCache[cacheKey]
+            if (!cached.isNullOrBlank()) {
+                // intentar validar rápido
+                val dCache = async(Dispatchers.IO) {
+                    try {
+                        if (validateUrlHead(cached) || probeUrlWithGet(cached)) cached else null
+                    } catch (e: Exception) {
+                        Log.w(TAG, "Cache candidate threw: $cached", e)
+                        null
+                    }
+                }
+                deferreds.add(dCache)
+            }
+        }
+
+        // 1) CDN candidates (images.pokemontcg.io) - intentamos primero si existen
+        buildDirectImageUrl(carta)?.split("|")
+            ?.map { it.trim() }
+            ?.filter { it.isNotEmpty() }
+            ?.forEach { candidate ->
+                val d = async(Dispatchers.IO) {
+                    try {
+                        if (validateUrlHead(candidate) || probeUrlWithGet(candidate)) candidate else null
+                    } catch (e: Exception) {
+                        Log.w(TAG, "CDN candidate threw: $candidate", e)
+                        null
+                    }
+                }
+                deferreds.add(d)
+            }
+
+        // 2) TCGdex REST API candidate (ahora tiene prioridad sobre PokeTCG)
+        val lookupId = if (!carta.id.isNullOrBlank()) carta.id else carta.localId
+        if (!lookupId.isNullOrBlank()) {
+            val dTcgApi = async(Dispatchers.IO) {
+                try {
+                    fetchFromTcgDexApiWithRetries(lookupId)
+                } catch (e: Exception) {
+                    Log.w(TAG, "TCGdex API candidate threw for $lookupId", e)
+                    null
+                }
+            }
+            deferreds.add(dTcgApi)
+        }
+
+        // 3) TCGdex assets candidate (direct asset reconstruction fallback)
+        val dTcgDexAssets = async(Dispatchers.IO) {
+            try {
+                fetchFromTcgDexAssets(carta)
+            } catch (e: Exception) {
+                Log.w(TAG, "TCGdex assets candidate threw for ${carta.id ?: carta.localId}", e)
+                null
+            }
+        }
+        deferreds.add(dTcgDexAssets)
+
+        // 4) PokeTCG API candidate (último recurso)
+        if (!lookupId.isNullOrBlank()) {
+            val dPoke = async(Dispatchers.IO) {
+                try {
+                    fetchFromPokeTcgApiWithRetries(lookupId, pokeKey)
+                } catch (e: Exception) {
+                    Log.w(TAG, "PokeTCG API candidate threw for $lookupId", e)
+                    null
+                }
+            }
+            deferreds.add(dPoke)
+        }
+
+        if (deferreds.isEmpty()) return@coroutineScope null
+
+        try {
+            val remaining = deferreds.toMutableList()
+            while (remaining.isNotEmpty()) {
+                val result = select<String?> {
+                    for (d in remaining) {
+                        d.onAwait { it }
+                    }
+                }
+                if (!result.isNullOrBlank()) {
+                    remaining.filter { !it.isCompleted }.forEach { it.cancel() }
+                    return@coroutineScope result
+                } else {
+                    remaining.removeAll { it.isCompleted }
+                }
+            }
+            return@coroutineScope null
+        } finally {
+            deferreds.filter { !it.isCompleted }.forEach { it.cancel() }
+        }
+    }
+
+
+
+    // OkHttp client
+
+    private val httpClient by lazy {
+        val logging = HttpLoggingInterceptor { msg -> Log.d(TAG, "OkHttp: $msg") }
+        logging.level = HttpLoggingInterceptor.Level.BASIC
+        OkHttpClient.Builder()
+            .connectTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(60, TimeUnit.SECONDS)
+            .writeTimeout(60, TimeUnit.SECONDS)
+            .callTimeout(70, TimeUnit.SECONDS)
+            .retryOnConnectionFailure(true)
+            .addInterceptor(logging)
+            .build()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +186,23 @@ class FragmentoDetalleCarta : Fragment() {
         if (args != null) {
             cartaIdArg = args.getString("arg_id_carta")
             imageBaseArg = args.getString("arg_image_base")
+        }
+        // cargar cache persistente
+        try {
+            val prefs = requireContext().getSharedPreferences(PREFS_NAME, 0)
+            val json = prefs.getString(PREFS_KEY_MAP, null)
+            if (!json.isNullOrBlank()) {
+                val obj = JSONObject(json)
+                val keys = obj.keys()
+                while (keys.hasNext()) {
+                    val k = keys.next()
+                    val v = obj.optString(k, null)
+                    if (!v.isNullOrBlank()) memoryCache[k] = v
+                }
+                Log.d(TAG, "Cache prefs cargada: ${memoryCache.size} entradas")
+            }
+        } catch (e: Exception) {
+            Log.w(TAG, "Error cargando cache prefs", e)
         }
     }
 
@@ -145,16 +289,12 @@ class FragmentoDetalleCarta : Fragment() {
     private fun mostrarCartaEnUI(carta: Carta) {
         Log.d(TAG, "Mostrar carta: $carta")
 
-        // --- calcular imageCandidate SIN usar 'if' como expresión ---
+        // calcular imageCandidate
         var computedLarge: String? = null
-        if (!carta.images?.large.isNullOrBlank()) {
-            computedLarge = carta.images?.large
-        }
+        if (!carta.images?.large.isNullOrBlank()) computedLarge = carta.images?.large
 
         var computedSmall: String? = null
-        if (!carta.images?.small.isNullOrBlank()) {
-            computedSmall = carta.images?.small
-        }
+        if (!carta.images?.small.isNullOrBlank()) computedSmall = carta.images?.small
 
         var imageCandidate: String? = null
         if (computedLarge != null) {
@@ -166,78 +306,60 @@ class FragmentoDetalleCarta : Fragment() {
                 imageCandidate = imageBaseArg
             }
         }
-        // ----------------------------------------------------------
 
         Log.d(TAG, "Computed imageCandidate = '$imageCandidate' (large='$computedLarge', small='$computedSmall', arg='$imageBaseArg')")
 
         binding.groupDetalle.visibility = View.VISIBLE
 
-        // Nombre
-        if (!carta.name.isNullOrBlank()) {
-            binding.tvNombreCarta.text = carta.name
-        } else {
-            binding.tvNombreCarta.text = "—"
-        }
+        if (!carta.name.isNullOrBlank()) binding.tvNombreCarta.text = carta.name else binding.tvNombreCarta.text = "—"
 
-        // Tipo — Rareza
         val tipoParts = mutableListOf<String>()
         if (!carta.types.isNullOrEmpty()) tipoParts.add(carta.types.joinToString(", "))
         if (!carta.rarity.isNullOrBlank()) tipoParts.add(carta.rarity)
-        if (tipoParts.isEmpty()) {
-            binding.tvTipoRarity.text = "—"
-        } else {
-            binding.tvTipoRarity.text = tipoParts.joinToString(" — ")
-        }
+        if (tipoParts.isEmpty()) binding.tvTipoRarity.text = "—" else binding.tvTipoRarity.text = tipoParts.joinToString(" — ")
 
-        // Mostrar imagen (local primero)
         binding.ivCarta.tag = imageCandidate
+
+        // Si ya tenemos imageCandidate (viene en DTO o arg), probar y cargar.
+
+        // Si ya hay imageCandidate (del DTO o arg), cargarla primero
         if (!imageCandidate.isNullOrBlank()) {
-            loadImageWithLog(binding.ivCarta, imageCandidate)
+            testAndLoadImage(binding.ivCarta, imageCandidate)
         } else {
-            // Si no hay candidato, intentar PokéTCG API en background
-            binding.pbCargando.visibility = View.VISIBLE
+            // no hay candidate -> race entre CDN y API
             lifecycleScope.launch {
+                binding.pbCargando.visibility = View.VISIBLE
                 val pokeKey: String? = if (BuildConfig.POKETCG_API_KEY.isNotBlank()) BuildConfig.POKETCG_API_KEY else null
-
-                var lookupId: String? = null
-                if (!carta.id.isNullOrBlank()) {
-                    lookupId = carta.id
-                } else {
-                    if (!carta.localId.isNullOrBlank()) {
-                        lookupId = carta.localId
-                    }
+                val url = try {
+                    withContext(Dispatchers.IO) { findFirstValidImageUrl(carta, pokeKey) }
+                } catch (e: Exception) {
+                    Log.w(TAG, "findFirstValidImageUrl threw", e)
+                    null
                 }
-
-                var remoteUrl: String? = null
-                if (lookupId != null) {
-                    remoteUrl = withContext(Dispatchers.IO) {
-                        fetchFromPokeTcgApi(lookupId, pokeKey)
-                    }
-                }
-
                 binding.pbCargando.visibility = View.GONE
 
-                if (!remoteUrl.isNullOrBlank()) {
-                    binding.ivCarta.tag = remoteUrl
-                    loadImageWithLog(binding.ivCarta, remoteUrl)
-                    Log.d(TAG, "Usada imagen desde PokeTCG API -> $remoteUrl")
+                if (!url.isNullOrBlank()) {
+                    val cacheKey = carta.id ?: carta.localId ?: ""
+                    if (cacheKey.isNotBlank()) {
+                        memoryCache[cacheKey] = url
+                        saveToPrefs(cacheKey, url)
+                    }
+                    Log.d(TAG, "Imagen encontrada (race) -> $url")
+                    withContext(Dispatchers.Main) {
+                        testAndLoadImage(binding.ivCarta, url)
+                    }
                 } else {
-                    val bmp = createTextPlaceholder(carta.name)
-                    binding.ivCarta.setImageBitmap(bmp)
-                    Log.w(TAG, "No se obtuvo imagen desde PokeTCG API para id=${carta.id} (lookupId=$lookupId)")
+                    Log.w(TAG, "No se encontró URL válida vía race. Mostrando placeholder.")
+                    withContext(Dispatchers.Main) {
+                        binding.ivCarta.setImageBitmap(createTextPlaceholder(carta.name))
+                    }
                 }
             }
         }
 
-        // Ataques
         val ataques = carta.attacks
-        if (ataques == null || ataques.isEmpty()) {
-            binding.tvAtaques.text = getString(R.string.no_hay_ataques)
-        } else {
-            binding.tvAtaques.text = ataques.joinToString(separator = "\n\n") { formatAtaque(it) }
-        }
+        if (ataques == null || ataques.isEmpty()) binding.tvAtaques.text = getString(R.string.no_hay_ataques) else binding.tvAtaques.text = ataques.joinToString(separator = "\n\n") { formatAtaque(it) }
 
-        // Resto de campos
         if (!carta.types.isNullOrEmpty()) binding.tvTipos.text = carta.types.joinToString(", ") else binding.tvTipos.text = "-"
         if (carta.hp != null) binding.tvHP.text = carta.hp.toString() else binding.tvHP.text = "-"
         if (!carta.localId.isNullOrBlank()) binding.tvLocalId.text = carta.localId else binding.tvLocalId.text = "-"
@@ -245,11 +367,265 @@ class FragmentoDetalleCarta : Fragment() {
         if (!carta.set?.name.isNullOrBlank()) binding.tvSetInfo.text = carta.set?.name else binding.tvSetInfo.text = "-"
     }
 
-    // --- PokeTCG helper (no-if-as-expression) ---
-    private fun validateUrlHead(url: String): Boolean {
-        return try {
-            val req = Request.Builder().url(url).head().build()
+    // -------------------------
+    // PokeTCG fetch (retries + UA)
+    // -------------------------
+    // -------------------------
+
+    private suspend fun fetchFromPokeTcgApiWithRetries(lookupId: String, pokeApiKey: String?): String? {
+        val apiUrl = "https://api.pokemontcg.io/v2/cards/$lookupId"
+        var attempt = 0
+        val maxAttempts = 3
+        var backoffMs = 500L
+        val userAgent = "ProyectoDAM-PokeTCG/1.0 (Android)"
+
+        while (attempt < maxAttempts) {
+            attempt++
+            try {
+                val builder = Request.Builder().url(apiUrl)
+                builder.addHeader("User-Agent", userAgent)
+                if (!pokeApiKey.isNullOrBlank()) builder.addHeader("X-Api-Key", pokeApiKey)
+                val req = builder.build()
+
+                val resp: Response = withContext(Dispatchers.IO) { httpClient.newCall(req).execute() }
+                resp.use { r ->
+                    if (r.isSuccessful) {
+                        val body = r.body?.string()
+                        if (!body.isNullOrBlank()) {
+                            val root = JSONObject(body)
+                            if (root.has("data")) {
+                                val data = root.getJSONObject("data")
+                                if (data.has("images")) {
+                                    val images = data.getJSONObject("images")
+                                    var candidate: String? = null
+                                    if (images.has("large")) {
+                                        val large = images.optString("large", null)
+                                        if (!large.isNullOrBlank()) candidate = large
+                                    }
+                                    if (candidate == null && images.has("small")) {
+                                        val small = images.optString("small", null)
+                                        if (!small.isNullOrBlank()) candidate = small
+                                    }
+                                    if (!candidate.isNullOrBlank()) {
+                                        val ok = validateUrlHead(candidate)
+                                        if (ok) {
+                                            return candidate
+                                        } else {
+                                            Log.w(TAG, "PokeTCG image candidate HEAD failed: $candidate (attempt $attempt)")
+                                        }
+                                    } else {
+                                        Log.w(TAG, "PokeTCG response had no image candidate for $lookupId (attempt $attempt)")
+                                    }
+                                } else {
+                                    Log.w(TAG, "PokeTCG response missing 'images' for $lookupId (attempt $attempt)")
+                                }
+                            } else {
+                                Log.w(TAG, "PokeTCG response missing 'data' for $lookupId (attempt $attempt)")
+                            }
+                        } else {
+                            Log.w(TAG, "PokeTCG response empty body for $lookupId (attempt $attempt)")
+                        }
+                    } else {
+                        Log.w(TAG, "PokeTCG API returned ${r.code} for $lookupId (attempt $attempt)")
+                    }
+                }
+            } catch (e: Exception) {
+                if (e is SocketTimeoutException || e is InterruptedIOException) {
+                    Log.w(TAG, "Timeout conectando a PokeTCG API for $lookupId (attempt $attempt)", e)
+                } else {
+                    Log.e(TAG, "Error calling PokeTCG API for $lookupId (attempt $attempt)", e)
+                }
+            }
+
+            if (attempt < maxAttempts) {
+                try {
+                    kotlinx.coroutines.delay(backoffMs)
+                } catch (ie: InterruptedException) {
+                    Thread.currentThread().interrupt()
+                    break
+                }
+                backoffMs *= 2
+            }
+        }
+
+        return null
+    }
+
+    // -------------------------
+    // TCGdex REST API (retries + parse image)
+    // Docs show single-card endpoint: https://api.tcgdex.net/v2/en/cards/{id}
+    // Response includes "image": "https://assets.tcgdex.net/en/...". We'll try variants of that.
+    // -------------------------
+    private suspend fun fetchFromTcgDexApiWithRetries(lookupId: String): String? {
+        val apiUrl = "https://api.tcgdex.net/v2/en/cards/$lookupId"
+        var attempt = 0
+        val maxAttempts = 3
+        var backoffMs = 500L
+        val userAgent = "ProyectoDAM-PokeTCG/1.0 (Android)"
+
+        while (attempt < maxAttempts) {
+            attempt++
+            try {
+                val builder = Request.Builder().url(apiUrl)
+                builder.addHeader("User-Agent", userAgent)
+                val req = builder.build()
+
+                val resp: Response = withContext(Dispatchers.IO) { httpClient.newCall(req).execute() }
+                resp.use { r ->
+                    if (r.isSuccessful) {
+                        val body = r.body?.string()
+                        if (!body.isNullOrBlank()) {
+                            val root = JSONObject(body)
+                            // Según documentación devuelve el objeto Card (no envuelto en "data")
+                            // y contiene campo "image" que apunta a assets (sin extensión muchas veces).
+                            val candidateBase = if (root.has("image")) root.optString("image", null) else null
+                            if (!candidateBase.isNullOrBlank()) {
+                                // probar la base tal cual (puede responder) y variantes con calidad/ext
+                                val qualities = listOf("", "high", "low")
+                                val exts = listOf("", "png", "webp", "jpg")
+                                for (q in qualities) {
+                                    for (ext in exts) {
+                                        val url = when {
+                                            q.isBlank() && ext.isBlank() -> candidateBase
+                                            q.isBlank() -> "$candidateBase.$ext"
+                                            ext.isBlank() -> "$candidateBase/$q"
+                                            else -> "$candidateBase/$q.$ext"
+                                        }
+                                        try {
+                                            if (validateUrlHead(url) || probeUrlWithGet(url)) {
+                                                Log.d(TAG, "TCGdex API image candidate ok -> $url")
+                                                return url
+                                            }
+                                        } catch (e: Exception) {
+                                            Log.w(TAG, "Error probing tcgdex api-derived image $url", e)
+                                        }
+                                    }
+                                }
+                                Log.w(TAG, "TCGdex API returned image base but no variant probed ok: $candidateBase")
+                            } else {
+                                Log.w(TAG, "TCGdex API response missing 'image' for $lookupId (attempt $attempt)")
+                            }
+                        } else {
+                            Log.w(TAG, "TCGdex API response empty body for $lookupId (attempt $attempt)")
+                        }
+                    } else {
+                        Log.w(TAG, "TCGdex API returned ${r.code} for $lookupId (attempt $attempt)")
+                    }
+                }
+            } catch (e: Exception) {
+                if (e is SocketTimeoutException || e is InterruptedIOException) {
+                    Log.w(TAG, "Timeout conectando a TCGdex API for $lookupId (attempt $attempt)", e)
+                } else {
+                    Log.e(TAG, "Error calling TCGdex API for $lookupId (attempt $attempt)", e)
+                }
+            }
+
+            if (attempt < maxAttempts) {
+                try {
+                    kotlinx.coroutines.delay(backoffMs)
+                } catch (ie: InterruptedException) {
+                    Thread.currentThread().interrupt()
+                    break
+                }
+                backoffMs *= 2
+            }
+        }
+
+        return null
+    }
+
+    // -------------------------
+    // TCGdex assets fallback (reconstrucción y prueba)
+    // Docs: assets URLs like https://assets.tcgdex.net/en/{serie}/{set}/{local} and can append /{quality}.{extension}.
+    // -------------------------
+    private suspend fun fetchFromTcgDexAssets(carta: Carta): String? = withContext(Dispatchers.IO) {
+        try {
+            val setId = carta.set?.id?.trim() ?: run {
+                val compound = carta.id?.trim()
+                if (!compound.isNullOrBlank() && compound.contains("-")) compound.split("-", limit = 2)[0] else null
+            }
+
+            var local = carta.localId?.trim() ?: run {
+                val compound = carta.id?.trim()
+                if (!compound.isNullOrBlank() && compound.contains("-")) compound.split("-", limit = 2)[1] else null
+            }
+
+            if (setId.isNullOrBlank() || local.isNullOrBlank()) {
+                Log.d(TAG, "TCGdex: setId/local insuficientes (set='$setId', local='$local')")
+                return@withContext null
+            }
+
+            local = local.trimStart('#').trim()
+            val localNoLeading = local.trimStart('0').ifEmpty { local }
+
+            val serie = setId.replace(Regex("\\d+$"), "")
+            val qualities = listOf("high", "low", "")
+            val exts = listOf("png", "webp", "jpg", "")
+
+            val tried = mutableListOf<String>()
+            for (q in qualities) {
+                for (ext in exts) {
+                    val url = when {
+                        q.isBlank() && ext.isBlank() -> "https://assets.tcgdex.net/en/$serie/$setId/$local"
+                        q.isBlank() -> "https://assets.tcgdex.net/en/$serie/$setId/$local.$ext"
+                        ext.isBlank() -> "https://assets.tcgdex.net/en/$serie/$setId/$local/$q"
+                        else -> "https://assets.tcgdex.net/en/$serie/$setId/$local/$q.$ext"
+                    }
+                    tried.add(url)
+                    try {
+                        if (validateUrlHead(url) || probeUrlWithGet(url)) {
+                            Log.d(TAG, "TCGdex asset ok -> $url")
+                            return@withContext url
+                        }
+                    } catch (e: Exception) {
+                        Log.w(TAG, "Error probing tcgdex asset $url", e)
+                    }
+                }
+            }
+
+            // also try using localNoLeading
+            if (localNoLeading != local) {
+                for (q in qualities) {
+                    for (ext in exts) {
+                        val url = when {
+                            q.isBlank() && ext.isBlank() -> "https://assets.tcgdex.net/en/$serie/$setId/$localNoLeading"
+                            q.isBlank() -> "https://assets.tcgdex.net/en/$serie/$setId/$localNoLeading.$ext"
+                            ext.isBlank() -> "https://assets.tcgdex.net/en/$serie/$setId/$localNoLeading/$q"
+                            else -> "https://assets.tcgdex.net/en/$serie/$setId/$localNoLeading/$q.$ext"
+                        }
+                        tried.add(url)
+                        try {
+                            if (validateUrlHead(url) || probeUrlWithGet(url)) {
+                                Log.d(TAG, "TCGdex asset ok (noLeading) -> $url")
+                                return@withContext url
+                            }
+                        } catch (e: Exception) {
+                            Log.w(TAG, "Error probing tcgdex asset $url", e)
+                        }
+                    }
+                }
+            }
+
+            Log.d(TAG, "TCGdex tried urls: ${tried.joinToString(", ")}")
+            return@withContext null
+        } catch (e: Exception) {
+            Log.w(TAG, "fetchFromTcgDexAssets unexpected error", e)
+            return@withContext null
+        }
+    }
+
+    // -------------------------
+    // URL probing helpers
+    // -------------------------
+    private suspend fun validateUrlHead(url: String): Boolean = withContext(Dispatchers.IO) {
+        try {
+            val req = Request.Builder()
+                .url(url)
+                .head()
+                .addHeader("User-Agent", "ProyectoDAM-PokeTCG/1.0 (Android)")
+                .build()
             httpClient.newCall(req).execute().use { resp ->
+                Log.d(TAG, "HEAD ${resp.code} -> $url")
                 resp.isSuccessful && resp.body != null
             }
         } catch (e: Exception) {
@@ -258,59 +634,156 @@ class FragmentoDetalleCarta : Fragment() {
         }
     }
 
-    private fun fetchFromPokeTcgApi(lookupId: String, pokeApiKey: String?): String? {
+    private suspend fun probeUrlWithGet(url: String): Boolean = withContext(Dispatchers.IO) {
         try {
-            val apiUrl = "https://api.pokemontcg.io/v2/cards/$lookupId"
-            val builder = Request.Builder().url(apiUrl)
-            if (!pokeApiKey.isNullOrBlank()) {
-                builder.addHeader("X-Api-Key", pokeApiKey)
-            }
-            val req = builder.build()
-            val resp: Response = httpClient.newCall(req).execute()
-            resp.use { r ->
-                if (r.isSuccessful) {
-                    val body = r.body?.string()
-                    if (body.isNullOrBlank()) {
+            val req = Request.Builder()
+                .url(url)
+                .get()
+                .addHeader("User-Agent", "ProyectoDAM-PokeTCG/1.0 (Android)")
+                .build()
+            httpClient.newCall(req).execute().use { resp ->
+                val code = resp.code
+                val ct = resp.header("Content-Type") ?: "unknown"
+                Log.d(TAG, "GET $code content-type=$ct -> $url")
+                if (resp.isSuccessful) {
+                    val lower = ct.lowercase()
+                    if (lower.contains("image") || lower.contains("jpeg") || lower.contains("png") || lower.contains("webp")) {
+                        true
                     } else {
-                        val root = JSONObject(body)
-                        if (!root.has("data")) {
-                        } else {
-                            val data = root.getJSONObject("data")
-                            if (!data.has("images")) {
-                            } else {
-                                val images = data.getJSONObject("images")
-                                var candidate: String? = null
-                                if (images.has("large")) {
-                                    val large = images.optString("large", null)
-                                    if (!large.isNullOrBlank()) candidate = large
-                                }
-                                if (candidate == null && images.has("small")) {
-                                    val small = images.optString("small", null)
-                                    if (!small.isNullOrBlank()) candidate = small
-                                }
-                                if (candidate.isNullOrBlank()) {
-                                } else {
-                                    val ok = validateUrlHead(candidate)
-                                    if (ok) {
-                                        return candidate
-                                    } else {
-                                        Log.w(TAG, "PokeTCG image candidate HEAD failed: $candidate")
-                                    }
-                                }
-                            }
-                        }
+                        Log.w(TAG, "GET OK pero Content-Type no es imagen: $ct -> $url")
+                        false
                     }
                 } else {
-                    Log.w(TAG, "PokeTCG API returned ${r.code} for $lookupId")
+                    Log.w(TAG, "GET NO 2xx ($code) -> $url")
+                    false
                 }
             }
         } catch (e: Exception) {
-            Log.e(TAG, "Error calling PokeTCG API for $lookupId", e)
+            Log.w(TAG, "probeUrlWithGet error for $url", e)
+            false
         }
-        return null
     }
 
-    // ---- utilities ----
+
+    // Single loadImageWithLog used everywhere
+    private fun loadImageWithLog(imageView: ImageView, url: String) {
+        Glide.with(imageView.context)
+            .load(url)
+            .placeholder(R.drawable.placeholder_carta)
+            .error(R.drawable.placeholder_carta)
+            .listener(object : RequestListener<Drawable> {
+                override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
+                    Log.e(TAG, "Glide FALLIDA -> url: $url", e)
+                    return false
+                }
+
+                override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: com.bumptech.glide.load.DataSource?, isFirstResource: Boolean): Boolean {
+                    Log.d(TAG, "Glide OK -> url: $url")
+                    return false
+                }
+            })
+            .into(imageView)
+    }
+
+    // Probar esquema, HEAD, GET y luego cargar con Glide
+    private fun testAndLoadImage(imageView: ImageView, url: String) {
+        // Normalizar esquemas (sin I/O)
+        val finalUrl = when {
+            url.startsWith("//") -> "https:$url"
+            url.startsWith("http://") || url.startsWith("https://") -> url
+            else -> "https://$url"
+        }
+
+        Log.d(TAG, "testAndLoadImage: probing url='$finalUrl' (original='$url')")
+
+        // Ejecutar las comprobaciones en background y luego volver al hilo principal para Glide
+        lifecycleScope.launch {
+            var success = false
+
+            // 1) HEAD
+            val headOk = try {
+                validateUrlHead(finalUrl)
+            } catch (e: Exception) {
+                Log.w(TAG, "validateUrlHead suspend threw for $finalUrl", e)
+                false
+            }
+
+            if (headOk) {
+                Log.d(TAG, "HEAD OK -> $finalUrl")
+                success = true
+            } else {
+                // 2) GET probe
+                val getOk = try {
+                    probeUrlWithGet(finalUrl)
+                } catch (e: Exception) {
+                    Log.w(TAG, "probeUrlWithGet suspend threw for $finalUrl", e)
+                    false
+                }
+
+                if (getOk) {
+                    Log.d(TAG, "GET probe OK -> $finalUrl")
+                    success = true
+                } else {
+                    // 3) intentar esquema alternativo (https <-> http)
+                    val alternate = if (finalUrl.startsWith("https://")) finalUrl.replaceFirst("https://", "http://") else finalUrl.replaceFirst("http://", "https://")
+                    if (alternate != finalUrl) {
+                        val altOkHead = try { validateUrlHead(alternate) } catch (e: Exception) { false }
+                        val altOkGet = if (!altOkHead) try { probeUrlWithGet(alternate) } catch (e: Exception) { false } else true
+                        if (altOkHead || altOkGet) {
+                            Log.d(TAG, "Alternate scheme OK -> $alternate")
+                            withContext(Dispatchers.Main) {
+                                loadImageWithLog(imageView, alternate)
+                            }
+                            return@launch
+                        }
+                    }
+                }
+            }
+
+            // Si success true, carga con Glide en main
+            if (success) {
+                withContext(Dispatchers.Main) {
+                    loadImageWithLog(imageView, finalUrl)
+                }
+            } else {
+                Log.w(TAG, "URL no válida o inaccesible para imagen: $url (final='$finalUrl')")
+                // poner placeholder en main
+                withContext(Dispatchers.Main) {
+                    imageView.setImageResource(R.drawable.placeholder_carta)
+                }
+            }
+        }
+    }
+
+
+    // ---- cache prefs helpers ----
+    private fun saveToPrefs(key: String, url: String) {
+        try {
+            val prefs = requireContext().getSharedPreferences(PREFS_NAME, 0)
+            val currentJson = prefs.getString(PREFS_KEY_MAP, null)
+            val obj = if (!currentJson.isNullOrBlank()) JSONObject(currentJson) else JSONObject()
+            obj.put(key, url)
+            prefs.edit().putString(PREFS_KEY_MAP, obj.toString()).apply()
+            Log.d(TAG, "Cache prefs guardada: $key -> $url")
+        } catch (e: Exception) {
+            Log.w(TAG, "Error guardando cache prefs", e)
+        }
+    }
+
+    private fun getCachedFromPrefs(key: String): String? {
+        return try {
+            val prefs = requireContext().getSharedPreferences(PREFS_NAME, 0)
+            val json = prefs.getString(PREFS_KEY_MAP, null)
+            if (json.isNullOrBlank()) return null
+            val obj = JSONObject(json)
+            val v = obj.optString(key, null)
+            if (!v.isNullOrBlank()) v else null
+        } catch (e: Exception) {
+            Log.w(TAG, "Error leyendo cache prefs key=$key", e)
+            null
+        }
+    }
+
     private fun formatAtaque(a: Ataque): String {
         val lineParts = mutableListOf<String>()
         if (!a.name.isNullOrBlank()) lineParts.add(a.name!!)
@@ -348,24 +821,27 @@ class FragmentoDetalleCarta : Fragment() {
             }
     }
 
-    private fun loadImageWithLog(imageView: ImageView, url: String) {
-        Glide.with(imageView.context)
-            .load(url)
-            .placeholder(R.drawable.placeholder_carta)
-            .error(R.drawable.placeholder_carta)
-            .listener(object : RequestListener<Drawable> {
-                override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
-                    Log.e(TAG, "Carga FALLIDA -> url: $url", e)
-                    return false
-                }
+    /**
+     * Construye posibles URLs directas del CDN de PokeTCG para intentar antes de llamar a la API.
+     * Devuelve una cadena con candidatos separados por '|' (para iterar después).
+     */
+    private fun buildDirectImageUrl(carta: Carta): String? {
+        val setId = carta.set?.id?.trim()
+        val local = carta.localId?.trim()
+        if (setId.isNullOrBlank() || local.isNullOrBlank()) return null
 
-                override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: com.bumptech.glide.load.DataSource?, isFirstResource: Boolean): Boolean {
-                    Log.d(TAG, "Carga OK -> url: $url")
-                    return false
-                }
-            })
-            .into(imageView)
+        val candidates = mutableListOf<String>()
+        candidates.add("https://images.pokemontcg.io/$setId/${local}_hires.png")
+        candidates.add("https://images.pokemontcg.io/$setId/${local}.png")
+        candidates.add("https://images.pokemontcg.io/$setId/${local}.jpg")
+        val localNoLeading = local.trimStart('0')
+        if (localNoLeading.isNotEmpty() && localNoLeading != local) {
+            candidates.add("https://images.pokemontcg.io/$setId/${localNoLeading}_hires.png")
+            candidates.add("https://images.pokemontcg.io/$setId/${localNoLeading}.png")
+        }
+        return candidates.joinToString("|")
     }
+
 
     private fun createTextPlaceholder(name: String?, width: Int = 600, height: Int = 400): Bitmap {
         val bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)

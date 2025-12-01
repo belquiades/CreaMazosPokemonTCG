@@ -4,10 +4,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.cesar.creamazospoketcg.R
 import com.cesar.creamazospoketcg.data.model.Carta
 import com.cesar.creamazospoketcg.databinding.ItemCartaBinding
+import com.cesar.creamazospoketcg.utils.ImageResolverTcgDex
 
 class AdaptadorCartas(
     private var listaCartas: List<Carta> = emptyList(),
@@ -20,22 +20,10 @@ class AdaptadorCartas(
         fun vincular(carta: Carta) {
             binding.tvNombreCarta.text = carta.name ?: "—"
 
-            // Preferimos la versión pequeña para miniatura
-            val imageUrl = carta.images?.small ?: carta.images?.large
+            Log.d("AdaptadorCartas", "bind() id='${carta.id}' name='${carta.name}'")
 
-            Log.d("AdaptadorCartas", "bind() id='${carta.id}' name='${carta.name}' imageUrl='$imageUrl'")
-
-            if (imageUrl.isNullOrBlank()) {
-                // Mostrar placeholder si no hay URL
-                binding.ivImagenCarta.setImageResource(R.drawable.placeholder_carta)
-            } else {
-                Glide.with(binding.root)
-                    .load(imageUrl)
-                    .centerCrop()
-                    .placeholder(R.drawable.placeholder_carta)
-                    .error(R.drawable.placeholder_carta)
-                    .into(binding.ivImagenCarta)
-            }
+            // CARGA EXCLUSIVA DESDE TCGDEX
+            ImageResolverTcgDex.loadInto(binding.ivImagenCarta, carta)
 
             binding.root.setOnClickListener { onClick(carta) }
         }
