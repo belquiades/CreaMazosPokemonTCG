@@ -66,9 +66,6 @@
             app:popUpTo="@id/nav_graph"
             app:popUpToInclusive="true" />
 
-        <action
-            android:id="@+id/action_perfilFragment_to_fragmentoMisCartas"
-            app:destination="@id/fragmentoMisCartas" />
     </fragment>
 
     <!-- BÚSQUEDA -->
@@ -90,17 +87,20 @@
         android:label="Detalle Carta"
         tools:layout="@layout/fragment_detalle_carta" />
 
-    <!-- MIS CARTAS -->
+
     <fragment
         android:id="@+id/fragmentoMisCartas"
         android:name="com.cesar.creamazospoketcg.ui.miscartas.FragmentoMisCartas"
         android:label="Mis Cartas"
         tools:layout="@layout/fragment_mis_cartas">
 
+        <!-- Acción: abrir detalle de la lista local -->
         <action
             android:id="@+id/action_misCartas_to_detalleCartaLocal"
             app:destination="@id/fragmentoDetalleCartaLocal" />
+
     </fragment>
+
 
     <!-- DETALLE LOCAL (desde Mis Cartas) -->
     <fragment

@@ -1,5 +1,6 @@
 package com.cesar.creamazospoketcg.ui.search
 
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
@@ -44,6 +45,8 @@ import java.io.InterruptedIOException
 import java.net.SocketTimeoutException
 import java.util.concurrent.TimeUnit
 import kotlin.math.absoluteValue
+
+
 
 class FragmentoDetalleCarta : Fragment() {
 
@@ -825,6 +828,16 @@ class FragmentoDetalleCarta : Fragment() {
         return "$l1\n$l2"
     }
 
+    private fun getTcgdexResolvedUrlFromPrefs(cardId: String): String? {
+        return try {
+            val prefs = requireContext().applicationContext.getSharedPreferences("tcgdex_image_cache", Context.MODE_PRIVATE)
+            prefs.getString("resolved_$cardId", null)
+        } catch (e: Exception) {
+            Log.w(TAG, "Error leyendo tcgdex cache prefs for $cardId", e)
+            null
+        }
+    }
+
     private fun guardarCartaEnFirestore(cardId: String, name: String?, imageUrl: String?) {
         val user = auth.currentUser
         if (user == null) {
@@ -832,24 +845,68 @@ class FragmentoDetalleCarta : Fragment() {
             return
         }
 
-        val doc = firestore.collection("users").document(user.uid).collection("cards").document(cardId)
-        val datos = mutableMapOf<String, Any?>()
-        datos["name"] = if (!name.isNullOrBlank()) name else "Sin nombre"
-        datos["image"] = imageUrl
-        datos["addedAt"] = Timestamp.now()
+        // Pedimos nota opcional antes de guardar
+        val edit = android.widget.EditText(requireContext())
+        edit.hint = "Nota (opcional)"
+        val dialog = androidx.appcompat.app.AlertDialog.Builder(requireContext())
+            .setTitle("Añadir nota")
+            .setMessage("Introduce una nota para esta carta (opcional):")
+            .setView(edit)
+            .setPositiveButton("Guardar") { _, _ ->
+                val nota = edit.text?.toString()?.trim()
 
-        binding.pbCargando.visibility = View.VISIBLE
-        doc.set(datos)
-            .addOnSuccessListener {
-                binding.pbCargando.visibility = View.GONE
-                Toast.makeText(requireContext(), "Carta añadida a tu colección.", Toast.LENGTH_SHORT).show()
+                // Intentamos leer URL resuelta desde prefs (evitamos crear Carta())
+                val resolvedUrl = try {
+                    getTcgdexResolvedUrlFromPrefs(cardId)
+                } catch (e: Exception) {
+                    Log.w(TAG, "Error obteniendo cached url", e)
+                    null
+                }
+
+                val finalImageOriginal = imageUrl ?: (binding.ivCarta.tag as? String)
+                val imageResolvedToSave = resolvedUrl ?: finalImageOriginal
+
+                // Extraer types y setName desde UI (si están)
+                val types = mutableListOf<String>()
+                val tiposUi = binding.tvTipos.text?.toString()
+                if (!tiposUi.isNullOrBlank() && tiposUi != "-") {
+                    types.addAll(tiposUi.split(",").map { it.trim() }.filter { it.isNotEmpty() })
+                }
+
+                val setName = binding.tvSetInfo.text?.toString()?.takeIf { it != "-" }
+
+                val doc = firestore.collection("users")
+                    .document(user.uid)
+                    .collection("cards")
+                    .document(cardId)
+
+                val datos = mutableMapOf<String, Any?>()
+                datos["name"] = if (!name.isNullOrBlank()) name else "Sin nombre"
+                datos["imageOriginalUrl"] = finalImageOriginal
+                datos["imageResolvedUrl"] = imageResolvedToSave
+                datos["setName"] = setName
+                datos["types"] = types
+                datos["notes"] = if (!nota.isNullOrBlank()) nota else null
+                datos["addedAt"] = Timestamp.now()
+
+                binding.pbCargando.visibility = View.VISIBLE
+                doc.set(datos)
+                    .addOnSuccessListener {
+                        binding.pbCargando.visibility = View.GONE
+                        Toast.makeText(requireContext(), "Carta añadida a tu colección.", Toast.LENGTH_SHORT).show()
+                    }
+                    .addOnFailureListener { e ->
+                        binding.pbCargando.visibility = View.GONE
+                        Log.e(TAG, "Error guardando carta en Firestore", e)
+                        Toast.makeText(requireContext(), "Error guardando la carta", Toast.LENGTH_SHORT).show()
+                    }
             }
-            .addOnFailureListener { e ->
-                binding.pbCargando.visibility = View.GONE
-                Log.e(TAG, "Error guardando carta en Firestore", e)
-                Toast.makeText(requireContext(), "Error guardando la carta", Toast.LENGTH_SHORT).show()
-            }
+            .setNegativeButton("Cancelar", null)
+            .create()
+
+        dialog.show()
     }
+
 
     private fun createTextPlaceholder(name: String?, width: Int = 600, height: Int = 400): Bitmap {
         val bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)

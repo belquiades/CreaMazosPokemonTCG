@@ -9,6 +9,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.NavOptions
+import androidx.navigation.findNavController
+import androidx.navigation.NavDestination
+import com.google.android.material.snackbar.Snackbar
 
 /**
  * MainActivity - controla la navegación y el menú inferior.
@@ -36,71 +40,84 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_with_bottom)
+        setContentView(R.layout.activity_main) // asegúrate que éste es tu layout principal
 
-        // Obtenemos NavController desde NavHostFragment
-        val host = supportFragmentManager.findFragmentById(R.id.nav_host_main) as NavHostFragment
-        navController = host.navController
-
-        // Referencias a las vistas del menú (incluido mediante <include>)
-        val slot1 = findViewById<LinearLayout>(R.id.slot1)
-        val slot2 = findViewById<LinearLayout>(R.id.slot2)
-        val slot3 = findViewById<LinearLayout>(R.id.slot3)
-        val slot4 = findViewById<LinearLayout>(R.id.slot4)
-        val slot5 = findViewById<LinearLayout>(R.id.slot5)
-
-        val icon1 = findViewById<ImageView>(R.id.icon_slot1)
-        val icon2 = findViewById<ImageView>(R.id.icon_slot2)
-        val icon3 = findViewById<ImageView>(R.id.icon_slot3)
-        val icon4 = findViewById<ImageView>(R.id.icon_slot4)
-        val icon5 = findViewById<ImageView>(R.id.icon_slot5)
-
-        val fab = findViewById<View>(R.id.fabVolver)
-        val menuInferior = findViewById<View>(R.id.menuInferior)
-
-        // Intentamos obtener dinámicamente el id de fragmentoMazos (puede no existir)
-        val idMazosDynamic = resources.getIdentifier("fragmentoMazos", "id", packageName)
-
-        // Listener para ocultar/mostrar menú y FAB según destino
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            Log.d(TAG, "Destino cambiado -> id=${destination.id}, label=${destination.label}")
-
-            // 1) Menu inferior: ocultarlo solo en login
-            if (destination.id == idLoginFragment) {
-                menuInferior.visibility = View.GONE
-            } else {
-                menuInferior.visibility = View.VISIBLE
-            }
-
-            // 2) FAB 'volver': solo mostrar en las pantallas de detalle
-            val esDetalle = (destination.id == R.id.fragmentoDetalleCarta
-                    || destination.id == R.id.fragmentoDetalleCartaLocal)
-            fab.visibility = if (esDetalle) View.VISIBLE else View.GONE
-
-            // 3) Actualizamos resaltado de iconos
-            actualizarIconosSegunDestino(destination.id, icon1, icon2, icon3, icon4, icon5, idMazosDynamic)
-        }
-
-        // Clicks para navegación - usamos navegarSeguro para controlar destinos inexistentes
-        slot1.setOnClickListener { navegarSeguro(idBusqueda) }          // Buscar
-        slot2.setOnClickListener { navegarSeguro(idMisCartas) }         // Colección / Mis Cartas
-        slot3.setOnClickListener {
-            if (idMazosDynamic != 0) {
-                navegarSeguro(idMazosDynamic)
-            } else {
-                Toast.makeText(this, "Sección 'Mazos' no disponible todavía. Abriendo Mis Cartas.", Toast.LENGTH_SHORT).show()
-                navegarSeguro(idMisCartas)
+        // Obtén NavController de forma segura: intenta por id 'nav_host_fragment', si no existe, busca otro id conocido
+        val possibleHostIdNames = listOf("nav_host_fragment", "nav_host_fragment_container", "navHostFragment")
+        var navController: NavController? = null
+        for (name in possibleHostIdNames) {
+            val id = resources.getIdentifier(name, "id", packageName)
+            if (id != 0) {
+                try {
+                    navController = findNavController(id)
+                    break
+                } catch (_: Exception) { /* seguir buscando */ }
             }
         }
-        slot4.setOnClickListener { navegarSeguro(idPerfil) }            // Perfil
-        slot5.setOnClickListener { navegarSeguro(idPerfil) }            // Inicio (mapear a Perfil por defecto)
+        if (navController == null) {
+            // fallback: busca el primer NavHostFragment declarado en el layout por tag (menos frecuente)
+            throw IllegalStateException("No se encontró NavHostFragment. Revisa el id en activity_main.xml")
+        }
 
-        // FAB volver: hacemos popBackStack; si no hay nada, navegamos a Perfil
-        fab.setOnClickListener {
-            Log.d(TAG, "FAB volver pulsado")
-            val popOk = navController.popBackStack()
-            if (!popOk) {
-                navegarSeguro(idPerfil)
+        // Referencias a tus slots en bottom_nav_custom.xml
+        val slot1: View? = findViewById(resources.getIdentifier("slot1", "id", packageName))
+        val slot2: View? = findViewById(resources.getIdentifier("slot2", "id", packageName))
+        val slot3: View? = findViewById(resources.getIdentifier("slot3", "id", packageName))
+        val slot4: View? = findViewById(resources.getIdentifier("slot4", "id", packageName))
+        val slot5: View? = findViewById(resources.getIdentifier("slot5", "id", packageName))
+
+        // Helper para navegar por nombre de destino (evita referencias R.id que no existen)
+        fun safeNavigateTo(destIdName: String) {
+            val destId = resources.getIdentifier(destIdName, "id", packageName)
+            if (destId == 0) {
+                // el destino no existe en nav_graph, avisar y no crashear
+                Snackbar.make(findViewById(android.R.id.content), "Destino no encontrado: $destIdName", Snackbar.LENGTH_SHORT).show()
+                return
+            }
+            try {
+                val navOptions = NavOptions.Builder()
+                    .setLaunchSingleTop(true)
+                    .setRestoreState(false)
+                    .build()
+                navController.navigate(destId, null, navOptions)
+            } catch (e: Exception) {
+                Snackbar.make(findViewById(android.R.id.content), "No se pudo navegar a $destIdName", Snackbar.LENGTH_SHORT).show()
+            }
+        }
+
+        // Mapear clicks -> destinos (nombres de ids tal como están en tu nav_graph.xml)
+        slot1?.setOnClickListener { safeNavigateTo("fragmentoBusquedaCartas") } // Buscar
+        slot2?.setOnClickListener { safeNavigateTo("fragmentoMisCartas") }     // Mis Cartas
+        slot3?.setOnClickListener { safeNavigateTo("fragmentoMazos") }         // Mazos (ajusta nombre si tu id es distinto)
+        slot4?.setOnClickListener { safeNavigateTo("perfilFragment") }         // Perfil
+        slot5?.setOnClickListener { safeNavigateTo("fragmentoHome") }         // Home (ajusta)
+
+        // actualizar iconos seleccionados si quieres (usa los ids icon_slot1..icon_slot5)
+        val icon1 = findViewById<View?>(resources.getIdentifier("icon_slot1", "id", packageName))
+        val icon2 = findViewById<View?>(resources.getIdentifier("icon_slot2", "id", packageName))
+        val icon3 = findViewById<View?>(resources.getIdentifier("icon_slot3", "id", packageName))
+        val icon4 = findViewById<View?>(resources.getIdentifier("icon_slot4", "id", packageName))
+        val icon5 = findViewById<View?>(resources.getIdentifier("icon_slot5", "id", packageName))
+
+        fun resetSelected() {
+            icon1?.isSelected = false
+            icon2?.isSelected = false
+            icon3?.isSelected = false
+            icon4?.isSelected = false
+            icon5?.isSelected = false
+        }
+
+        // Listener para sincronizar iconos con destino actual (usamos names de destinos como en nav_graph)
+        navController.addOnDestinationChangedListener { _: NavController, destination: NavDestination, _: Bundle? ->
+            resetSelected()
+            val destName = resources.getResourceEntryName(destination.id)
+            when (destName) {
+                "fragmentoBusquedaCartas" -> icon1?.isSelected = true
+                "fragmentoMisCartas", "navigation_mis_cartas" -> icon2?.isSelected = true
+                "fragmentoMazos", "fragment_mazos" -> icon3?.isSelected = true
+                "perfilFragment", "fragment_perfil" -> icon4?.isSelected = true
+                "fragmentoHome", "fragment_home" -> icon5?.isSelected = true
+                else -> { /* no cambiar */ }
             }
         }
     }

@@ -21,6 +21,7 @@
     <string name="text_continuar">Continuar</string>
     <string name="text_google">Continuar con Google</string>
     <string name="text_no_tienes">¿No tienes cuenta? <b>Regístrate</b></string>
+    <string name="no_hay_cartas">No tienes cartas</string>
 
     <!-- Clave necesaria para Google Sign-In -->
     <string name="default_web_client_id">
