@@ -50,6 +50,7 @@ class FragmentoMisCartas : Fragment() {
         binding.rvMisCartas.adapter = adapter
 
         cargarCartasUsuario()
+        attachSwipeToDelete()
     }
 
     private fun cargarCartasUsuario() {
@@ -86,4 +87,51 @@ class FragmentoMisCartas : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+    private fun attachSwipeToDelete() {
+        val itemTouchCallback = object : androidx.recyclerview.widget.ItemTouchHelper.SimpleCallback(0,
+            androidx.recyclerview.widget.ItemTouchHelper.LEFT) {
+
+            override fun onMove(
+                recyclerView: androidx.recyclerview.widget.RecyclerView,
+                viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder,
+                target: androidx.recyclerview.widget.RecyclerView.ViewHolder
+            ): Boolean = false
+
+            override fun onSwiped(viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.adapterPosition
+                val item = adapter.currentList[position]
+
+                borrarCartaEnFirestore(item.id) {
+                    // Solo actualiza UI si delete fue OK
+                    val mutable = adapter.currentList.toMutableList()
+                    mutable.removeAt(position)
+                    adapter.submitList(mutable)
+                }
+            }
+        }
+
+        androidx.recyclerview.widget.ItemTouchHelper(itemTouchCallback)
+            .attachToRecyclerView(binding.rvMisCartas)
+    }
+    private fun borrarCartaEnFirestore(cardId: String, onSuccess: () -> Unit) {
+        val user = auth.currentUser ?: run {
+            Log.w(TAG, "No hay usuario autenticado")
+            return
+        }
+
+        val ref = firestore.collection("users")
+            .document(user.uid)
+            .collection("cards")
+            .document(cardId)
+
+        ref.delete()
+            .addOnSuccessListener {
+                Log.d(TAG, "Carta eliminada correctamente: $cardId")
+                onSuccess()
+            }
+            .addOnFailureListener { e ->
+                Log.e(TAG, "Error eliminando carta $cardId", e)
+            }
+    }
+
 }
