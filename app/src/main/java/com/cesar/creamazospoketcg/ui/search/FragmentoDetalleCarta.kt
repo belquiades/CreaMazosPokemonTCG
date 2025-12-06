@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
@@ -29,6 +30,7 @@ import com.cesar.creamazospoketcg.utils.ImageResolverTcgDex
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.android.material.snackbar.Snackbar
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
@@ -46,8 +48,6 @@ import java.net.SocketTimeoutException
 import java.util.concurrent.TimeUnit
 import kotlin.math.absoluteValue
 
-
-
 class FragmentoDetalleCarta : Fragment() {
 
     private var _binding: FragmentDetalleCartaBinding? = null
@@ -61,6 +61,9 @@ class FragmentoDetalleCarta : Fragment() {
 
     private var cartaIdArg: String? = null
     private var imageBaseArg: String? = null
+
+    // carta actualmente mostrada en detalle (útil para listeners)
+    private var currentCarta: Carta? = null
 
     // Cache + prefs (local a fragment, se usa para otras resoluciones internas)
     private val PREFS_NAME = "img_cache_prefs"
@@ -147,6 +150,33 @@ class FragmentoDetalleCarta : Fragment() {
             guardarCartaEnFirestore(id, nombre, imagen)
         }
 
+        // Si tu layout contiene el botón de borrar (solo en detalle local), lo busco y lo configuro
+        val btnBorrarOptional: View? = findOptionalViewByName("btnBorrarCarta")
+        btnBorrarOptional?.setOnClickListener {
+            // preferimos currentCarta si está disponible
+            val cardId = cartaIdArg ?: currentCarta?.id ?: currentCarta?.localId
+            if (cardId.isNullOrBlank()) {
+                Snackbar.make(requireView(), "No hay id de carta", Snackbar.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            AlertDialog.Builder(requireContext())
+                .setTitle("Eliminar carta")
+                .setMessage("¿Seguro que quieres eliminar esta carta de tu colección?")
+                .setPositiveButton("Eliminar") { _, _ ->
+                    borrarCartaEnFirestoreConUndo(cardId) {
+                        // tras borrar correctamente, cerramos detalle y volvemos
+                        try {
+                            findNavController().popBackStack()
+                        } catch (e: Exception) {
+                            Log.w(TAG, "popBackStack fallo tras borrar", e)
+                        }
+                    }
+                }
+                .setNegativeButton("Cancelar", null)
+                .show()
+        }
+
         if (cartaIdArg != null && cartaIdArg!!.isNotBlank()) {
             cargarDetalleCarta(cartaIdArg!!)
         } else {
@@ -189,6 +219,8 @@ class FragmentoDetalleCarta : Fragment() {
 
     private fun mostrarCartaEnUI(carta: Carta) {
         Log.d(TAG, "Mostrar carta: $carta")
+        // almacenar la carta actual para listeners (borrar, editar, etc.)
+        currentCarta = carta
 
         // calcular imageCandidate (tu DTO)
         var computedLarge: String? = null
@@ -838,6 +870,14 @@ class FragmentoDetalleCarta : Fragment() {
         }
     }
 
+    private fun cardDocIdOf(c: Carta): String {
+        return when {
+            !c.id.isNullOrBlank() -> c.id!!
+            !c.localId.isNullOrBlank() -> c.localId!!
+            else -> ""
+        }
+    }
+
     private fun guardarCartaEnFirestore(cardId: String, name: String?, imageUrl: String?) {
         val user = auth.currentUser
         if (user == null) {
@@ -848,7 +888,7 @@ class FragmentoDetalleCarta : Fragment() {
         // Pedimos nota opcional antes de guardar
         val edit = android.widget.EditText(requireContext())
         edit.hint = "Nota (opcional)"
-        val dialog = androidx.appcompat.app.AlertDialog.Builder(requireContext())
+        val dialog = AlertDialog.Builder(requireContext())
             .setTitle("Añadir nota")
             .setMessage("Introduce una nota para esta carta (opcional):")
             .setView(edit)
@@ -907,6 +947,81 @@ class FragmentoDetalleCarta : Fragment() {
         dialog.show()
     }
 
+    // --- Añadir en FragmentoDetalleCarta.kt ---
+    /**
+     * Borra la carta del usuario con opción de UNDO (Snackbar).
+     * - cardId: id de la carta (document id en users/{uid}/cards)
+     * - onDeletedUI: callback que se ejecuta en UI thread si se borra correctamente (por ejemplo para navegar / actualizar lista)
+     */
+    private fun borrarCartaEnFirestoreConUndo(cardId: String, onDeletedUI: (() -> Unit)? = null) {
+        val uid = try { auth.currentUser?.uid } catch (e: Exception) { null }
+        Log.d(TAG, "borrarCartaEnFirestoreConUndo: START cardId=$cardId authUid=$uid")
+
+        if (uid.isNullOrBlank()) {
+            Log.w(TAG, "borrarCartaEnFirestoreConUndo: usuario NO autenticado")
+            Snackbar.make(requireView(), "Debes iniciar sesión para borrar cartas", Snackbar.LENGTH_LONG).show()
+            return
+        }
+
+        val docRef = firestore.collection("users").document(uid).collection("cards").document(cardId)
+        Log.d(TAG, "borrarCartaEnFirestoreConUndo: will get doc users/$uid/cards/$cardId")
+
+        // Primero obtener snapshot para poder restaurar en caso de UNDO
+        docRef.get()
+            .addOnSuccessListener { snapshot ->
+                Log.d(TAG, "borrarCartaEnFirestoreConUndo: get SUCCESS exists=${snapshot.exists()} data=${snapshot.data}")
+                if (!snapshot.exists()) {
+                    Snackbar.make(requireView(), "Documento no encontrado", Snackbar.LENGTH_SHORT).show()
+                    return@addOnSuccessListener
+                }
+
+                // Guardamos los datos para posible restauración
+                val cachedData = snapshot.data // Map<String, Any>?
+                // procede a borrar
+                docRef.delete()
+                    .addOnSuccessListener {
+                        Log.d(TAG, "borrarCartaEnFirestoreConUndo: delete SUCCESS for $cardId")
+                        // Mostrar snackbar con UNDO
+                        val s = Snackbar.make(requireView(), "Carta borrada", Snackbar.LENGTH_LONG)
+                        s.setAction("DESHACER") {
+                            // restaurar el documento
+                            try {
+                                if (cachedData != null) {
+                                    firestore.collection("users").document(uid).collection("cards").document(cardId)
+                                        .set(cachedData)
+                                        .addOnSuccessListener {
+                                            Log.d(TAG, "borrarCartaEnFirestoreConUndo: undo restore SUCCESS for $cardId")
+                                            Snackbar.make(requireView(), "Restaurada", Snackbar.LENGTH_SHORT).show()
+                                            // Si querías refrescar UI, hacerlo aquí también
+                                            onDeletedUI?.invoke()
+                                        }
+                                        .addOnFailureListener { e ->
+                                            Log.e(TAG, "borrarCartaEnFirestoreConUndo: undo restore FAILED for $cardId", e)
+                                            Snackbar.make(requireView(), "Error al deshacer", Snackbar.LENGTH_SHORT).show()
+                                        }
+                                } else {
+                                    Log.w(TAG, "borrarCartaEnFirestoreConUndo: cachedData null; no se puede deshacer")
+                                    Snackbar.make(requireView(), "No se puede deshacer", Snackbar.LENGTH_SHORT).show()
+                                }
+                            } catch (e: Exception) {
+                                Log.e(TAG, "borrarCartaEnFirestoreConUndo: excepción during undo", e)
+                                Snackbar.make(requireView(), "Error interno al deshacer", Snackbar.LENGTH_SHORT).show()
+                            }
+                        }
+                        s.show()
+                        // callback para que el fragmento padre recargue si es necesario
+                        onDeletedUI?.invoke()
+                    }
+                    .addOnFailureListener { e ->
+                        Log.e(TAG, "borrarCartaEnFirestoreConUndo: delete FAILED for $cardId", e)
+                        Snackbar.make(requireView(), "Error borrando carta: ${e.message ?: e}", Snackbar.LENGTH_LONG).show()
+                    }
+            }
+            .addOnFailureListener { e ->
+                Log.e(TAG, "borrarCartaEnFirestoreConUndo: get FAILED for $cardId", e)
+                Snackbar.make(requireView(), "Error comprobando carta: ${e.message ?: e}", Snackbar.LENGTH_LONG).show()
+            }
+    }
 
     private fun createTextPlaceholder(name: String?, width: Int = 600, height: Int = 400): Bitmap {
         val bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
@@ -940,6 +1055,20 @@ class FragmentoDetalleCarta : Fragment() {
 
         return bmp
     }
+
+    // Helper: busca una View por nombre de id (devuelve null si no existe)
+    private fun <T : View> findOptionalViewByName(idName: String): T? {
+        return try {
+            val id = resources.getIdentifier(idName, "id", requireContext().packageName)
+            if (id == 0) return null
+            @Suppress("UNCHECKED_CAST")
+            binding.root.findViewById<T>(id)
+        } catch (e: Exception) {
+            Log.w(TAG, "findOptionalViewByName($idName) fallo", e)
+            null
+        }
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
