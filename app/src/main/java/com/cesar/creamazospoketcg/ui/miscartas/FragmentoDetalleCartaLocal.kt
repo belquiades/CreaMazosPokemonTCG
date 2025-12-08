@@ -1,31 +1,26 @@
 package com.cesar.creamazospoketcg.ui.miscartas
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.cesar.creamazospoketcg.data.local.RepositorioLocal
 import com.cesar.creamazospoketcg.data.repository.RepositorioCartas
 import com.cesar.creamazospoketcg.databinding.FragmentDetalleCartaLocalBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-/**
- * FragmentoDetalleCartaLocal
- *
- * Muestra el detalle (pedimos a la API para datos completos) y ofrece:
- *  - Eliminar carta de la colección (con popup de confirmación)
- *  - Añadirla a un mazo existente (lista ficticia por ahora)
- *  - Crear un nuevo mazo con esta carta (acción placeholder)
- *  - Volver al listado (popBackStack)
- *
- * Comentarios orientados a estudiante.
- */
 class FragmentoDetalleCartaLocal : Fragment() {
 
     private var _binding: FragmentDetalleCartaLocalBinding? = null
@@ -36,6 +31,10 @@ class FragmentoDetalleCartaLocal : Fragment() {
 
     private var idCarta: String? = null
     private var imageBase: String? = null
+
+    companion object {
+        private const val TAG = "FragmentoD-CartaLocal"
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentDetalleCartaLocalBinding.inflate(inflater, container, false)
@@ -51,7 +50,12 @@ class FragmentoDetalleCartaLocal : Fragment() {
 
         // Botón volver -> PopBackStack (vuelve a MisCartas)
         binding.btnVolver.setOnClickListener {
-            requireActivity().onBackPressed()
+            try {
+                findNavController().popBackStack()
+            } catch (e: Exception) {
+                Log.w(TAG, "popBackStack fallo", e)
+                requireActivity().onBackPressed()
+            }
         }
 
         // Botón Eliminar -> pedir confirmación
@@ -79,76 +83,148 @@ class FragmentoDetalleCartaLocal : Fragment() {
         }
     }
 
-    /**
-     * Cargar detalle remoto de la carta por id.
-     * Mostramos un ProgressBar mientras cargamos.
-     */
     private fun cargarDetalleCarta(id: String) {
-        binding.pbCargando.visibility = View.VISIBLE
+        // Mostrar progress si la vista existe
+        if (isAdded && _binding != null) binding.pbCargando.visibility = View.VISIBLE
+
         lifecycleScope.launch {
-            val resultado = repoRemoto.obtenerCartaPorId(id)
-            binding.pbCargando.visibility = View.GONE
+            val resultado = withContext(Dispatchers.IO) {
+                try {
+                    repoRemoto.obtenerCartaPorId(id)
+                } catch (e: Exception) {
+                    Log.e(TAG, "Excepción pidiendo detalle carta", e)
+                    Result.failure(Exception("Error repositorio remoto", e))
+                }
+            }
+
+            if (isAdded && _binding != null) binding.pbCargando.visibility = View.GONE
 
             if (resultado.isSuccess) {
-                val carta = resultado.getOrNull()!!
-                // Rellenar UI con los datos (nombre, rareza, tipo, imagen...)
-                binding.tvNombre.text = carta.name
-                binding.tvSubtitulo.text = listOfNotNull(carta.types?.joinToString(", "), carta.rarity).joinToString(" — ")
-                val imagen = carta.images?.large ?: carta.images?.small ?: imageBase
-                if (!imagen.isNullOrBlank()) {
-                    Glide.with(this@FragmentoDetalleCartaLocal).load(imagen).into(binding.ivCarta)
+                val carta = resultado.getOrNull()
+                if (carta != null) {
+                    // Rellenar UI con los datos (nombre, rareza, tipo, imagen...)
+                    if (isAdded && _binding != null) {
+                        binding.tvNombre.text = carta.name
+                        binding.tvSubtitulo.text = listOfNotNull(carta.types?.joinToString(", "), carta.rarity).joinToString(" — ")
+                        val imagen = carta.images?.large ?: carta.images?.small ?: imageBase
+                        if (!imagen.isNullOrBlank()) {
+                            Glide.with(this@FragmentoDetalleCartaLocal).load(imagen).into(binding.ivCarta)
+                            binding.ivCarta.tag = imagen
+                        }
+                    } else {
+                        Log.d(TAG, "Vista no disponible para mostrar detalle (fragment detached).")
+                    }
+                } else {
+                    if (isAdded && _binding != null) {
+                        binding.tvNombre.text = repoLocal.obtenerCarta(id)?.name ?: "Detalle no disponible"
+                        if (!imageBase.isNullOrBlank()) Glide.with(this@FragmentoDetalleCartaLocal).load(imageBase).into(binding.ivCarta)
+                        Toast.makeText(requireContext(), "Detalle no disponible", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Log.d(TAG, "Resultado success pero carta null y vista no disponible.")
+                    }
                 }
-                // Aquí podríamos mostrar ataques, habilidades, etc.
             } else {
-                // Si falla la descarga, intentamos usar imageBase y nombre en local
-                binding.tvNombre.text = repoLocal.obtenerCarta(id)?.name ?: "Detalle no disponible"
-                if (!imageBase.isNullOrBlank()) Glide.with(this@FragmentoDetalleCartaLocal).load(imageBase).into(binding.ivCarta)
-                Toast.makeText(requireContext(), "No se pudo cargar el detalle.", Toast.LENGTH_SHORT).show()
+                if (isAdded && _binding != null) {
+                    binding.tvNombre.text = repoLocal.obtenerCarta(id)?.name ?: "Detalle no disponible"
+                    if (!imageBase.isNullOrBlank()) Glide.with(this@FragmentoDetalleCartaLocal).load(imageBase).into(binding.ivCarta)
+                    Toast.makeText(requireContext(), "No se pudo cargar el detalle.", Toast.LENGTH_SHORT).show()
+                } else {
+                    Log.d(TAG, "Error cargando detalle y vista no disponible.")
+                }
             }
         }
     }
 
-    /**
-     * Muestra un diálogo de confirmación para eliminar la carta de la colección local.
-     */
     private fun mostrarConfirmacionEliminar() {
         MaterialAlertDialogBuilder(requireContext())
             .setTitle("Eliminar carta")
             .setMessage("¿Seguro que quieres eliminar esta carta de tu colección?")
             .setNegativeButton("Cancelar", null)
             .setPositiveButton("Eliminar") { _, _ ->
-                idCarta?.let { id ->
-                    val ok = repoLocal.eliminarCarta(id)
-                    if (ok) {
-                        Toast.makeText(requireContext(), "Carta eliminada", Toast.LENGTH_SHORT).show()
-                        // Volvemos a la lista
-                        requireActivity().onBackPressed()
-                    } else {
-                        Toast.makeText(requireContext(), "No se pudo eliminar la carta", Toast.LENGTH_SHORT).show()
+                val cardId = idCarta?.takeIf { it.isNotBlank() }
+                if (cardId.isNullOrBlank()) {
+                    Log.e(TAG, "mostrarConfirmacionEliminar: no hay idCarta para eliminar (idCarta='$idCarta')")
+                    if (isAdded && _binding != null) {
+                        Snackbar.make(binding.root, "No se pudo identificar la carta a eliminar.", Snackbar.LENGTH_SHORT).show()
                     }
+                    return@setPositiveButton
                 }
+
+                // 1) Eliminar en local
+                lifecycleScope.launch {
+                    try {
+                        withContext(Dispatchers.IO) {
+                            repoLocal.eliminarCarta(cardId)
+                        }
+                        Log.d(TAG, "Carta eliminada localmente: $cardId")
+                        if (isAdded && _binding != null) {
+                            Snackbar.make(binding.root, "Carta eliminada de la colección local.", Snackbar.LENGTH_SHORT).show()
+                        } else {
+                            Log.d(TAG, "Carta eliminada localmente pero vista no disponible para mostrar Snackbar.")
+                        }
+                    } catch (e: Exception) {
+                        Log.e(TAG, "Error eliminando carta localmente: ${e.message}", e)
+                        if (isAdded && _binding != null) {
+                            Snackbar.make(binding.root, "No se pudo eliminar la carta localmente.", Snackbar.LENGTH_LONG).show()
+                        }
+                        // continuamos para intentar borrar en la nube también
+                    }
+
+                    // 2) Intentar eliminar en Firestore si hay usuario
+                    val userId = FirebaseAuth.getInstance().currentUser?.uid
+                    if (!userId.isNullOrBlank()) {
+                        try {
+                            if (isAdded && _binding != null) binding.pbCargando.visibility = View.VISIBLE
+                            val firestore = FirebaseFirestore.getInstance()
+                            firestore.collection("users")
+                                .document(userId)
+                                .collection("cartas")
+                                .document(cardId)
+                                .delete()
+                                .addOnSuccessListener {
+                                    Log.d(TAG, "Carta eliminada en Firestore: $cardId (user=$userId)")
+                                    if (isAdded && _binding != null) {
+                                        binding.pbCargando.visibility = View.GONE
+                                        Snackbar.make(binding.root, "Carta eliminada de tu colección en la nube.", Snackbar.LENGTH_SHORT).show()
+                                    } else {
+                                        Log.d(TAG, "Eliminada en Firestore pero vista no disponible.")
+                                    }
+                                }
+                                .addOnFailureListener { ex ->
+                                    Log.e(TAG, "Error al eliminar carta en Firestore: ${ex.message}", ex)
+                                    if (isAdded && _binding != null) {
+                                        binding.pbCargando.visibility = View.GONE
+                                        Snackbar.make(binding.root, "No se pudo eliminar en la nube (ver logs).", Snackbar.LENGTH_LONG).show()
+                                    } else {
+                                        Log.d(TAG, "Error en Firestore pero vista no disponible para notificar.")
+                                    }
+                                }
+                        } catch (e: Exception) {
+                            Log.e(TAG, "Excepción intentando borrar en Firestore: ${e.message}", e)
+                            if (isAdded && _binding != null) binding.pbCargando.visibility = View.GONE
+                        }
+                    } else {
+                        Log.d(TAG, "Usuario no autenticado -> no se intenta borrar en Firestore")
+                    }
+
+                    // Finalmente volvemos al listado si el fragmento sigue añadido
+                    if (isAdded) {
+                        try {
+                            findNavController().popBackStack()
+                        } catch (e: Exception) {
+                            Log.w(TAG, "popBackStack fallo tras eliminar", e)
+                            requireActivity().onBackPressed()
+                        }
+                    } else {
+                        Log.d(TAG, "No hacemos popBackStack porque fragmento ya no está añadido.")
+                    }
+                } // lifecycleScope.launch
             }
             .show()
     }
 
-    /**
-     * Selector simple de mazos (placeholder).
-     * En el futuro se debería leer la lista real de mazos del usuario desde persistencia.
-     */
     private fun mostrarSelectorMazos() {
-        // Lista de ejemplo (temporal). En producción leer de DB/SharedPrefs
-        val mazos = listOf("Mazo 1", "Mazo 2 (ejemplo)")
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, mazos)
-
-        MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Selecciona mazo")
-            .setAdapter(adapter) { dialog, which ->
-                val elegido = mazos[which]
-                // Aquí añadiríamos la carta al mazo elegido (pendiente de implementar estructura de mazos)
-                Toast.makeText(requireContext(), "Añadida a: $elegido (funcionalidad demo)", Toast.LENGTH_SHORT).show()
-            }
-            .setNegativeButton("Cancelar", null)
-            .show()
+        Toast.makeText(requireContext(), "Selecciona un mazo (funcionalidad pendiente).", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {

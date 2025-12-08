@@ -116,8 +116,6 @@ class FragmentoDetalleCarta : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val LOG_TAG = "DetalleCartaLocal"
-
         binding.pbCargando.visibility = View.GONE
         binding.groupDetalle.visibility = View.GONE
         binding.tvError.visibility = View.GONE
@@ -129,200 +127,46 @@ class FragmentoDetalleCarta : Fragment() {
             }
         }
 
-        // --- BOTÓN BORRAR (UNIFICADO) ---
-        // Buscamos el botón de borrar por name para soportar distintos ids en layouts
-        fun findOptionalViewByNameLocal(name: String): View? {
-            val id = resources.getIdentifier(name, "id", requireContext().packageName)
-            return if (id != 0) binding.root.findViewById(id) else null
-        }
+        binding.btnBorrarCarta.setOnClickListener {
 
-        val botonBorrar: View? = findOptionalViewByNameLocal("btnBorrarCarta")
-            ?: findOptionalViewByNameLocal("btnEliminar")
-            ?: findOptionalViewByNameLocal("btnEliminarCarta")
+            Log.d("BorrarCarta", "PULSADO botón borrar")
 
-        botonBorrar?.setOnClickListener {
-            Log.d(LOG_TAG, "CLICK en BORRAR desde detalle")
+            val cardId = carta?.id
+            val userId = auth.currentUser?.uid
 
-            // preferimos: docId (si lo pasaste en args), sino cartaIdArg, sino currentCarta?.id, sino currentCarta?.localId
-            val docIdArg = arguments?.getString("docId") // si navegaste desde la lista guardando el id del doc
-            val cardIdCandidate = cartaIdArg ?: currentCarta?.id ?: currentCarta?.localId
+            Log.d("BorrarCarta", "cardId = $cardId")
+            Log.d("BorrarCarta", "userId = $userId")
 
-            if (cardIdCandidate.isNullOrBlank()) {
-                Log.w(LOG_TAG, "No hay identificador de carta disponible para borrar")
-                Snackbar.make(requireView(), "No se puede identificar la carta para borrarla", Snackbar.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            val uid = auth.currentUser?.uid
-            if (uid.isNullOrBlank()) {
-                Log.e(LOG_TAG, "Usuario no autenticado al intentar borrar carta")
-                Snackbar.make(requireView(), "Debes iniciar sesión para eliminar cartas", Snackbar.LENGTH_SHORT).show()
+            if (cardId == null || userId == null) {
+                Log.e("BorrarCarta", "NO hay cardId o userId -> NO PUEDO BORRAR")
                 return@setOnClickListener
             }
 
             AlertDialog.Builder(requireContext())
-                .setTitle("Eliminar carta")
-                .setMessage("¿Seguro que quieres eliminar esta carta de tu colección?")
-                .setPositiveButton("Eliminar") { _, _ ->
-                    // Intentamos borrar: primero por docId (si lo tenemos), si no, intentamos borrar documento con id=cardIdCandidate,
-                    // y si eso falla, hacemos una consulta dentro de users/{uid}/cartas por campos comunes y borramos los documentos encontrados.
-                    val db = com.google.firebase.firestore.FirebaseFirestore.getInstance()
-                    val userCardsCol = db.collection("users").document(uid).collection("cartas")
+                .setTitle("¿Eliminar carta?")
+                .setMessage("Se eliminará de tu colección.")
+                .setPositiveButton("Borrar") { _, _ ->
 
-                    fun showResultMessage(success: Boolean, msgOnFail: String? = null) {
-                        if (success) {
-                            Snackbar.make(requireView(), "Carta eliminada", Snackbar.LENGTH_SHORT).show()
-                        } else {
-                            Snackbar.make(requireView(), msgOnFail ?: "No se pudo eliminar la carta", Snackbar.LENGTH_LONG).show()
-                        }
-                    }
+                    Log.d("BorrarCarta", "Confirmado -> llamando a Firestore")
 
-                    // Helper: borrar doc por referencia completa
-                    fun deleteDocByPath(path: String, onComplete: (Boolean)->Unit) {
-                        Log.d(LOG_TAG, "Intentando borrar doc en path: $path")
-                        db.document(path).delete()
-                            .addOnSuccessListener {
-                                Log.d(LOG_TAG, "Borrado correcto: $path")
-                                onComplete(true)
-                            }
-                            .addOnFailureListener { ex ->
-                                Log.e(LOG_TAG, "Fallo borrado directo ($path): ${ex.message}", ex)
-                                onComplete(false)
-                            }
-                    }
-
-                    // 1) Si tenemos docIdArg -> borrado directo
-                    if (!docIdArg.isNullOrBlank()) {
-                        val path = "users/$uid/cartas/$docIdArg"
-                        deleteDocByPath(path) { ok ->
-                            if (ok) {
-                                showResultMessage(true)
-                                try { findNavController().popBackStack() } catch (_: Exception) {}
-                            } else {
-                                // si no se pudo borrar por doc id, intentamos por campo
-                                Log.w(LOG_TAG, "Borrado por docId falló; intentaremos buscar por campos con valor=$cardIdCandidate")
-                                // caemos al paso de búsqueda más abajo
-                            }
-                        }
-                        // IMPORTANTE: si deleteDocByPath falla, la continuación se maneja ahí. Pero si succeed/fail seas síncrono necesitamos continuar.
-                        // Para no duplicar lógica, si docIdArg se proporcionó devolvemos y dejamos que, en caso de fallo, el onFailure haya notificado.
-                        return@setPositiveButton
-                    }
-
-                    // 2) Intentar borrar documento con id == cardIdCandidate (si tu diseño guardó el cardId como doc id)
-                    val directDocRef = userCardsCol.document(cardIdCandidate)
-                    directDocRef.get()
-                        .addOnSuccessListener { snap ->
-                            if (snap.exists()) {
-                                // borramos este doc
-                                directDocRef.delete()
-                                    .addOnSuccessListener {
-                                        Log.d(LOG_TAG, "Borrado directo por document id: $cardIdCandidate")
-                                        showResultMessage(true)
-                                        try { findNavController().popBackStack() } catch (_: Exception) {}
-                                    }
-                                    .addOnFailureListener { ex ->
-                                        Log.e(LOG_TAG, "Error borrando documento con id $cardIdCandidate", ex)
-                                        showResultMessage(false, "No se pudo eliminar la carta: ${ex.message ?: "error"}")
-                                    }
-                            } else {
-                                // 3) No existe doc con ese id -> hacemos consulta por campos comunes
-                                Log.d(LOG_TAG, "No existe documento con id $cardIdCandidate. Buscando por campos dentro de la colección...")
-                                val posiblesCampos = listOf("cardId", "cardID", "id", "localId")
-                                var anyFound = false
-                                var tried = 0
-                                // recorrer los campos en serie hasta encontrar resultados
-                                fun tryNextField(index: Int) {
-                                    if (index >= posiblesCampos.size) {
-                                        if (!anyFound) {
-                                            Log.w(LOG_TAG, "No se encontró ningún documento con valor $cardIdCandidate en campos comunes.")
-                                            showResultMessage(false, "No se encontró la carta en tu colección")
-                                        }
-                                        return
-                                    }
-                                    val campo = posiblesCampos[index]
-                                    tried++
-                                    userCardsCol.whereEqualTo(campo, cardIdCandidate).get()
-                                        .addOnSuccessListener { query ->
-                                            if (!query.isEmpty) {
-                                                anyFound = true
-                                                // borramos todos los docs encontrados
-                                                val batch = db.batch()
-                                                for (doc in query.documents) {
-                                                    Log.d(LOG_TAG, "Encontrado doc ${doc.id} por campo $campo -> programando borrado")
-                                                    batch.delete(userCardsCol.document(doc.id))
-                                                }
-                                                batch.commit()
-                                                    .addOnSuccessListener {
-                                                        Log.d(LOG_TAG, "Borrados ${query.size()} docs encontrados por campo $campo")
-                                                        showResultMessage(true)
-                                                        try { findNavController().popBackStack() } catch (_: Exception) {}
-                                                    }
-                                                    .addOnFailureListener { ex ->
-                                                        Log.e(LOG_TAG, "Error borrando batch de documentos", ex)
-                                                        showResultMessage(false, "Error borrando carta: ${ex.message ?: "error"}")
-                                                    }
-                                            } else {
-                                                // no encontrado en este campo -> siguiente
-                                                tryNextField(index + 1)
-                                            }
-                                        }
-                                        .addOnFailureListener { ex ->
-                                            Log.e(LOG_TAG, "Error consultando por campo $campo", ex)
-                                            // intentar siguiente campo
-                                            tryNextField(index + 1)
-                                        }
-                                }
-                                // empieza con el primer campo
-                                tryNextField(0)
-                            }
+                    FirebaseFirestore.getInstance()
+                        .collection("users")
+                        .document(userId)
+                        .collection("cartas")
+                        .document(cardId)
+                        .delete()
+                        .addOnSuccessListener {
+                            Log.d("BorrarCarta", "BORRADO CORRECTO en Firestore")
                         }
                         .addOnFailureListener { ex ->
-                            Log.e(LOG_TAG, "Error obteniendo documento directo para id $cardIdCandidate", ex)
-                            // como fallback intentamos buscar por campo
-                            val posiblesCampos = listOf("cardId", "cardID", "id", "localId")
-                            var anyFound = false
-                            var index = 0
-                            fun tryNextFieldFallback() {
-                                if (index >= posiblesCampos.size) {
-                                    if (!anyFound) {
-                                        showResultMessage(false, "No se pudo eliminar la carta")
-                                    }
-                                    return
-                                }
-                                val campo = posiblesCampos[index++]
-                                userCardsCol.whereEqualTo(campo, cardIdCandidate).get()
-                                    .addOnSuccessListener { query ->
-                                        if (!query.isEmpty) {
-                                            anyFound = true
-                                            val batch = db.batch()
-                                            for (doc in query.documents) batch.delete(userCardsCol.document(doc.id))
-                                            batch.commit()
-                                                .addOnSuccessListener {
-                                                    showResultMessage(true)
-                                                    try { findNavController().popBackStack() } catch (_: Exception) {}
-                                                }
-                                                .addOnFailureListener { ex2 ->
-                                                    Log.e(LOG_TAG, "Error borrando batch fallback", ex2)
-                                                    showResultMessage(false, "Error borrando carta: ${ex2.message ?: "error"}")
-                                                }
-                                        } else {
-                                            tryNextFieldFallback()
-                                        }
-                                    }
-                                    .addOnFailureListener { ex2 ->
-                                        Log.e(LOG_TAG, "Error en consulta fallback por $campo", ex2)
-                                        tryNextFieldFallback()
-                                    }
-                            }
-                            tryNextFieldFallback()
+                            Log.e("BorrarCarta", "ERROR al borrar: ${ex.message}", ex)
                         }
                 }
                 .setNegativeButton("Cancelar", null)
                 .show()
-        } ?: Log.d(LOG_TAG, "Botón borrar no presente en el layout (no se asignó listener)")
+        }
 
-        // --- BOTÓN AÑADIR A MI COLECCIÓN (igual que antes) ---
+
         binding.btnAnadirMiColeccion.setOnClickListener {
             val id = cartaIdArg
             if (id == null || id.isBlank()) {
@@ -330,14 +174,50 @@ class FragmentoDetalleCarta : Fragment() {
                 return@setOnClickListener
             }
             val nombreRaw = binding.tvNombreCarta.text
-            val nombre: String = if (nombreRaw != null && nombreRaw.isNotBlank()) nombreRaw.toString() else ""
+            val nombre: String
+            if (nombreRaw != null && nombreRaw.isNotBlank()) {
+                nombre = nombreRaw.toString()
+            } else {
+                nombre = ""
+            }
             val tag = binding.ivCarta.tag
-            val imagen: String? = if (tag is String && tag.isNotBlank()) tag else imageBaseArg
+            val imagen: String?
+            if (tag is String && tag.isNotBlank()) {
+                imagen = tag
+            } else {
+                imagen = imageBaseArg
+            }
             guardarCartaEnFirestore(id, nombre, imagen)
         }
 
-        // Carga inicial
-        if (!cartaIdArg.isNullOrBlank()) {
+        // Si tu layout contiene el botón de borrar (solo en detalle local), lo busco y lo configuro
+        val btnBorrarOptional: View? = findOptionalViewByName("btnBorrarCarta")
+        btnBorrarOptional?.setOnClickListener {
+            // preferimos currentCarta si está disponible
+            val cardId = cartaIdArg ?: currentCarta?.id ?: currentCarta?.localId
+            if (cardId.isNullOrBlank()) {
+                Snackbar.make(requireView(), "No hay id de carta", Snackbar.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            AlertDialog.Builder(requireContext())
+                .setTitle("Eliminar carta")
+                .setMessage("¿Seguro que quieres eliminar esta carta de tu colección?")
+                .setPositiveButton("Eliminar") { _, _ ->
+                    borrarCartaEnFirestoreConUndo(cardId) {
+                        // tras borrar correctamente, cerramos detalle y volvemos
+                        try {
+                            findNavController().popBackStack()
+                        } catch (e: Exception) {
+                            Log.w(TAG, "popBackStack fallo tras borrar", e)
+                        }
+                    }
+                }
+                .setNegativeButton("Cancelar", null)
+                .show()
+        }
+
+        if (cartaIdArg != null && cartaIdArg!!.isNotBlank()) {
             cargarDetalleCarta(cartaIdArg!!)
         } else {
             binding.tvError.visibility = View.VISIBLE
@@ -376,7 +256,6 @@ class FragmentoDetalleCarta : Fragment() {
             }
         }
     }
-
 
     private fun mostrarCartaEnUI(carta: Carta) {
         Log.d(TAG, "Mostrar carta: $carta")
