@@ -1,5 +1,6 @@
 package com.cesar.creamazospoketcg.ui.miscartas
 
+import androidx.core.os.bundleOf
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -20,6 +21,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import com.google.android.gms.tasks.Task
+import com.google.android.gms.tasks.Tasks
+import kotlinx.coroutines.tasks.await
 
 class FragmentoDetalleCartaLocal : Fragment() {
 
@@ -140,88 +144,94 @@ class FragmentoDetalleCartaLocal : Fragment() {
             .setTitle("Eliminar carta")
             .setMessage("¿Seguro que quieres eliminar esta carta de tu colección?")
             .setNegativeButton("Cancelar", null)
-            .setPositiveButton("Eliminar") { _, _ ->
-                val cardId = idCarta?.takeIf { it.isNotBlank() }
-                if (cardId.isNullOrBlank()) {
-                    Log.e(TAG, "mostrarConfirmacionEliminar: no hay idCarta para eliminar (idCarta='$idCarta')")
-                    if (isAdded && _binding != null) {
-                        Snackbar.make(binding.root, "No se pudo identificar la carta a eliminar.", Snackbar.LENGTH_SHORT).show()
-                    }
+            .setPositiveButton("Eliminar") { dialog, _ ->
+                dialog.dismiss()
+
+                val id = idCarta
+                if (id.isNullOrBlank()) {
+                    Log.w(TAG, "mostrarConfirmacionEliminar: idCarta nulo/ vacío, no se borra")
+                    Toast.makeText(requireContext(), "No hay id de carta para eliminar", Toast.LENGTH_SHORT).show()
                     return@setPositiveButton
                 }
 
-                // 1) Eliminar en local
+                Log.d(TAG, "mostrarConfirmacionEliminar: iniciando borrado para id=$id")
+
+                // Ejecutamos la operación en un coroutine para no bloquear la UI
                 lifecycleScope.launch {
                     try {
-                        withContext(Dispatchers.IO) {
-                            repoLocal.eliminarCarta(cardId)
-                        }
-                        Log.d(TAG, "Carta eliminada localmente: $cardId")
-                        if (isAdded && _binding != null) {
-                            Snackbar.make(binding.root, "Carta eliminada de la colección local.", Snackbar.LENGTH_SHORT).show()
+                        // Si el borrado es local (RepositorioLocal), use su método; si es remoto, llame a Firestore
+                        // Ejemplo con repoLocal (ajusta si tu método se llama distinto):
+                        repoLocal.eliminarCarta(id) // <-- reemplaza por el método real de tu repoLocal
+
+                        Log.d(TAG, "mostrarConfirmacionEliminar: carta eliminada localmente: $id")
+
+                        // === NUEVO: BORRAR TAMBIÉN EN FIRESTORE ===
+                        val userId = FirebaseAuth.getInstance().currentUser?.uid
+                        if (userId != null) {
+                            try {
+                                FirebaseFirestore.getInstance()
+                                    .collection("users")
+                                    .document(userId)
+                                    .collection("cards")
+                                    .document(id)
+                                    .delete()
+                                    .addOnSuccessListener {
+                                        Log.d(TAG, "Firestore: carta eliminada correctamente: $id")
+                                    }
+                                    .addOnFailureListener { ex ->
+                                        Log.e(TAG, "Firestore: error al eliminar carta: ${ex.message}")
+                                    }
+                            } catch (ex: Exception) {
+                                Log.e(TAG, "Exception Firestore delete: ${ex.message}")
+                            }
                         } else {
-                            Log.d(TAG, "Carta eliminada localmente pero vista no disponible para mostrar Snackbar.")
+                            Log.w(TAG, "No hay usuario autenticado: no se puede borrar en Firestore")
+                        }
+
+                        // Si también borras de Firestore (user collection), hazlo aquí y espera al resultado:
+                        // val userId = FirebaseAuth.getInstance().currentUser?.uid
+                        // if (userId != null) {
+                        //     FirebaseFirestore.getInstance()
+                        //         .collection("users").document(userId)
+                        //         .collection("cartas").document(id).delete().await()
+                        //     Log.d(TAG, "mostrarConfirmacionEliminar: carta eliminada en Firestore: $id")
+                        // }
+
+                        // Ahora volvemos al hilo principal para actualizar UI / navegar,
+                        // pero SÓLO si el fragment sigue añadido y la vista existe.
+                        withContext(Dispatchers.Main) {
+                            if (!isAdded) {
+                                Log.w(TAG, "mostrarConfirmacionEliminar: fragment no añadido al Activity, no actualizamos UI")
+                                return@withContext
+                            }
+                            if (_binding == null) {
+                                Log.w(TAG, "mostrarConfirmacionEliminar: binding es null, evitando acceso a vistas")
+                            } else {
+                                Toast.makeText(requireContext(), "Carta eliminada", Toast.LENGTH_SHORT).show()
+                            }
+
+                            // Si quieres que la lista se actualice en el fragment padre, lo ideal es
+                            // usar snapshot listeners o que el fragment padre recargue en onResume()
+                            // Aquí cerramos el detalle (popBackStack) de forma segura:
+                            try {
+                                findNavController().popBackStack()
+                            } catch (e: Exception) {
+                                Log.e(TAG, "mostrarConfirmacionEliminar: popBackStack fallo", e)
+                            }
                         }
                     } catch (e: Exception) {
-                        Log.e(TAG, "Error eliminando carta localmente: ${e.message}", e)
-                        if (isAdded && _binding != null) {
-                            Snackbar.make(binding.root, "No se pudo eliminar la carta localmente.", Snackbar.LENGTH_LONG).show()
+                        Log.e(TAG, "mostrarConfirmacionEliminar: error borrando carta id=$id", e)
+                        withContext(Dispatchers.Main) {
+                            if (isAdded) {
+                                Toast.makeText(requireContext(), "No se pudo eliminar la carta: ${e.localizedMessage}", Toast.LENGTH_LONG).show()
+                            }
                         }
-                        // continuamos para intentar borrar en la nube también
                     }
-
-                    // 2) Intentar eliminar en Firestore si hay usuario
-                    val userId = FirebaseAuth.getInstance().currentUser?.uid
-                    if (!userId.isNullOrBlank()) {
-                        try {
-                            if (isAdded && _binding != null) binding.pbCargando.visibility = View.VISIBLE
-                            val firestore = FirebaseFirestore.getInstance()
-                            firestore.collection("users")
-                                .document(userId)
-                                .collection("cartas")
-                                .document(cardId)
-                                .delete()
-                                .addOnSuccessListener {
-                                    Log.d(TAG, "Carta eliminada en Firestore: $cardId (user=$userId)")
-                                    if (isAdded && _binding != null) {
-                                        binding.pbCargando.visibility = View.GONE
-                                        Snackbar.make(binding.root, "Carta eliminada de tu colección en la nube.", Snackbar.LENGTH_SHORT).show()
-                                    } else {
-                                        Log.d(TAG, "Eliminada en Firestore pero vista no disponible.")
-                                    }
-                                }
-                                .addOnFailureListener { ex ->
-                                    Log.e(TAG, "Error al eliminar carta en Firestore: ${ex.message}", ex)
-                                    if (isAdded && _binding != null) {
-                                        binding.pbCargando.visibility = View.GONE
-                                        Snackbar.make(binding.root, "No se pudo eliminar en la nube (ver logs).", Snackbar.LENGTH_LONG).show()
-                                    } else {
-                                        Log.d(TAG, "Error en Firestore pero vista no disponible para notificar.")
-                                    }
-                                }
-                        } catch (e: Exception) {
-                            Log.e(TAG, "Excepción intentando borrar en Firestore: ${e.message}", e)
-                            if (isAdded && _binding != null) binding.pbCargando.visibility = View.GONE
-                        }
-                    } else {
-                        Log.d(TAG, "Usuario no autenticado -> no se intenta borrar en Firestore")
-                    }
-
-                    // Finalmente volvemos al listado si el fragmento sigue añadido
-                    if (isAdded) {
-                        try {
-                            findNavController().popBackStack()
-                        } catch (e: Exception) {
-                            Log.w(TAG, "popBackStack fallo tras eliminar", e)
-                            requireActivity().onBackPressed()
-                        }
-                    } else {
-                        Log.d(TAG, "No hacemos popBackStack porque fragmento ya no está añadido.")
-                    }
-                } // lifecycleScope.launch
+                }
             }
             .show()
     }
+
 
     private fun mostrarSelectorMazos() {
         Toast.makeText(requireContext(), "Selecciona un mazo (funcionalidad pendiente).", Toast.LENGTH_SHORT).show()
