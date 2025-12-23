@@ -109,4 +109,18 @@
         android:label="Detalle Carta (Mi Lista)"
         tools:layout="@layout/fragment_detalle_carta_local" />
 
+    <fragment
+        android:id="@+id/fragmentoDetalleMazo"
+        android:name="com.cesar.creamazospoketcg.ui.mazos.FragmentoDetalleMazo"
+        android:label="Detalle Mazo">
+        <argument
+            android:name="mazoId"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentoListaMazos"
+        android:name="com.cesar.creamazospoketcg.ui.mazos.FragmentoListaMazos"
+        android:label="Mis Mazos" />
+
 </navigation>

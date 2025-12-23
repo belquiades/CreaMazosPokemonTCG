@@ -119,4 +119,11 @@ data class SetDTO(
 
 data class ImagenesDTO(val small: String? = null, val large: String? = null) {
     fun toImagenesCarta(): ImagenesCarta = ImagenesCarta(small = small, large = large)
+
 }
+data class CartaGuardada(
+    val cardId: String = "",
+    val name: String? = null,
+    val imageUrl: String? = null,
+    val quantity: Int = 1
+)

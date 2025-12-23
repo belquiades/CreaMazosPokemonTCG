@@ -1,0 +1,34 @@
+Listado de rutas de carpetas
+El número de serie del volumen es 8680-DF3D
+C:.
++---java
+¦   +---com
+¦       +---cesar
+¦           +---creamazospoketcg
+¦               +---data
+¦               ¦   +---local
+¦               ¦   +---model
+¦               ¦   +---network
+¦               ¦   +---repository
+¦               +---ui
+¦               ¦   +---auth
+¦               ¦   +---mazos
+¦               ¦   ¦   +---logica
+¦               ¦   +---miscartas
+¦               ¦   +---search
+¦               ¦   +---theme
+¦               +---utils
+¦               +---vm
++---res
+    +---drawable
+    +---layout
+    +---mipmap-anydpi-v26
+    +---mipmap-hdpi
+    +---mipmap-mdpi
+    +---mipmap-xhdpi
+    +---mipmap-xxhdpi
+    +---mipmap-xxxhdpi
+    +---navigation
+    +---values
+    +---values-night
+    +---xml

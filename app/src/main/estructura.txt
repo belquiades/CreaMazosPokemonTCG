@@ -6,8 +6,10 @@
 [.]                        files.txt
 [..]                       [java]
 AndroidManifest.xml        [res]
-AndroidManifest_BACK.TXT   
-               3 archivos          2.509 bytes
+AndroidManifest_BACK.TXT   tree.tct
+estrucctura.txt            tree.txt
+estructura.txt             
+               7 archivos         22.395 bytes
 
  Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java
 
@@ -44,28 +46,30 @@ AndroidManifest_BACK.TXT
 
  Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\data\model
 
-[.]                        CompatibilidadModelos.kt
-[..]                       
-Carta.kt                   
-               2 archivos          2.261 bytes
+[.]                        CartaGuardada.kt
+[..]                       CompatibilidadModelos.kt
+Carta.kt                   Mazo.kt
+CartaEnMazo.kt             
+               5 archivos          3.243 bytes
 
  Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\data\network
 
 [.]                      ModelosTCGdex.kt         ServicioPokeTcg.kt
 [..]                     ModuloRed.kt             ServicioTCGdex.kt
 ApiCartasPokemonTcg.kt   RespuestaCartas.kt       
-               6 archivos          9.480 bytes
+               6 archivos          9.635 bytes
 
  Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\data\repository
 
-[.]                    RepositorioCartas.kt   
-[..]                   
-               1 archivos          7.900 bytes
+[.]                      FirestoreMazosRepo.kt    
+[..]                     RepositorioCartas.kt     
+FirestoreCartasRepo.kt   RepositorioMazos.kt      
+               4 archivos         13.666 bytes
 
  Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\ui
 
-[.]         [auth]      [search]    
-[..]        [miscartas] [theme]     
+[.]         [auth]      [miscartas] [theme]     
+[..]        [mazos]     [search]    
                0 archivos              0 bytes
 
  Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\ui\auth
@@ -76,12 +80,24 @@ LoginFragment.kt
 PerfilFragment.kt              
                4 archivos         20.722 bytes
 
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\ui\mazos
+
+[.]                       FragmentoDetalleMazo.kt   MazoAdapter.kt
+[..]                      FragmentoListaMazos.kt    
+CrearMazoDialog.kt        [logica]                  
+               4 archivos              0 bytes
+
+ Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\ui\mazos\logica
+
+[.]             [..]            ReglasMazo.kt   
+               1 archivos            428 bytes
+
  Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\ui\miscartas
 
 [.]                             FragmentoMisCartas.kt
 [..]                            MisCartasAdapter.kt
 FragmentoDetalleCartaLocal.kt   
-               3 archivos         18.281 bytes
+               3 archivos         10.063 bytes
 
  Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\ui\search
 
@@ -89,7 +105,7 @@ FragmentoDetalleCartaLocal.kt
 [..]                         FragmentoDetalleCarta.kt
 ActividadHostBusqueda.kt     FragmentoDetalleCarta.old
 AdaptadorCartas.kt           
-               5 archivos        129.343 bytes
+               5 archivos        131.826 bytes
 
  Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\java\com\cesar\creamazospoketcg\ui\theme
 
@@ -118,22 +134,23 @@ AdaptadorCartas.kt
 
  Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\drawable
 
-[.]                          ic_launcher_background.xml
-[..]                         ic_launcher_foreground.xml
-bg_button_gradient.xml       ic_optimize.xml
-bg_circle_gray.xml           ic_person.xml
-bg_google_button.xml         ic_plus.png
-buscar.png                   ic_search.xml
-coleccion.png                inicio.png
-fondo_chip_tipo.xml          logoappbig.png
-google24x24.png              mazo.png
-ic_back_arrow.xml            perfil.png
-ic_cards.xml                 placeholder_carta.png
-ic_collection.xml            placeholder_carta_png.xml
-ic_deck.xml                  volver.png
-ic_google_logo.xml           
-ic_home.xml                  
-              26 archivos        122.320 bytes
+[.]                          ic_google_logo.xml
+[..]                         ic_home.xml
+bg_badge_round.xml           ic_launcher_background.xml
+bg_button_gradient.xml       ic_launcher_foreground.xml
+bg_circle_gray.xml           ic_optimize.xml
+bg_google_button.xml         ic_person.xml
+bg_quantity.xml              ic_plus.png
+bg_quantity_overlay.xml      ic_search.xml
+buscar.png                   inicio.png
+coleccion.png                logoappbig.png
+fondo_chip_tipo.xml          mazo.png
+google24x24.png              perfil.png
+ic_back_arrow.xml            placeholder_carta.png
+ic_cards.xml                 placeholder_carta_png.xml
+ic_collection.xml            volver.png
+ic_deck.xml                  
+              29 archivos        123.002 bytes
 
  Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\layout
 
@@ -145,7 +162,7 @@ activity_main_with_bottom.xml      fragment_recuperar_password.xml
 bottom_nav_custom.xml              fragment_registro.xml
 fragment_busqueda_cartas.xml       item_carta.xml
 fragment_detalle_carta.xml         
-              13 archivos         48.398 bytes
+              13 archivos         47.529 bytes
 
  Directorio de C:\Users\belqu\AndroidStudioProjects\CreaMazosPokeTCG\app\src\main\res\mipmap-anydpi-v26
 
@@ -207,5 +224,5 @@ backup_rules.xml
                2 archivos          1.029 bytes
 
      Total de archivos en la lista:
-              90 archivos        434.899 bytes
-              89 dirs  170.078.384.128 bytes libres
+             108 archivos        456.194 bytes
+              95 dirs  149.260.898.304 bytes libres

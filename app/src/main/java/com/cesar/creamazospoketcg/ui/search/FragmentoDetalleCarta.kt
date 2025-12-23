@@ -47,6 +47,8 @@ import java.io.InterruptedIOException
 import java.net.SocketTimeoutException
 import java.util.concurrent.TimeUnit
 import kotlin.math.absoluteValue
+import com.google.firebase.firestore.FieldValue
+
 
 class FragmentoDetalleCarta : Fragment() {
 
@@ -1091,16 +1093,63 @@ class FragmentoDetalleCarta : Fragment() {
                 datos["addedAt"] = Timestamp.now()
 
                 binding.pbCargando.visibility = View.VISIBLE
-                doc.set(datos)
-                    .addOnSuccessListener {
-                        binding.pbCargando.visibility = View.GONE
-                        Toast.makeText(requireContext(), "Carta añadida a tu colección.", Toast.LENGTH_SHORT).show()
+
+                doc.get()
+                    .addOnSuccessListener { snapshot ->
+                        if (snapshot.exists()) {
+                            // 🔁 La carta ya existe → incrementamos quantity
+                            doc.update("quantity", FieldValue.increment(1))
+                                .addOnSuccessListener {
+                                    binding.pbCargando.visibility = View.GONE
+                                    Toast.makeText(
+                                        requireContext(),
+                                        "Cantidad de carta incrementada.",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                                .addOnFailureListener { e ->
+                                    binding.pbCargando.visibility = View.GONE
+                                    Log.e(TAG, "Error incrementando quantity", e)
+                                    Toast.makeText(
+                                        requireContext(),
+                                        "Error actualizando la cantidad.",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                        } else {
+                            // 🆕 La carta NO existe → la creamos con quantity = 1
+                            datos["quantity"] = 1L
+
+                            doc.set(datos)
+                                .addOnSuccessListener {
+                                    binding.pbCargando.visibility = View.GONE
+                                    Toast.makeText(
+                                        requireContext(),
+                                        "Carta añadida a tu colección.",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                                .addOnFailureListener { e ->
+                                    binding.pbCargando.visibility = View.GONE
+                                    Log.e(TAG, "Error guardando carta en Firestore", e)
+                                    Toast.makeText(
+                                        requireContext(),
+                                        "Error guardando la carta",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                        }
                     }
                     .addOnFailureListener { e ->
                         binding.pbCargando.visibility = View.GONE
-                        Log.e(TAG, "Error guardando carta en Firestore", e)
-                        Toast.makeText(requireContext(), "Error guardando la carta", Toast.LENGTH_SHORT).show()
+                        Log.e(TAG, "Error leyendo carta en Firestore", e)
+                        Toast.makeText(
+                            requireContext(),
+                            "Error accediendo a Firestore",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
+
             }
             .setNegativeButton("Cancelar", null)
             .create()
