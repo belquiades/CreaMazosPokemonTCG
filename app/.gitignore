@@ -1,1 +1,9 @@
+<<<<<<< HEAD
 /build
+=======
+.idea/
+.gradle/
+build/
+*.iml
+.DS_Store
+>>>>>>> 14deadeba905dde474a088b3ca52c255202ef862

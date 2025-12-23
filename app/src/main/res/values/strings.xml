@@ -1,4 +1,5 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">CreaMazosPokeTCG</string>
     <string name="imagen_carta">Imagen de la carta</string>
 
@@ -27,4 +28,7 @@
     <string name="default_web_client_id">
         461282729144-mje6hee4or18cs9478j5nud34iprjo4s.apps.googleusercontent.com
     </string>
+=======
+    <string name="app_name">CreaMazosPokemonTCG</string>
+>>>>>>> 14deadeba905dde474a088b3ca52c255202ef862
 </resources>

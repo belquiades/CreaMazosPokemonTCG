@@ -1,19 +1,32 @@
 {
   "project_info": {
+<<<<<<< HEAD
     "project_number": "461282729144",
     "project_id": "creamazospoketcg-becf5",
     "storage_bucket": "creamazospoketcg-becf5.firebasestorage.app"
+=======
+    "project_number": "1040488795066",
+    "project_id": "creamazospokemontcg",
+    "storage_bucket": "creamazospokemontcg.firebasestorage.app"
+>>>>>>> 14deadeba905dde474a088b3ca52c255202ef862
   },
   "client": [
     {
       "client_info": {
+<<<<<<< HEAD
         "mobilesdk_app_id": "1:461282729144:android:e5a63165a01d010d43a84d",
         "android_client_info": {
           "package_name": "com.cesar.creamazospoketcg"
+=======
+        "mobilesdk_app_id": "1:1040488795066:android:c89bf87a529aa632afeb83",
+        "android_client_info": {
+          "package_name": "com.cesar.creamazospokemontcg"
+>>>>>>> 14deadeba905dde474a088b3ca52c255202ef862
         }
       },
       "oauth_client": [
         {
+<<<<<<< HEAD
           "client_id": "461282729144-jhnlb5sf02uvcs345rdlg0o3ese0bit0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -23,19 +36,30 @@
         },
         {
           "client_id": "461282729144-mje6hee4or18cs9478j5nud34iprjo4s.apps.googleusercontent.com",
+=======
+          "client_id": "1040488795066-6ehvnfdjvinfbfp8r65tnvdlbg0ueej0.apps.googleusercontent.com",
+>>>>>>> 14deadeba905dde474a088b3ca52c255202ef862
           "client_type": 3
         }
       ],
       "api_key": [
         {
+<<<<<<< HEAD
           "current_key": "AIzaSyAoTHhcAPAUWXnxrZjXGz3aF02LCFFrahk"
+=======
+          "current_key": "AIzaSyBZR4UGKVn72OBXAYVvJQyVcebrEBI5Jt0"
+>>>>>>> 14deadeba905dde474a088b3ca52c255202ef862
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
+<<<<<<< HEAD
               "client_id": "461282729144-mje6hee4or18cs9478j5nud34iprjo4s.apps.googleusercontent.com",
+=======
+              "client_id": "1040488795066-6ehvnfdjvinfbfp8r65tnvdlbg0ueej0.apps.googleusercontent.com",
+>>>>>>> 14deadeba905dde474a088b3ca52c255202ef862
               "client_type": 3
             }
           ]

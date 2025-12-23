@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -14,11 +15,19 @@ pluginManagement {
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+=======
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+>>>>>>> 14deadeba905dde474a088b3ca52c255202ef862
     repositories {
         google()
         mavenCentral()
     }
+<<<<<<< HEAD
 }
 
 rootProject.name = "CreaMazosPokeTCG"
 include(":app")
+=======
+}
+>>>>>>> 14deadeba905dde474a088b3ca52c255202ef862
