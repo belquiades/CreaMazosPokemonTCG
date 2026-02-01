@@ -55,12 +55,13 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     implementation("androidx.navigation:navigation-compose:2.7.7")
-    // Firebase BOM
-    implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
+// Firebase BOM (gestiona versiones)
+    implementation(platform("com.google.firebase:firebase-bom:34.8.0"))
 
-    // Core Firebase (necesario para inicializar)
-    implementation("com.google.firebase:firebase-common-ktx")
-    implementation("com.google.firebase:firebase-auth-ktx")
+// Firebase Auth
+    implementation("com.google.firebase:firebase-auth-ktx:23.0.0")
 
+// Firestore
+    implementation("com.google.firebase:firebase-firestore-ktx:25.0.0")
 
 }
