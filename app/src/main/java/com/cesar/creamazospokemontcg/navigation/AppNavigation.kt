@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.cesar.creamazospokemontcg.ui.coleccion.AnadirCartaScreen
 import com.cesar.creamazospokemontcg.ui.home.HomeScreen
 import com.cesar.creamazospokemontcg.ui.login.LoginScreen
 import com.cesar.creamazospokemontcg.ui.coleccion.ColeccionScreen
@@ -47,11 +48,21 @@ fun AppNavigation() {
             )
         }
 
-        composable("coleccion") {
-            ColeccionScreen(
+        composable("anadirCarta") {
+            AnadirCartaScreen(
                 onVolver = { navController.popBackStack() }
             )
         }
+
+        composable("coleccion") {
+            ColeccionScreen(
+                onVolver = { navController.popBackStack() },
+                onIrAnadirCarta = {
+                    navController.navigate("anadirCarta")
+                }
+            )
+        }
+
 
         composable("mazos") {
             ListaMazosScreen(

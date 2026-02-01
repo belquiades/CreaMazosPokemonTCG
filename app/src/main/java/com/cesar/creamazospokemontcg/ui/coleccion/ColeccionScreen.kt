@@ -4,22 +4,22 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.cesar.creamazospokemontcg.viewmodel.ColeccionViewModel
 
 /**
  * Pantalla que muestra la colección de cartas del usuario.
  */
 @Composable
 fun ColeccionScreen(
-    onVolver: () -> Unit
+    onVolver: () -> Unit,
+    onIrAnadirCarta: () -> Unit
 ) {
     val viewModel: ColeccionViewModel = viewModel()
-
-    var nombreCarta by remember { mutableStateOf("") }
-    var tipoCarta by remember { mutableStateOf("") }
+    val cartas = viewModel.cartas.value
 
     Column(
         modifier = Modifier
@@ -34,33 +34,29 @@ fun ColeccionScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Campos para añadir carta
-        OutlinedTextField(
-            value = nombreCarta,
-            onValueChange = { nombreCarta = it },
-            label = { Text("Nombre de la carta") },
-            modifier = Modifier.fillMaxWidth()
-        )
+        // Lista de cartas
+        LazyColumn(
+            modifier = Modifier.weight(1f)
+        ) {
+            items(cartas) { carta ->
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 4.dp)
+                ) {
+                    Column(modifier = Modifier.padding(12.dp)) {
+                        Text(text = carta.nombre, style = MaterialTheme.typography.titleMedium)
+                        Text(text = "Tipo: ${carta.tipo}")
+                        Text(text = "Cantidad: ${carta.cantidad}")
+                    }
+                }
+            }
+        }
 
-        Spacer(modifier = Modifier.height(8.dp))
-
-        OutlinedTextField(
-            value = tipoCarta,
-            onValueChange = { tipoCarta = it },
-            label = { Text("Tipo (Pokémon, Energía, Entrenador)") },
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         Button(
-            onClick = {
-                if (nombreCarta.isNotBlank()) {
-                    viewModel.añadirCarta(nombreCarta, tipoCarta)
-                    nombreCarta = ""
-                    tipoCarta = ""
-                }
-            },
+            onClick = { onIrAnadirCarta() },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Añadir carta")
@@ -68,27 +64,8 @@ fun ColeccionScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Lista de cartas
-        LazyColumn(
-            modifier = Modifier.weight(1f)
-        ) {
-            items(viewModel.cartas) { carta ->
-                Card(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 4.dp)
-                ) {
-                    Column(modifier = Modifier.padding(12.dp)) {
-                        Text(carta.nombre, style = MaterialTheme.typography.titleMedium)
-                        Text("Tipo: ${carta.tipo}")
-                        Text("Cantidad: ${carta.cantidad}")
-                    }
-                }
-            }
-        }
-
         Button(
-            onClick = onVolver,
+            onClick = { onVolver() },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Volver")
