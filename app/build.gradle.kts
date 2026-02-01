@@ -60,5 +60,7 @@ dependencies {
 
     // Core Firebase (necesario para inicializar)
     implementation("com.google.firebase:firebase-common-ktx")
+    implementation("com.google.firebase:firebase-auth-ktx")
+
 
 }
