@@ -8,51 +8,86 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.cesar.creamazospokemontcg.viewmodel.ColeccionViewModel
 
 /**
- * Muestra la colección de cartas del usuario.
+ * Pantalla que muestra la colección de cartas del usuario.
  */
 @Composable
 fun ColeccionScreen(
     onVolver: () -> Unit
 ) {
     val viewModel: ColeccionViewModel = viewModel()
-    var refrescar by remember { mutableStateOf(false) }
 
-    LaunchedEffect(refrescar) {
-        viewModel.cargarColeccion {
-            refrescar = false
-        }
-    }
+    var nombreCarta by remember { mutableStateOf("") }
+    var tipoCarta by remember { mutableStateOf("") }
 
-    Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
 
-        Text("Mi colección", style = MaterialTheme.typography.headlineMedium)
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        LazyColumn(modifier = Modifier.weight(1f)) {
-            items(viewModel.cartas) { carta ->
-                Text("• ${carta.nombre} (${carta.tipo}) x${carta.cantidad}")
-            }
-        }
+        Text(
+            text = "Mi colección",
+            style = MaterialTheme.typography.headlineMedium
+        )
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Button(
-            onClick = {
-                viewModel.añadirCarta("Pikachu", "Eléctrico")
-                refrescar = true
-            },
+        // Campos para añadir carta
+        OutlinedTextField(
+            value = nombreCarta,
+            onValueChange = { nombreCarta = it },
+            label = { Text("Nombre de la carta") },
             modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Añadir carta de prueba")
-        }
+        )
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        OutlinedButton(
+        OutlinedTextField(
+            value = tipoCarta,
+            onValueChange = { tipoCarta = it },
+            label = { Text("Tipo (Pokémon, Energía, Entrenador)") },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Button(
+            onClick = {
+                if (nombreCarta.isNotBlank()) {
+                    viewModel.añadirCarta(nombreCarta, tipoCarta)
+                    nombreCarta = ""
+                    tipoCarta = ""
+                }
+            },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Añadir carta")
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Lista de cartas
+        LazyColumn(
+            modifier = Modifier.weight(1f)
+        ) {
+            items(viewModel.cartas) { carta ->
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 4.dp)
+                ) {
+                    Column(modifier = Modifier.padding(12.dp)) {
+                        Text(carta.nombre, style = MaterialTheme.typography.titleMedium)
+                        Text("Tipo: ${carta.tipo}")
+                        Text("Cantidad: ${carta.cantidad}")
+                    }
+                }
+            }
+        }
+
+        Button(
             onClick = onVolver,
             modifier = Modifier.fillMaxWidth()
         ) {
