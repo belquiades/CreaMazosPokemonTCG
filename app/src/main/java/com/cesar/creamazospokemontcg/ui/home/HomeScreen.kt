@@ -16,7 +16,8 @@ import androidx.compose.ui.unit.dp
 fun HomeScreen(
     onIrColeccion: () -> Unit,
     onIrMazos: () -> Unit,
-    onIrPerfil: () -> Unit
+    onIrPerfil: () -> Unit,
+    onCerrarSesion: () -> Unit
 ) {
 
     Column(

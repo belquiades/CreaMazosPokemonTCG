@@ -5,17 +5,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.cesar.creamazospokemontcg.ui.home.HomeScreen
-import com.cesar.creamazospokemontcg.ui.coleccion.ColeccionScreen
-import com.cesar.creamazospokemontcg.ui.mazos.MazosScreen
-import com.cesar.creamazospokemontcg.ui.perfil.PerfilScreen
 import com.cesar.creamazospokemontcg.ui.login.LoginScreen
-
+import com.cesar.creamazospokemontcg.ui.coleccion.ColeccionScreen
+import com.cesar.creamazospokemontcg.ui.mazos.ListaMazosScreen
+import com.cesar.creamazospokemontcg.ui.perfil.PerfilScreen
 
 /**
- * Gestiona la navegación principal de la aplicación.
- *
- * Aquí se definen todas las pantallas y rutas.
- * (Alumno DAM: separación clara entre UI y navegación)
+ * Navegación principal de la aplicación.
+ * Aquí se definen todas las rutas disponibles.
  */
 @Composable
 fun AppNavigation() {
@@ -41,21 +38,35 @@ fun AppNavigation() {
             HomeScreen(
                 onIrColeccion = { navController.navigate("coleccion") },
                 onIrMazos = { navController.navigate("mazos") },
-                onIrPerfil = { navController.navigate("perfil") }
+                onIrPerfil = { navController.navigate("perfil") },
+                onCerrarSesion = {
+                    navController.navigate("login") {
+                        popUpTo("home") { inclusive = true }
+                    }
+                }
             )
         }
 
-
         composable("coleccion") {
-            ColeccionScreen()
+            ColeccionScreen(
+                onVolver = { navController.popBackStack() }
+            )
         }
 
         composable("mazos") {
-            MazosScreen()
+            ListaMazosScreen(
+                onVolver = { navController.popBackStack() }
+            )
         }
 
         composable("perfil") {
-            PerfilScreen()
+            PerfilScreen(
+                onCerrarSesion = {
+                    navController.navigate("login") {
+                        popUpTo("home") { inclusive = true }
+                    }
+                }
+            )
         }
     }
 }
