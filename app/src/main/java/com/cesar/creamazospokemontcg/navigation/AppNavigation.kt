@@ -8,6 +8,8 @@ import com.cesar.creamazospokemontcg.ui.home.HomeScreen
 import com.cesar.creamazospokemontcg.ui.coleccion.ColeccionScreen
 import com.cesar.creamazospokemontcg.ui.mazos.MazosScreen
 import com.cesar.creamazospokemontcg.ui.perfil.PerfilScreen
+import com.cesar.creamazospokemontcg.ui.login.LoginScreen
+
 
 /**
  * Gestiona la navegación principal de la aplicación.
@@ -22,8 +24,18 @@ fun AppNavigation() {
 
     NavHost(
         navController = navController,
-        startDestination = "home"
+        startDestination = "login"
     ) {
+
+        composable("login") {
+            LoginScreen(
+                onLoginCorrecto = {
+                    navController.navigate("home") {
+                        popUpTo("login") { inclusive = true }
+                    }
+                }
+            )
+        }
 
         composable("home") {
             HomeScreen(

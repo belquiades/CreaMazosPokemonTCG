@@ -2,23 +2,19 @@ package com.cesar.creamazospokemontcg.ui.login
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 /**
- * Pantalla de login sencilla.
- * Simula un acceso de usuario.
- *
- * Código comentado como alumno de DAM.
+ * Pantalla de login (solo interfaz).
+ * En esta fase NO hay Firebase.
+ * Simula el acceso del usuario.
  */
 @Composable
 fun LoginScreen(
     onLoginCorrecto: () -> Unit
 ) {
-    var email by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -31,34 +27,34 @@ fun LoginScreen(
             style = MaterialTheme.typography.headlineMedium
         )
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         OutlinedTextField(
-            value = email,
-            onValueChange = { email = it },
+            value = "",
+            onValueChange = {},
             label = { Text("Correo electrónico") },
             modifier = Modifier.fillMaxWidth()
         )
 
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(8.dp))
 
         OutlinedTextField(
-            value = password,
-            onValueChange = { password = it },
+            value = "",
+            onValueChange = {},
             label = { Text("Contraseña") },
             modifier = Modifier.fillMaxWidth()
         )
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         Button(
             onClick = {
-                // Simulamos login correcto
+                // Simulación de login correcto
                 onLoginCorrecto()
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Iniciar sesión")
+            Text("Entrar")
         }
     }
 }
