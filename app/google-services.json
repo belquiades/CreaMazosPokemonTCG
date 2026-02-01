@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "557320121417",
+    "project_id": "creamazospokemontcg-80314",
+    "storage_bucket": "creamazospokemontcg-80314.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:557320121417:android:73fc17292b0f129bb1a398",
+        "android_client_info": {
+          "package_name": "com.cesar.creamazospokemontcg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "557320121417-u6q9vqec43gp51ufbem0eqcoa9i17vak.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByPvzIsA76CM6Tt2-O66Z-7QKmI51tJTU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "557320121417-u6q9vqec43gp51ufbem0eqcoa9i17vak.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -54,5 +55,10 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     implementation("androidx.navigation:navigation-compose:2.7.7")
+    // Firebase BOM
+    implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
+
+    // Core Firebase (necesario para inicializar)
+    implementation("com.google.firebase:firebase-common-ktx")
 
 }
