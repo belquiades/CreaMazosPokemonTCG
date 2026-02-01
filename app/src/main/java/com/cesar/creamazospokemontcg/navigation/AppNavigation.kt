@@ -33,6 +33,7 @@ fun AppNavigation() {
             )
         }
 
+
         composable("coleccion") {
             ColeccionScreen()
         }
