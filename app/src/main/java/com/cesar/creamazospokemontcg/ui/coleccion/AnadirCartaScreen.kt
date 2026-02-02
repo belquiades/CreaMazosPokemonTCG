@@ -7,6 +7,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.cesar.creamazospokemontcg.data.model.Carta
+import java.util.UUID
 
 @Composable
 fun AnadirCartaScreen(
@@ -15,7 +16,6 @@ fun AnadirCartaScreen(
 ) {
     var nombre by remember { mutableStateOf("") }
     var tipo by remember { mutableStateOf("") }
-    var cantidad by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
@@ -29,16 +29,16 @@ fun AnadirCartaScreen(
 
         OutlinedTextField(nombre, { nombre = it }, label = { Text("Nombre") })
         OutlinedTextField(tipo, { tipo = it }, label = { Text("Tipo") })
-        OutlinedTextField(cantidad, { cantidad = it }, label = { Text("Cantidad") })
 
         Spacer(Modifier.height(16.dp))
 
         Button(
             onClick = {
                 val carta = Carta(
+                    id = UUID.randomUUID().toString(),
                     nombre = nombre,
                     tipo = tipo,
-                    cantidad = cantidad.toIntOrNull() ?: 1
+                    creadaPorUsuario = true
                 )
                 onCartaCreada(carta)
                 onVolver()

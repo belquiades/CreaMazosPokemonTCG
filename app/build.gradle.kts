@@ -54,6 +54,14 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+        // --- Retrofit (API REST) ---
+        implementation("com.squareup.retrofit2:retrofit:2.11.0")
+        implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+
+        // --- OkHttp (logs de red, muy útil para depurar API) ---
+        implementation("com.squareup.okhttp3:okhttp:4.12.0")
+        implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
     implementation("androidx.navigation:navigation-compose:2.7.7")
 // Firebase BOM (gestiona versiones)
     implementation(platform("com.google.firebase:firebase-bom:34.8.0"))

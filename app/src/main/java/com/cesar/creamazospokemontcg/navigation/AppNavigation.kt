@@ -13,7 +13,6 @@ import com.cesar.creamazospokemontcg.ui.mazos.CrearMazoScreen
 import com.cesar.creamazospokemontcg.ui.mazos.ListaMazosScreen
 import com.cesar.creamazospokemontcg.ui.perfil.PerfilScreen
 import com.cesar.creamazospokemontcg.viewmodel.AnadirCartaViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.cesar.creamazospokemontcg.viewmodel.CrearMazoViewModel
 
 /**
@@ -34,9 +33,7 @@ fun AppNavigation() {
         composable("login") {
             LoginScreen(
                 onLoginCorrecto = {
-                    navController.navigate("home") {
-                        popUpTo("login") { inclusive = true }
-                    }
+                    navController.navigate("home") { popUpTo("login") { inclusive = true } }
                 }
             )
         }
@@ -47,9 +44,7 @@ fun AppNavigation() {
                 onIrMazos = { navController.navigate("mazos") },
                 onIrPerfil = { navController.navigate("perfil") },
                 onCerrarSesion = {
-                    navController.navigate("login") {
-                        popUpTo("home") { inclusive = true }
-                    }
+                    navController.navigate("login") { popUpTo("home") { inclusive = true } }
                 }
             )
         }
@@ -64,23 +59,11 @@ fun AppNavigation() {
             )
         }
 
-        composable("seleccionarCarta") {
-            val crearMazoViewModel: CrearMazoViewModel = viewModel()
-
+        composable("coleccion") {
             ColeccionScreen(
-                modoSeleccion = true,
-                onCartaSeleccionada = { idCarta ->
-                    crearMazoViewModel.anadirCartaAlMazo(idCarta)
-                    navController.popBackStack()
-                },
                 onVolver = { navController.popBackStack() }
             )
         }
-
-
-
-
-
 
         composable("mazos") {
             ListaMazosScreen(
@@ -90,40 +73,28 @@ fun AppNavigation() {
         }
 
         composable("crearMazo") {
-            val crearMazoViewModel: CrearMazoViewModel = viewModel()
-
             CrearMazoScreen(
-                onAnadirCarta = {
-                    navController.navigate("seleccionarCarta")
-                },
-                onMazoCreado = {
-                    navController.popBackStack()
-                }
+                onAnadirCarta = { navController.navigate("seleccionarCarta") },
+                onMazoCreado = { navController.popBackStack() }
             )
         }
 
         composable("seleccionarCarta") {
             val crearMazoViewModel: CrearMazoViewModel = viewModel()
-
             ColeccionScreen(
+                onVolver = { navController.popBackStack() },
                 modoSeleccion = true,
-                onCartaSeleccionada = { idCarta ->
-                    crearMazoViewModel.anadirCartaAlMazo(idCarta)
-                    navController.popBackStack()
-                },
-                onVolver = {
+                onCartaSeleccionada = {
+                    crearMazoViewModel.anadirCartaAlMazo(it)
                     navController.popBackStack()
                 }
             )
         }
 
-
         composable("perfil") {
             PerfilScreen(
                 onCerrarSesion = {
-                    navController.navigate("login") {
-                        popUpTo("home") { inclusive = true }
-                    }
+                    navController.navigate("login") { popUpTo("home") { inclusive = true } }
                 }
             )
         }

@@ -1,30 +1,26 @@
 package com.cesar.creamazospokemontcg.viewmodel
 
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.compose.runtime.mutableStateOf
 import com.cesar.creamazospokemontcg.data.model.Carta
 import com.cesar.creamazospokemontcg.data.repository.ColeccionRepository
-import com.google.firebase.auth.FirebaseAuth
 
 /**
- * ViewModel de la pantalla Colección
+ * ViewModel de la pantalla Coleccion.
+ *
+ * Mantiene en memoria las cartas del usuario.
  */
 class ColeccionViewModel : ViewModel() {
 
     private val repository = ColeccionRepository()
-    private val auth = FirebaseAuth.getInstance()
 
+    // Estado observable desde Compose
     val cartas = mutableStateOf<List<Carta>>(emptyList())
 
     init {
-        cargarColeccion()
-    }
-
-    private fun cargarColeccion() {
-        val userId = auth.currentUser?.uid ?: return
-
-        repository.obtenerColeccion(userId) { lista ->
-            cartas.value = lista
+        // Escuchamos cambios en Firebase
+        repository.escucharColeccion {
+            cartas.value = it
         }
     }
 }
