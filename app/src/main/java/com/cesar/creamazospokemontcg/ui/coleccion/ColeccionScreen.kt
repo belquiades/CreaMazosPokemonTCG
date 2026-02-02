@@ -11,15 +11,14 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.cesar.creamazospokemontcg.viewmodel.ColeccionViewModel
 
 /**
- * Pantalla que muestra la colección de cartas del usuario.
+ * Pantalla que muestra la colección del usuario
  */
 @Composable
 fun ColeccionScreen(
-    onVolver: () -> Unit,
-    onIrAnadirCarta: () -> Unit
+    onIrAnadirCarta: () -> Unit,
+    onVolver: () -> Unit
 ) {
     val viewModel: ColeccionViewModel = viewModel()
-    val cartas = viewModel.cartas.value
 
     Column(
         modifier = Modifier
@@ -34,18 +33,15 @@ fun ColeccionScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Lista de cartas
-        LazyColumn(
-            modifier = Modifier.weight(1f)
-        ) {
-            items(cartas) { carta ->
+        LazyColumn {
+            items(viewModel.cartas.value) { carta ->
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 4.dp)
                 ) {
                     Column(modifier = Modifier.padding(12.dp)) {
-                        Text(text = carta.nombre, style = MaterialTheme.typography.titleMedium)
+                        Text(text = carta.nombre)
                         Text(text = "Tipo: ${carta.tipo}")
                         Text(text = "Cantidad: ${carta.cantidad}")
                     }
@@ -56,19 +52,18 @@ fun ColeccionScreen(
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
+            onClick = onVolver,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Volver")
+        }
+
+        Button(
             onClick = { onIrAnadirCarta() },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Añadir carta")
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Button(
-            onClick = { onVolver() },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Volver")
-        }
     }
 }

@@ -7,10 +7,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 /**
- * Pantalla que mostrará los mazos creados por el usuario.
+ * Pantalla que muestra la lista de mazos del usuario.
  */
 @Composable
 fun ListaMazosScreen(
+    onCrearMazo: () -> Unit,
     onVolver: () -> Unit
 ) {
     Column(
@@ -24,13 +25,21 @@ fun ListaMazosScreen(
             style = MaterialTheme.typography.headlineMedium
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Text("Aquí se listarán los mazos del usuario.")
-
         Spacer(modifier = Modifier.height(24.dp))
 
-        Button(onClick = onVolver) {
+        Button(
+            onClick = { onCrearMazo() },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Crear nuevo mazo")
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        OutlinedButton(
+            onClick = { onVolver() },
+            modifier = Modifier.fillMaxWidth()
+        ) {
             Text("Volver")
         }
     }

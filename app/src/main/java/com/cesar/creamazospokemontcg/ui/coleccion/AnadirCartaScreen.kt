@@ -1,3 +1,4 @@
+// ui/coleccion/AnadirCartaScreen.kt
 package com.cesar.creamazospokemontcg.ui.coleccion
 
 import androidx.compose.foundation.layout.*
@@ -5,22 +6,16 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.cesar.creamazospokemontcg.viewmodel.ColeccionViewModel
-import com.cesar.creamazospokemontcg.ui.coleccion.AnadirCartaScreen
+import com.cesar.creamazospokemontcg.data.model.Carta
 
-/**
- * Pantalla para añadir una carta manualmente a la colección.
- */
 @Composable
 fun AnadirCartaScreen(
+    onCartaCreada: (Carta) -> Unit,
     onVolver: () -> Unit
 ) {
-    val viewModel: ColeccionViewModel = viewModel()
-
     var nombre by remember { mutableStateOf("") }
     var tipo by remember { mutableStateOf("") }
-    var cantidad by remember { mutableStateOf("1") }
+    var cantidad by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
@@ -28,61 +23,29 @@ fun AnadirCartaScreen(
             .padding(16.dp)
     ) {
 
-        Text(
-            text = "Añadir carta",
-            style = MaterialTheme.typography.headlineMedium
-        )
+        Text("Añadir carta a la colección", style = MaterialTheme.typography.titleLarge)
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(Modifier.height(16.dp))
 
-        OutlinedTextField(
-            value = nombre,
-            onValueChange = { nombre = it },
-            label = { Text("Nombre de la carta") },
-            modifier = Modifier.fillMaxWidth()
-        )
+        OutlinedTextField(nombre, { nombre = it }, label = { Text("Nombre") })
+        OutlinedTextField(tipo, { tipo = it }, label = { Text("Tipo") })
+        OutlinedTextField(cantidad, { cantidad = it }, label = { Text("Cantidad") })
 
-        Spacer(modifier = Modifier.height(8.dp))
-
-        OutlinedTextField(
-            value = tipo,
-            onValueChange = { tipo = it },
-            label = { Text("Tipo (Fuego, Agua, etc.)") },
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        OutlinedTextField(
-            value = cantidad,
-            onValueChange = { cantidad = it },
-            label = { Text("Cantidad") },
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(Modifier.height(16.dp))
 
         Button(
             onClick = {
-                viewModel.anadirCarta(
+                val carta = Carta(
                     nombre = nombre,
                     tipo = tipo,
                     cantidad = cantidad.toIntOrNull() ?: 1
                 )
+                onCartaCreada(carta)
                 onVolver()
             },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Guardar carta")
-        }
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        OutlinedButton(
-            onClick = { onVolver() },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Cancelar")
+            Text("Añadir")
         }
     }
 }
