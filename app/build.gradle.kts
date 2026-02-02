@@ -63,6 +63,8 @@ dependencies {
         implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
     implementation("androidx.navigation:navigation-compose:2.7.7")
+    // Coil (imagenes)
+    implementation("io.coil-kt:coil-compose:2.6.0")
 // Firebase BOM (gestiona versiones)
     implementation(platform("com.google.firebase:firebase-bom:34.8.0"))
 

@@ -1,29 +1,24 @@
 package com.cesar.creamazospokemontcg.data.mapper
 
-import com.cesar.creamazospokemontcg.data.api.PokemonApiCardDto
+import com.cesar.creamazospokemontcg.data.api.PokemonApiCard
 import com.cesar.creamazospokemontcg.data.model.Carta
 
 /**
- * Mapper que convierte una carta de la API
- * en nuestro modelo interno Carta
+ * Función que transforma una carta de la API
+ * en una carta del modelo interno de la app.
  */
-fun PokemonApiCardDto.toCarta(): Carta {
+fun PokemonApiCard.toCarta(): Carta {
 
-    val ataque = attacks
-        ?.firstOrNull()
-        ?.damage
-        ?.replace("+", "")
-        ?.toIntOrNull() ?: 0
-
-    val vida = hp?.toIntOrNull() ?: 0
+    // Vida: hp viene como String, lo pasamos a Int si es posible
+    val vidaCalculada = hp?.toIntOrNull() ?: 0
 
     return Carta(
         id = id,
         nombre = name,
-        tipo = supertype ?: "Desconocido",
+        tipo = types?.firstOrNull() ?: "Desconocido",
         rareza = rarity ?: "Común",
-        ataque = ataque,
-        vida = vida,
+        ataque = 0, // No attack information available in PokemonApiCard
+        vida = vidaCalculada,
         imagenUrl = images?.small ?: "",
         creadaPorUsuario = false
     )

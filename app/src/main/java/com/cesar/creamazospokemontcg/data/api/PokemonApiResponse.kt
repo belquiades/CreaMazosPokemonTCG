@@ -1,31 +1,22 @@
 package com.cesar.creamazospokemontcg.data.api
 
 /**
- * Respuesta raíz de la API
+ * Respuesta mínima de la API
  */
 data class PokemonApiResponse(
-    val data: List<PokemonApiCardDto>
+    val data: List<PokemonApiCard>
 )
 
-/**
- * DTO de carta según la API
- * OJO: esto NO es nuestro modelo Carta
- */
-data class PokemonApiCardDto(
+data class PokemonApiCard(
     val id: String,
     val name: String,
-    val supertype: String?,
+    val types: List<String>?,
     val rarity: String?,
-    val images: PokemonApiImages?,
     val hp: String?,
-    val attacks: List<PokemonApiAttack>?
+    val images: PokemonApiImages?
 )
 
 data class PokemonApiImages(
     val small: String?,
     val large: String?
-)
-
-data class PokemonApiAttack(
-    val damage: String?
 )

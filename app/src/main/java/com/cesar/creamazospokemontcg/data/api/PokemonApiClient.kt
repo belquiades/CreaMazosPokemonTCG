@@ -6,36 +6,24 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 /**
- * Cliente Retrofit para acceder a la API de Pokémon TCG.
- *
- * Este objeto se encarga de:
- * - Configurar Retrofit
- * - Añadir logs para depuración
- * - Crear el servicio que usará la app
+ * Cliente Retrofit para PokemonTCG API
  */
 object PokemonApiClient {
 
-    // URL base de la API Pokémon TCG
     private const val BASE_URL = "https://api.pokemontcg.io/v2/"
 
-    // Interceptor para ver las peticiones en Logcat (muy útil)
-    private val loggingInterceptor = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BODY
+    private val logging = HttpLoggingInterceptor().apply {
+        level = HttpLoggingInterceptor.Level.BASIC
     }
 
-    // Cliente HTTP con interceptor
-    private val httpClient = OkHttpClient.Builder()
-        .addInterceptor(loggingInterceptor)
+    private val client = OkHttpClient.Builder()
+        .addInterceptor(logging)
         .build()
 
-    // Instancia de Retrofit
-    private val retrofit = Retrofit.Builder()
+    val service: PokemonApiService = Retrofit.Builder()
         .baseUrl(BASE_URL)
-        .client(httpClient)
+        .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-
-    // Servicio que usará la app para hacer llamadas a la API
-    val service: PokemonApiService =
-        retrofit.create(PokemonApiService::class.java)
+        .create(PokemonApiService::class.java)
 }
