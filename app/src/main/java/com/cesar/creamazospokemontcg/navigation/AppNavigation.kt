@@ -13,6 +13,8 @@ import com.cesar.creamazospokemontcg.ui.mazos.CrearMazoScreen
 import com.cesar.creamazospokemontcg.ui.mazos.ListaMazosScreen
 import com.cesar.creamazospokemontcg.ui.perfil.PerfilScreen
 import com.cesar.creamazospokemontcg.viewmodel.AnadirCartaViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.cesar.creamazospokemontcg.viewmodel.CrearMazoViewModel
 
 /**
  * Navegación principal de la aplicación.
@@ -62,16 +64,21 @@ fun AppNavigation() {
             )
         }
 
-        composable("coleccion") {
+        composable("seleccionarCarta") {
+            val crearMazoViewModel: CrearMazoViewModel = viewModel()
+
             ColeccionScreen(
-                onIrAnadirCarta = {
-                    navController.navigate("anadirCarta")
-                },
-                onVolver = {
+                modoSeleccion = true,
+                onCartaSeleccionada = { idCarta ->
+                    crearMazoViewModel.anadirCartaAlMazo(idCarta)
                     navController.popBackStack()
-                }
+                },
+                onVolver = { navController.popBackStack() }
             )
         }
+
+
+
 
 
 
@@ -83,8 +90,30 @@ fun AppNavigation() {
         }
 
         composable("crearMazo") {
+            val crearMazoViewModel: CrearMazoViewModel = viewModel()
+
             CrearMazoScreen(
-                onMazoCreado = { navController.popBackStack() }
+                onAnadirCarta = {
+                    navController.navigate("seleccionarCarta")
+                },
+                onMazoCreado = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        composable("seleccionarCarta") {
+            val crearMazoViewModel: CrearMazoViewModel = viewModel()
+
+            ColeccionScreen(
+                modoSeleccion = true,
+                onCartaSeleccionada = { idCarta ->
+                    crearMazoViewModel.anadirCartaAlMazo(idCarta)
+                    navController.popBackStack()
+                },
+                onVolver = {
+                    navController.popBackStack()
+                }
             )
         }
 

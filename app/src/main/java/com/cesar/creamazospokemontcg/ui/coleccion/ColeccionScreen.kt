@@ -15,7 +15,8 @@ import com.cesar.creamazospokemontcg.viewmodel.ColeccionViewModel
  */
 @Composable
 fun ColeccionScreen(
-    onIrAnadirCarta: () -> Unit,
+    modoSeleccion: Boolean = false,
+    onCartaSeleccionada: (String) -> Unit = {},
     onVolver: () -> Unit
 ) {
     val viewModel: ColeccionViewModel = viewModel()
@@ -58,12 +59,7 @@ fun ColeccionScreen(
             Text("Volver")
         }
 
-        Button(
-            onClick = { onIrAnadirCarta() },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Añadir carta")
-        }
+
 
     }
 }

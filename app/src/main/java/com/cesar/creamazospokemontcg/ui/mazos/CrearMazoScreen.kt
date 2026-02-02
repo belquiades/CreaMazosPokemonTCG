@@ -14,6 +14,7 @@ import com.cesar.creamazospokemontcg.viewmodel.CrearMazoViewModel
  */
 @Composable
 fun CrearMazoScreen(
+    onAnadirCarta: () -> Unit,
     onMazoCreado: () -> Unit
 ) {
     val viewModel: CrearMazoViewModel = viewModel()
@@ -51,5 +52,15 @@ fun CrearMazoScreen(
         ) {
             Text("Crear mazo")
         }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Button(
+            onClick = { onAnadirCarta() },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Añadir carta al mazo")
+        }
+
     }
 }

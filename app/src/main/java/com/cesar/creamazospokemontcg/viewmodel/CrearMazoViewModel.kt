@@ -27,4 +27,16 @@ class CrearMazoViewModel : ViewModel() {
             cartas = cartasMazo.value
         )
     }
+    /**
+     * Añade una carta al mazo en construccion.
+     */
+    fun anadirCartaAlMazo(idCarta: String) {
+
+        val cartasActuales = cartasMazo.value.toMutableMap()
+        val cantidadActual = cartasActuales[idCarta] ?: 0
+
+        cartasActuales[idCarta] = cantidadActual + 1
+        cartasMazo.value = cartasActuales
+    }
+
 }
